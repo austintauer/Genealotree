@@ -1,0 +1,609 @@
+﻿namespace GenealoTree
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.profilePictureBox = new System.Windows.Forms.PictureBox();
+            this.questionBox = new System.Windows.Forms.GroupBox();
+            this.notes = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ssnLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.professionLabel = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.militaryServiceLabel = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.burialDate = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.burialCemetary = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cemetaryNameLabel = new System.Windows.Forms.Label();
+            this.burialPlace = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.deathDate = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.deathCertificate = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.causeOfDeathLabel = new System.Windows.Forms.Label();
+            this.deathCertificateLabel = new System.Windows.Forms.Label();
+            this.causeOfDeath = new System.Windows.Forms.Label();
+            this.deathPlace = new System.Windows.Forms.Label();
+            this.birthGroupBox = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.birthCertificate = new System.Windows.Forms.Label();
+            this.placeLabel = new System.Windows.Forms.Label();
+            this.place = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.sexLabel = new System.Windows.Forms.Label();
+            this.nameGroupBox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.middleNameLabel = new System.Windows.Forms.Label();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
+            this.notes.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.birthGroupBox.SuspendLayout();
+            this.nameGroupBox.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // profilePictureBox
+            // 
+            this.profilePictureBox.Location = new System.Drawing.Point(12, 12);
+            this.profilePictureBox.MaximumSize = new System.Drawing.Size(200, 210);
+            this.profilePictureBox.Name = "profilePictureBox";
+            this.profilePictureBox.Size = new System.Drawing.Size(200, 210);
+            this.profilePictureBox.TabIndex = 42;
+            this.profilePictureBox.TabStop = false;
+            // 
+            // questionBox
+            // 
+            this.questionBox.Location = new System.Drawing.Point(243, 396);
+            this.questionBox.Name = "questionBox";
+            this.questionBox.Size = new System.Drawing.Size(200, 180);
+            this.questionBox.TabIndex = 41;
+            this.questionBox.TabStop = false;
+            this.questionBox.Text = "Questions:";
+            // 
+            // notes
+            // 
+            this.notes.Controls.Add(this.label3);
+            this.notes.Controls.Add(this.label23);
+            this.notes.Controls.Add(this.label25);
+            this.notes.Controls.Add(this.label26);
+            this.notes.Controls.Add(this.label27);
+            this.notes.Location = new System.Drawing.Point(12, 334);
+            this.notes.Name = "notes";
+            this.notes.Size = new System.Drawing.Size(200, 242);
+            this.notes.TabIndex = 40;
+            this.notes.TabStop = false;
+            this.notes.Text = "Notes:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Date:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(53, 16);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(67, 13);
+            this.label23.TabIndex = 5;
+            this.label23.Text = "                    ";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 42);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(81, 13);
+            this.label25.TabIndex = 26;
+            this.label25.Text = "Birth Certificate:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(53, 29);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(64, 13);
+            this.label26.TabIndex = 27;
+            this.label26.Text = "                   ";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 29);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(37, 13);
+            this.label27.TabIndex = 4;
+            this.label27.Text = "Place:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.ssnLabel);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.professionLabel);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.militaryServiceLabel);
+            this.groupBox3.Location = new System.Drawing.Point(12, 228);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.TabIndex = 39;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Additional Information:";
+            // 
+            // ssnLabel
+            // 
+            this.ssnLabel.AutoSize = true;
+            this.ssnLabel.Location = new System.Drawing.Point(6, 16);
+            this.ssnLabel.Name = "ssnLabel";
+            this.ssnLabel.Size = new System.Drawing.Size(32, 13);
+            this.ssnLabel.TabIndex = 13;
+            this.ssnLabel.Text = "SSN:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(73, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(67, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "                    ";
+            // 
+            // professionLabel
+            // 
+            this.professionLabel.AutoSize = true;
+            this.professionLabel.Location = new System.Drawing.Point(6, 42);
+            this.professionLabel.Name = "professionLabel";
+            this.professionLabel.Size = new System.Drawing.Size(59, 13);
+            this.professionLabel.TabIndex = 26;
+            this.professionLabel.Text = "Profession:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(90, 29);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(64, 13);
+            this.label24.TabIndex = 27;
+            this.label24.Text = "                   ";
+            // 
+            // militaryServiceLabel
+            // 
+            this.militaryServiceLabel.AutoSize = true;
+            this.militaryServiceLabel.Location = new System.Drawing.Point(6, 29);
+            this.militaryServiceLabel.Name = "militaryServiceLabel";
+            this.militaryServiceLabel.Size = new System.Drawing.Size(78, 13);
+            this.militaryServiceLabel.TabIndex = 4;
+            this.militaryServiceLabel.Text = "Military Service";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.burialDate);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.burialCemetary);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.cemetaryNameLabel);
+            this.groupBox2.Controls.Add(this.burialPlace);
+            this.groupBox2.Location = new System.Drawing.Point(243, 290);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 100);
+            this.groupBox2.TabIndex = 37;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Burial:";
+            // 
+            // burialDate
+            // 
+            this.burialDate.AutoSize = true;
+            this.burialDate.Location = new System.Drawing.Point(6, 16);
+            this.burialDate.Name = "burialDate";
+            this.burialDate.Size = new System.Drawing.Size(33, 13);
+            this.burialDate.TabIndex = 13;
+            this.burialDate.Text = "Date:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(53, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "                    ";
+            // 
+            // burialCemetary
+            // 
+            this.burialCemetary.AutoSize = true;
+            this.burialCemetary.Location = new System.Drawing.Point(6, 42);
+            this.burialCemetary.Name = "burialCemetary";
+            this.burialCemetary.Size = new System.Drawing.Size(85, 13);
+            this.burialCemetary.TabIndex = 26;
+            this.burialCemetary.Text = "Cemetary Name:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(53, 29);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 13);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "                   ";
+            // 
+            // cemetaryNameLabel
+            // 
+            this.cemetaryNameLabel.AutoSize = true;
+            this.cemetaryNameLabel.Location = new System.Drawing.Point(110, 42);
+            this.cemetaryNameLabel.Name = "cemetaryNameLabel";
+            this.cemetaryNameLabel.Size = new System.Drawing.Size(41, 13);
+            this.cemetaryNameLabel.TabIndex = 22;
+            this.cemetaryNameLabel.Text = "label23";
+            // 
+            // burialPlace
+            // 
+            this.burialPlace.AutoSize = true;
+            this.burialPlace.Location = new System.Drawing.Point(6, 29);
+            this.burialPlace.Name = "burialPlace";
+            this.burialPlace.Size = new System.Drawing.Size(37, 13);
+            this.burialPlace.TabIndex = 4;
+            this.burialPlace.Text = "Place:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.deathDate);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.deathCertificate);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.causeOfDeathLabel);
+            this.groupBox1.Controls.Add(this.deathCertificateLabel);
+            this.groupBox1.Controls.Add(this.causeOfDeath);
+            this.groupBox1.Controls.Add(this.deathPlace);
+            this.groupBox1.Location = new System.Drawing.Point(243, 184);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Death:";
+            // 
+            // deathDate
+            // 
+            this.deathDate.AutoSize = true;
+            this.deathDate.Location = new System.Drawing.Point(6, 16);
+            this.deathDate.Name = "deathDate";
+            this.deathDate.Size = new System.Drawing.Size(33, 13);
+            this.deathDate.TabIndex = 13;
+            this.deathDate.Text = "Date:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(53, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "                    ";
+            // 
+            // deathCertificate
+            // 
+            this.deathCertificate.AutoSize = true;
+            this.deathCertificate.Location = new System.Drawing.Point(6, 42);
+            this.deathCertificate.Name = "deathCertificate";
+            this.deathCertificate.Size = new System.Drawing.Size(89, 13);
+            this.deathCertificate.TabIndex = 26;
+            this.deathCertificate.Text = "Death Certificate:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(53, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 13);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "                   ";
+            // 
+            // causeOfDeathLabel
+            // 
+            this.causeOfDeathLabel.AutoSize = true;
+            this.causeOfDeathLabel.Location = new System.Drawing.Point(110, 55);
+            this.causeOfDeathLabel.Name = "causeOfDeathLabel";
+            this.causeOfDeathLabel.Size = new System.Drawing.Size(41, 13);
+            this.causeOfDeathLabel.TabIndex = 23;
+            this.causeOfDeathLabel.Text = "label24";
+            // 
+            // deathCertificateLabel
+            // 
+            this.deathCertificateLabel.AutoSize = true;
+            this.deathCertificateLabel.Location = new System.Drawing.Point(110, 42);
+            this.deathCertificateLabel.Name = "deathCertificateLabel";
+            this.deathCertificateLabel.Size = new System.Drawing.Size(41, 13);
+            this.deathCertificateLabel.TabIndex = 24;
+            this.deathCertificateLabel.Text = "label25";
+            // 
+            // causeOfDeath
+            // 
+            this.causeOfDeath.AutoSize = true;
+            this.causeOfDeath.Location = new System.Drawing.Point(6, 55);
+            this.causeOfDeath.Name = "causeOfDeath";
+            this.causeOfDeath.Size = new System.Drawing.Size(84, 13);
+            this.causeOfDeath.TabIndex = 25;
+            this.causeOfDeath.Text = "Cause of Death:";
+            // 
+            // deathPlace
+            // 
+            this.deathPlace.AutoSize = true;
+            this.deathPlace.Location = new System.Drawing.Point(6, 29);
+            this.deathPlace.Name = "deathPlace";
+            this.deathPlace.Size = new System.Drawing.Size(37, 13);
+            this.deathPlace.TabIndex = 4;
+            this.deathPlace.Text = "Place:";
+            // 
+            // birthGroupBox
+            // 
+            this.birthGroupBox.Controls.Add(this.label14);
+            this.birthGroupBox.Controls.Add(this.dateLabel);
+            this.birthGroupBox.Controls.Add(this.birthCertificate);
+            this.birthGroupBox.Controls.Add(this.placeLabel);
+            this.birthGroupBox.Controls.Add(this.place);
+            this.birthGroupBox.Controls.Add(this.label4);
+            this.birthGroupBox.Controls.Add(this.sexLabel);
+            this.birthGroupBox.Location = new System.Drawing.Point(243, 78);
+            this.birthGroupBox.Name = "birthGroupBox";
+            this.birthGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.birthGroupBox.TabIndex = 36;
+            this.birthGroupBox.TabStop = false;
+            this.birthGroupBox.Text = "Birth:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(33, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Date:";
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Location = new System.Drawing.Point(53, 16);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(67, 13);
+            this.dateLabel.TabIndex = 5;
+            this.dateLabel.Text = "                    ";
+            // 
+            // birthCertificate
+            // 
+            this.birthCertificate.AutoSize = true;
+            this.birthCertificate.Location = new System.Drawing.Point(6, 42);
+            this.birthCertificate.Name = "birthCertificate";
+            this.birthCertificate.Size = new System.Drawing.Size(81, 13);
+            this.birthCertificate.TabIndex = 26;
+            this.birthCertificate.Text = "Birth Certificate:";
+            // 
+            // placeLabel
+            // 
+            this.placeLabel.AutoSize = true;
+            this.placeLabel.Location = new System.Drawing.Point(53, 29);
+            this.placeLabel.Name = "placeLabel";
+            this.placeLabel.Size = new System.Drawing.Size(64, 13);
+            this.placeLabel.TabIndex = 27;
+            this.placeLabel.Text = "                   ";
+            // 
+            // place
+            // 
+            this.place.AutoSize = true;
+            this.place.Location = new System.Drawing.Point(6, 29);
+            this.place.Name = "place";
+            this.place.Size = new System.Drawing.Size(37, 13);
+            this.place.TabIndex = 4;
+            this.place.Text = "Place:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Sex:";
+            // 
+            // sexLabel
+            // 
+            this.sexLabel.AutoSize = true;
+            this.sexLabel.Location = new System.Drawing.Point(53, 55);
+            this.sexLabel.Name = "sexLabel";
+            this.sexLabel.Size = new System.Drawing.Size(115, 13);
+            this.sexLabel.TabIndex = 12;
+            this.sexLabel.Text = "                                    ";
+            // 
+            // nameGroupBox
+            // 
+            this.nameGroupBox.Controls.Add(this.label1);
+            this.nameGroupBox.Controls.Add(this.label10);
+            this.nameGroupBox.Controls.Add(this.label2);
+            this.nameGroupBox.Controls.Add(this.firstNameLabel);
+            this.nameGroupBox.Controls.Add(this.middleNameLabel);
+            this.nameGroupBox.Controls.Add(this.lastNameLabel);
+            this.nameGroupBox.Location = new System.Drawing.Point(243, 12);
+            this.nameGroupBox.Name = "nameGroupBox";
+            this.nameGroupBox.Size = new System.Drawing.Size(200, 60);
+            this.nameGroupBox.TabIndex = 35;
+            this.nameGroupBox.TabStop = false;
+            this.nameGroupBox.Text = "Name:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "First:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Middle:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Last:";
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Location = new System.Drawing.Point(53, 16);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(85, 13);
+            this.firstNameLabel.TabIndex = 10;
+            this.firstNameLabel.Text = "                          ";
+            // 
+            // middleNameLabel
+            // 
+            this.middleNameLabel.AutoSize = true;
+            this.middleNameLabel.Location = new System.Drawing.Point(53, 29);
+            this.middleNameLabel.Name = "middleNameLabel";
+            this.middleNameLabel.Size = new System.Drawing.Size(85, 13);
+            this.middleNameLabel.TabIndex = 2;
+            this.middleNameLabel.Text = "                          ";
+            // 
+            // lastNameLabel
+            // 
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Location = new System.Drawing.Point(53, 42);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(58, 13);
+            this.lastNameLabel.TabIndex = 11;
+            this.lastNameLabel.Text = "                 ";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(459, 589);
+            this.Controls.Add(this.profilePictureBox);
+            this.Controls.Add(this.questionBox);
+            this.Controls.Add(this.notes);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.birthGroupBox);
+            this.Controls.Add(this.nameGroupBox);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
+            this.notes.ResumeLayout(false);
+            this.notes.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.birthGroupBox.ResumeLayout(false);
+            this.birthGroupBox.PerformLayout();
+            this.nameGroupBox.ResumeLayout(false);
+            this.nameGroupBox.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox profilePictureBox;
+        private System.Windows.Forms.GroupBox questionBox;
+        private System.Windows.Forms.GroupBox notes;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label ssnLabel;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label professionLabel;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label militaryServiceLabel;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label burialDate;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label burialCemetary;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label cemetaryNameLabel;
+        private System.Windows.Forms.Label burialPlace;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label deathDate;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label deathCertificate;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label causeOfDeathLabel;
+        private System.Windows.Forms.Label deathCertificateLabel;
+        private System.Windows.Forms.Label causeOfDeath;
+        private System.Windows.Forms.Label deathPlace;
+        private System.Windows.Forms.GroupBox birthGroupBox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label birthCertificate;
+        private System.Windows.Forms.Label placeLabel;
+        private System.Windows.Forms.Label place;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label sexLabel;
+        private System.Windows.Forms.GroupBox nameGroupBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label firstNameLabel;
+        private System.Windows.Forms.Label middleNameLabel;
+        private System.Windows.Forms.Label lastNameLabel;
+    }
+}
+
