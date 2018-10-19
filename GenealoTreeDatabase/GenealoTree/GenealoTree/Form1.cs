@@ -15,12 +15,17 @@ namespace GenealoTree
         public Form1()
         {
             InitializeComponent();
+            Person person = new Person();
+
+            Text = person.firstName + " " + person.lastName + "'s Personal Information";
+            profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
+            
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

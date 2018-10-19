@@ -88,6 +88,7 @@
             this.profilePictureBox.MaximumSize = new System.Drawing.Size(200, 210);
             this.profilePictureBox.Name = "profilePictureBox";
             this.profilePictureBox.Size = new System.Drawing.Size(200, 210);
+            this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePictureBox.TabIndex = 42;
             this.profilePictureBox.TabStop = false;
             // 
@@ -538,7 +539,7 @@
             this.Controls.Add(this.birthGroupBox);
             this.Controls.Add(this.nameGroupBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Personal Information";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.notes.ResumeLayout(false);
