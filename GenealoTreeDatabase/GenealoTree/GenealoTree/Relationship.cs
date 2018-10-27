@@ -8,8 +8,8 @@ namespace GenealoTree
 {
     class Relationship
     {
-        public int person1 { get; set; }
-        public int person2 { get; set; }
+        public Person person1 { get; set; }
+        public Person person2 { get; set; }
         public string relationshipType { get; set; }
 
 
