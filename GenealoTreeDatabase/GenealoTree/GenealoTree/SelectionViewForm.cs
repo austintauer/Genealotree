@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GenealoTree
 {
-    public partial class SelectionView : Form
+    public partial class SelectionViewForm : Form
     {
-        public SelectionView()
+        public SelectionViewForm()
         {
             InitializeComponent();
         }

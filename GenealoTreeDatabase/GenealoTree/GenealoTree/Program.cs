@@ -18,7 +18,7 @@ namespace GenealoTree
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new PersonalInformationForm());
             //Application.Run(new AddModifyForm());
-            Application.Run(new SelectionView());
+            Application.Run(new SelectionViewForm());
         }
     }
 }
