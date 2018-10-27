@@ -16,3 +16,12 @@ C:\Users\taylor.ruhoff\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoT
 C:\Users\taylor.ruhoff\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csproj.GenerateResource.Cache
 C:\Users\taylor.ruhoff\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.exe
 C:\Users\taylor.ruhoff\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.pdb
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.exe.config
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.exe
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.pdb
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.exe
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.pdb
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csprojResolveAssemblyReference.cache
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.Form1.resources
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.Properties.Resources.resources
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csproj.GenerateResource.Cache

@@ -19,6 +19,26 @@ namespace GenealoTree
 
             Text = person.firstName + " " + person.lastName + "'s Personal Information";
             profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
+
+            firstNameLabel.Text = person.firstName;
+            middleNameLabel.Text = person.middleName;
+            lastNameLabel.Text = person.lastName;
+            sexLabel.Text = person.sex;
+            birthPlaceLabel.Text = person.birthPlace;
+            deathPlaceLabel.Text = person.deathPlace;
+            burialPlaceLabel.Text = person.burialPlace;
+            cemetaryNameLabel.Text = person.cemetery;
+            birthCertificateLabel.Text = person.birthCertificateNumber;
+            deathCertificateLabel.Text = person.deathCertificateNumber;
+            ssnLabel.Text = person.socialSecurityNumber;
+            causeOfDeathLabel.Text = person.causeOfDeath;
+            militaryServiceLabel.Text = person.militaryService.ToString();
+            professionLabel.Text = person.profession.ToString();
+            notesLabel.Text = person.notes.ToString();
+            questionsLabel.Text = person.notes.ToString();
+            
+
+
             
 
         }
