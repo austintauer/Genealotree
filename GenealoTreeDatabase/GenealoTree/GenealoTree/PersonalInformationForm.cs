@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GenealoTree
 {
-    public partial class Form1 : Form
+    public partial class PersonalInformationForm : Form
     {
-        public Form1()
+        public PersonalInformationForm()
         {
             InitializeComponent();
             Person person = new Person();
@@ -32,10 +32,30 @@ namespace GenealoTree
             deathCertificateLabel.Text = person.deathCertificateNumber;
             ssnLabel.Text = person.socialSecurityNumber;
             causeOfDeathLabel.Text = person.causeOfDeath;
-            militaryServiceLabel.Text = person.militaryService.ToString();
-            professionLabel.Text = person.profession.ToString();
-            notesLabel.Text = person.notes.ToString();
-            questionsLabel.Text = person.notes.ToString();
+
+            militaryServiceLabel.Text = "";
+            foreach (String s in person.militaryService)
+            {
+                militaryServiceLabel.Text += s + "\n";
+            }
+
+            professionLabel.Text = "";
+            foreach (String s in person.profession)
+            {
+                professionLabel.Text += s + "\n";
+            }
+
+            notesLabel.Text = "";
+            foreach (String s in person.notes)
+            {
+                notesLabel.Text += s + "\n";
+            }
+
+            questionsLabel.Text = "";
+            foreach (String s in person.questions)
+            {
+                questionsLabel.Text += s + "\n";
+            }
             
 
 

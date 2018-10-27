@@ -1,6 +1,6 @@
 ﻿namespace GenealoTree
 {
-    partial class Form1
+    partial class PersonalInformationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,13 @@
         {
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.questionBox = new System.Windows.Forms.GroupBox();
+            this.questionsLabel = new System.Windows.Forms.Label();
             this.notes = new System.Windows.Forms.GroupBox();
-            this.ssnLabel = new System.Windows.Forms.Label();
+            this.notesLabel = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.professionLabel = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.ssnLabel = new System.Windows.Forms.Label();
+            this.professionLabel = new System.Windows.Forms.Label();
             this.militaryServiceLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ssn = new System.Windows.Forms.Label();
@@ -43,6 +45,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.militaryService = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.burialPlaceLabel = new System.Windows.Forms.Label();
+            this.burialDateLabel = new System.Windows.Forms.Label();
             this.burialDate = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.burialCemetary = new System.Windows.Forms.Label();
@@ -59,6 +63,7 @@
             this.causeOfDeath = new System.Windows.Forms.Label();
             this.deathPlace = new System.Windows.Forms.Label();
             this.birthGroupBox = new System.Windows.Forms.GroupBox();
+            this.birthCertificateLabel = new System.Windows.Forms.Label();
             this.birthDate = new System.Windows.Forms.Label();
             this.birthDateLabel = new System.Windows.Forms.Label();
             this.birthCertificate = new System.Windows.Forms.Label();
@@ -73,11 +78,6 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.middleNameLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
-            this.birthCertificateLabel = new System.Windows.Forms.Label();
-            this.burialDateLabel = new System.Windows.Forms.Label();
-            this.burialPlaceLabel = new System.Windows.Forms.Label();
-            this.notesLabel = new System.Windows.Forms.Label();
-            this.questionsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.questionBox.SuspendLayout();
             this.notes.SuspendLayout();
@@ -108,6 +108,15 @@
             this.questionBox.TabStop = false;
             this.questionBox.Text = "Questions:";
             // 
+            // questionsLabel
+            // 
+            this.questionsLabel.AutoSize = true;
+            this.questionsLabel.Location = new System.Drawing.Point(9, 20);
+            this.questionsLabel.Name = "questionsLabel";
+            this.questionsLabel.Size = new System.Drawing.Size(31, 13);
+            this.questionsLabel.TabIndex = 0;
+            this.questionsLabel.Text = "none";
+            // 
             // notes
             // 
             this.notes.Controls.Add(this.notesLabel);
@@ -120,14 +129,14 @@
             this.notes.TabStop = false;
             this.notes.Text = "Notes:";
             // 
-            // ssnLabel
+            // notesLabel
             // 
-            this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(44, 16);
-            this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(67, 13);
-            this.ssnLabel.TabIndex = 13;
-            this.ssnLabel.Text = "123-45-6789";
+            this.notesLabel.AutoSize = true;
+            this.notesLabel.Location = new System.Drawing.Point(9, 16);
+            this.notesLabel.Name = "notesLabel";
+            this.notesLabel.Size = new System.Drawing.Size(31, 13);
+            this.notesLabel.TabIndex = 28;
+            this.notesLabel.Text = "none";
             // 
             // label23
             // 
@@ -138,15 +147,6 @@
             this.label23.TabIndex = 5;
             this.label23.Text = "                    ";
             // 
-            // professionLabel
-            // 
-            this.professionLabel.AutoSize = true;
-            this.professionLabel.Location = new System.Drawing.Point(71, 42);
-            this.professionLabel.Name = "professionLabel";
-            this.professionLabel.Size = new System.Drawing.Size(64, 13);
-            this.professionLabel.TabIndex = 26;
-            this.professionLabel.Text = "unemployed";
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -155,6 +155,24 @@
             this.label26.Size = new System.Drawing.Size(64, 13);
             this.label26.TabIndex = 27;
             this.label26.Text = "                   ";
+            // 
+            // ssnLabel
+            // 
+            this.ssnLabel.AutoSize = true;
+            this.ssnLabel.Location = new System.Drawing.Point(44, 16);
+            this.ssnLabel.Name = "ssnLabel";
+            this.ssnLabel.Size = new System.Drawing.Size(67, 13);
+            this.ssnLabel.TabIndex = 13;
+            this.ssnLabel.Text = "123-45-6789";
+            // 
+            // professionLabel
+            // 
+            this.professionLabel.AutoSize = true;
+            this.professionLabel.Location = new System.Drawing.Point(71, 42);
+            this.professionLabel.Name = "professionLabel";
+            this.professionLabel.Size = new System.Drawing.Size(64, 13);
+            this.professionLabel.TabIndex = 26;
+            this.professionLabel.Text = "unemployed";
             // 
             // militaryServiceLabel
             // 
@@ -243,6 +261,24 @@
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Burial:";
+            // 
+            // burialPlaceLabel
+            // 
+            this.burialPlaceLabel.AutoSize = true;
+            this.burialPlaceLabel.Location = new System.Drawing.Point(50, 29);
+            this.burialPlaceLabel.Name = "burialPlaceLabel";
+            this.burialPlaceLabel.Size = new System.Drawing.Size(90, 13);
+            this.burialPlaceLabel.TabIndex = 29;
+            this.burialPlaceLabel.Text = "Small Town, USA";
+            // 
+            // burialDateLabel
+            // 
+            this.burialDateLabel.AutoSize = true;
+            this.burialDateLabel.Location = new System.Drawing.Point(46, 16);
+            this.burialDateLabel.Name = "burialDateLabel";
+            this.burialDateLabel.Size = new System.Drawing.Size(65, 13);
+            this.burialDateLabel.TabIndex = 28;
+            this.burialDateLabel.Text = "01/01/1990";
             // 
             // burialDate
             // 
@@ -404,6 +440,15 @@
             this.birthGroupBox.TabStop = false;
             this.birthGroupBox.Text = "Birth:";
             // 
+            // birthCertificateLabel
+            // 
+            this.birthCertificateLabel.AutoSize = true;
+            this.birthCertificateLabel.Location = new System.Drawing.Point(94, 42);
+            this.birthCertificateLabel.Name = "birthCertificateLabel";
+            this.birthCertificateLabel.Size = new System.Drawing.Size(67, 13);
+            this.birthCertificateLabel.TabIndex = 28;
+            this.birthCertificateLabel.Text = "0123456789";
+            // 
             // birthDate
             // 
             this.birthDate.AutoSize = true;
@@ -536,52 +581,7 @@
             this.lastNameLabel.TabIndex = 11;
             this.lastNameLabel.Text = "Doe";
             // 
-            // birthCertificateLabel
-            // 
-            this.birthCertificateLabel.AutoSize = true;
-            this.birthCertificateLabel.Location = new System.Drawing.Point(94, 42);
-            this.birthCertificateLabel.Name = "birthCertificateLabel";
-            this.birthCertificateLabel.Size = new System.Drawing.Size(67, 13);
-            this.birthCertificateLabel.TabIndex = 28;
-            this.birthCertificateLabel.Text = "0123456789";
-            // 
-            // burialDateLabel
-            // 
-            this.burialDateLabel.AutoSize = true;
-            this.burialDateLabel.Location = new System.Drawing.Point(46, 16);
-            this.burialDateLabel.Name = "burialDateLabel";
-            this.burialDateLabel.Size = new System.Drawing.Size(65, 13);
-            this.burialDateLabel.TabIndex = 28;
-            this.burialDateLabel.Text = "01/01/1990";
-            // 
-            // burialPlaceLabel
-            // 
-            this.burialPlaceLabel.AutoSize = true;
-            this.burialPlaceLabel.Location = new System.Drawing.Point(50, 29);
-            this.burialPlaceLabel.Name = "burialPlaceLabel";
-            this.burialPlaceLabel.Size = new System.Drawing.Size(90, 13);
-            this.burialPlaceLabel.TabIndex = 29;
-            this.burialPlaceLabel.Text = "Small Town, USA";
-            // 
-            // notesLabel
-            // 
-            this.notesLabel.AutoSize = true;
-            this.notesLabel.Location = new System.Drawing.Point(9, 16);
-            this.notesLabel.Name = "notesLabel";
-            this.notesLabel.Size = new System.Drawing.Size(31, 13);
-            this.notesLabel.TabIndex = 28;
-            this.notesLabel.Text = "none";
-            // 
-            // questionsLabel
-            // 
-            this.questionsLabel.AutoSize = true;
-            this.questionsLabel.Location = new System.Drawing.Point(9, 20);
-            this.questionsLabel.Name = "questionsLabel";
-            this.questionsLabel.Size = new System.Drawing.Size(31, 13);
-            this.questionsLabel.TabIndex = 0;
-            this.questionsLabel.Text = "none";
-            // 
-            // Form1
+            // PersonalInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -594,7 +594,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.birthGroupBox);
             this.Controls.Add(this.nameGroupBox);
-            this.Name = "Form1";
+            this.Name = "PersonalInformationForm";
             this.Text = "Personal Information";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
