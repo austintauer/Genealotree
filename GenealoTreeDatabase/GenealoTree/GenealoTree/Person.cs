@@ -8,32 +8,67 @@ namespace GenealoTree
 {
     class Person
     {
-        public string firstName, middleName, lastName, sex, profilePicturePath, birthPlace, deathPlace, burialPlace, cemetery,
-            birthCertificateNumber, deathCertificateNumber, socialSecurityNumber, causeOfDeath;
+        public string firstName { get; set; }
+        public string middleName { get; set; }
+        public string lastName { get; set; }
+        public string sex { get; set; }
+        public string profilePicturePath { get; set; }
+        public string birthPlace { get; set; }
+        public string deathPlace { get; set; }
+        public string burialPlace { get; set; }
+        public string cemetery { get; set; }
+        public string birthCertificateNumber { get; set; }
+        public string deathCertificateNumber { get; set; }
+        public string socialSecurityNumber { get; set; }
+        public string causeOfDeath { get; set; }
 
-        public string[] militaryService, profession;
+        public string[] militaryService;
+        public string[] profession;
+        public string[] notes;
+        public string[] questions;
 
-        DateTime birthDate, deathDate, burialDate;
+        public DateTime birthDate { get; set; }
+        public DateTime deathDate { get; set; }
+        public DateTime burialDate{ get; set; }
 
 
 
 
-        public Person()
+public Person()
         {
             firstName = middleName = lastName = sex = birthPlace = deathPlace = burialPlace = cemetery =
             birthCertificateNumber = deathCertificateNumber = socialSecurityNumber = causeOfDeath = "Austin";
 
-            profilePicturePath = @"../../banana-cat.png";
-
-           // profilePicturePath = "C:\\Users\\taylor.ruhoff\\Documents\\GitHub\\Genealotree\\GenealoTreeDatabase\\GenealoTree\\GenealoTree\\banana-cat.png";
+            profilePicturePath = @"../../Images/banana-cat.png";
 
             birthDate = deathDate = burialDate = new DateTime();
 
-            militaryService = new String[]{ "adfdkljasdf" };
-            profession = new String[] { "profession"};
+            militaryService = new string[]{ "military service" };
+            profession = new string[] { "profession" };
+            notes = new string[] { "notes" };
+            questions = new string[] { "questions" };
+        }
+public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, DateTime dob, DateTime dod, DateTime doburial)
+        {
+            firstName = fname;
+            middleName = mname;
+            lastName = lname;
+            s = sex;
+            birthPlace = birth;
+            deathPlace = death;
+            burialPlace = burial;
+            cemetery = graveyard;
+            birthCertificateNumber = bcNum;
+            deathCertificateNumber = dcNum;
+            socialSecurityNumber = ssNum;
+            causeOfDeath = cod;
+            birthDate = dob;
+            deathDate = dod;
+            burialDate = doburial;
 
-
-
+            profilePicturePath = @"../../Images/banana-cat.png";
+            militaryService = new String[] { "military service" };
+            profession = new String[] { "profession" };
         }
     }
 }
