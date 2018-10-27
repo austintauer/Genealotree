@@ -97,6 +97,7 @@
             this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePictureBox.TabIndex = 50;
             this.profilePictureBox.TabStop = false;
+            this.profilePictureBox.Click += new System.EventHandler(this.profilePictureBox_Click);
             // 
             // questionBox
             // 
@@ -585,7 +586,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 586);
+            this.ClientSize = new System.Drawing.Size(471, 664);
             this.Controls.Add(this.profilePictureBox);
             this.Controls.Add(this.questionBox);
             this.Controls.Add(this.notes);
@@ -596,6 +597,7 @@
             this.Controls.Add(this.nameGroupBox);
             this.Name = "AddModifyForm";
             this.Text = "AddModifyForm";
+            this.Load += new System.EventHandler(this.AddModifyForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.questionBox.ResumeLayout(false);
             this.questionBox.PerformLayout();

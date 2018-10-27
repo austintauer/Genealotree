@@ -16,5 +16,35 @@ namespace GenealoTree
         {
             InitializeComponent();
         }
+
+        private void profilePictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddModifyForm_Load(object sender, EventArgs e)
+        {
+            Button profilePictureButton;
+
+            if (profilePictureBox.Image == null)
+            {
+                profilePictureButton = new Button();
+                this.Controls.Add(profilePictureButton);
+                profilePictureButton.Location = new Point(21, (profilePictureBox.Height / 2));
+                profilePictureButton.Text = "Add Profile Picture";
+                profilePictureButton.Width = profilePictureBox.Width;
+                profilePictureButton.Click += new EventHandler(profilePictureButton_Click);
+
+
+                profilePictureBox.Visible = false;
+
+            }
+        }
+
+        private void profilePictureButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+        }
     }
 }
