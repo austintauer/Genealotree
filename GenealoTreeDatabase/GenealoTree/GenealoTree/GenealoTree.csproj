@@ -66,6 +66,13 @@
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relationship.cs" />
+    <Compile Include="SelectionView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectionView.Designer.cs">
+      <DependentUpon>SelectionView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddModifyForm.resx">
       <DependentUpon>AddModifyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +91,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SelectionView.resx">
+      <DependentUpon>SelectionView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

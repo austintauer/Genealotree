@@ -36,3 +36,4 @@ C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoT
 C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.PersonalInformationForm.resources
 C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.AddModifyForm.resources
 C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GeneologyManager.GeneologyManagerForm.resources
+C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.TreeViewForm.resources
