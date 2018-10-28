@@ -30,13 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // SelectionView
+            // SelectionViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 613);
-            this.Name = "SelectionView";
+            this.Name = "SelectionViewForm";
             this.Text = "TreeView";
+            this.Load += new System.EventHandler(this.SelectionViewForm_Load);
             this.ResumeLayout(false);
 
         }

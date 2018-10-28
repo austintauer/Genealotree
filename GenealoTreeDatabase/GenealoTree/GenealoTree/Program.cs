@@ -14,8 +14,13 @@ namespace GenealoTree
         [STAThread]
         static void Main()
         {
+
+            
+
+
             Person person = new GenealoTree.Person();
             person.birthDate = "09021995";
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new PersonalInformationForm());
