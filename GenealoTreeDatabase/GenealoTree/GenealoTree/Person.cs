@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace GenealoTree
 {
-    class Person
+    class Person : EventArgs
     {
         public string firstName { get; set; }
         public string middleName { get; set; }
@@ -28,15 +28,16 @@ namespace GenealoTree
         public string[] notes;
         public string[] questions;
 
-        public DateTime birthDate { get; set; }
-        public DateTime deathDate { get; set; }
-        public DateTime burialDate{ get; set; }
+        public string birthDate { get; set; }
+        public string deathDate { get; set; }
+        public string burialDate{ get; set; }
 
 
 
 
 public Person()
         {
+
             
         }
 
@@ -45,19 +46,24 @@ public Person()
          * */
 public Person(char Austin)
         {
-            firstName = middleName = lastName = sex = birthPlace = deathPlace = burialPlace = cemetery =
+
+            firstName = middleName = lastName = birthPlace = deathPlace = burialPlace = cemetery =
+
             birthCertificateNumber = deathCertificateNumber = socialSecurityNumber = causeOfDeath = "Austin";
+            sex = null;
 
             profilePicturePath = @"../../Images/banana-cat.png";
-
-            birthDate = deathDate = burialDate = new DateTime();
+            birthDate = "01011990";
+            deathDate = "02021852";
+            burialDate = "05052036";
+        
 
             militaryService = new string[] { "military service" };
             profession = new string[] { "profession" };
             notes = new string[] { "notes" };
             questions = new string[] { "questions" };
         }
-public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, DateTime dob, DateTime dod, DateTime doburial)
+public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, string dob, string dod, string doburial)
         {
             firstName = fname;
             middleName = mname;
