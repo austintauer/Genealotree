@@ -51,7 +51,7 @@ namespace GenealoTree
 
         public void populate()
         {
-            Person p = new GenealoTree.Person();
+            Person p = new GenealoTree.Person('a');
 
             profilePictureBox.Image = Image.FromFile(p.profilePicturePath);
 
