@@ -15,7 +15,7 @@ namespace GenealoTree
         public PersonalInformationForm()
         {
             InitializeComponent();
-            Person person = new Person();
+            Person person = new Person('a');
 
             Text = person.firstName + " " + person.lastName + "'s Personal Information";
             profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
