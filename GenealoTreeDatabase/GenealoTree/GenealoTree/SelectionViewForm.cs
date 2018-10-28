@@ -25,8 +25,8 @@ namespace GenealoTree
             Relationship[] relationships = new Relationship[2];
 
             persons[0] = new Person('a');
-            persons[1] = new Person();
-            persons[2] = new Person();
+            persons[1] = new Person('a');
+            persons[2] = new Person('a');
 
             persons[1].firstName = "Emily";
             persons[2].firstName = "Taylor";
@@ -39,7 +39,7 @@ namespace GenealoTree
 
             if (selected == null)
             {
-                selected = persons[1];
+                selected = persons[0];
             }
             /*if (selected == null)
             {
@@ -61,36 +61,30 @@ namespace GenealoTree
             int index = 0;
             foreach (Relationship r in parentRelationShips)
             {
-                GroupBox parentBox = new GroupBox();
-                parentBox.Width = 100;
-                parentBox.Height = 100;
+                GroupBox parentBox = r.person1.createGroupBox();
                 parentBox.Location = new Point(index * 120 + 10, 10);
                 index++;
-                parentBox.Text = r.person1.firstName;
                 this.Controls.Add(parentBox);
 
             }
 
-            GroupBox selfBox = new GroupBox();
-            selfBox.Width = 100;
-            selfBox.Height = 100;
-            selfBox.Location = new Point(10, 110);
-            index++;
-            selfBox.Text = selected.firstName;
-            this.Controls.Add(selfBox);
+            GroupBox selBox = selected.createGroupBox();
+            selBox.Location = new Point(10, 110);
+            selBox.BackColor = Color.Yellow;
+            RichTextBox selText = selBox.Controls.OfType<RichTextBox>().ToArray()[0];
+            selText.BackColor = Color.Yellow;
+            
+
+            this.Controls.Add(selBox);
 
 
             index = 0;
             foreach (Relationship r in childRelationShips)
             {
-                GroupBox childBox = new GroupBox();
-                childBox.Width = 100;
-                childBox.Height = 100;
-                childBox.Location = new Point(index * 120 + 10, 210);
+                GroupBox childBox = r.person2.createGroupBox();
+                childBox.Location = new Point(index * 120 + 10, 220);
                 index++;
-                childBox.Text = r.person2.firstName;
                 this.Controls.Add(childBox);
-
             }
         }
     }

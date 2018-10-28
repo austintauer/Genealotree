@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GenealoTree
 {
@@ -78,5 +79,26 @@ public Person(string fname, string mname, string lname, string s, string birth, 
             militaryService = new String[] { "military service" };
             profession = new String[] { "profession" };
         }
+
+        public GroupBox createGroupBox()
+        {
+            GroupBox gb = new GroupBox();
+            gb.Width = 100;
+            gb.Height = 100;
+            gb.Text = firstName + " " + lastName;
+
+            RichTextBox infoBox = new RichTextBox();
+            infoBox.ReadOnly = true;
+            infoBox.Width = 90;
+            infoBox.Height = 85;
+            infoBox.Location = new System.Drawing.Point(5, 12);
+            infoBox.BorderStyle = BorderStyle.None;
+            infoBox.Text = "Sex: " + sex;
+
+            gb.Controls.Add(infoBox);
+            return gb;
+        }
     }
 }
+
+
