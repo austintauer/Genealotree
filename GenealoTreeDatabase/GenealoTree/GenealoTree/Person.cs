@@ -36,6 +36,14 @@ namespace GenealoTree
 
 public Person()
         {
+            
+        }
+
+        /**
+         * Splits out a person with predetermined values.
+         * */
+public Person(char Austin)
+        {
             firstName = middleName = lastName = sex = birthPlace = deathPlace = burialPlace = cemetery =
             birthCertificateNumber = deathCertificateNumber = socialSecurityNumber = causeOfDeath = "Austin";
 
@@ -43,7 +51,7 @@ public Person()
 
             birthDate = deathDate = burialDate = new DateTime();
 
-            militaryService = new string[]{ "military service" };
+            militaryService = new string[] { "military service" };
             profession = new string[] { "profession" };
             notes = new string[] { "notes" };
             questions = new string[] { "questions" };
