@@ -12,14 +12,22 @@ namespace GenealoTree
 {
     public partial class PersonalInformationForm : Form
     {
-        public PersonalInformationForm()
+        public PersonalInformationForm(Person familyMember)
         {
             InitializeComponent();
-            Person person = new Person('a');
+            Person person = familyMember;
 
             Text = person.firstName + " " + person.lastName + "'s Personal Information";
-            profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
-
+            
+            if (profilePictureBox.Image == null)
+            {
+                profilePictureBox.Image = Image.FromFile(@"../../Images/banana-cat.png");
+            }
+            else
+            {
+                profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
+            }
+            
             firstNameLabel.Text = person.firstName;
             middleNameLabel.Text = person.middleName;
             lastNameLabel.Text = person.lastName;
@@ -55,11 +63,7 @@ namespace GenealoTree
             foreach (String s in person.questions)
             {
                 questionsLabel.Text += s + "\n";
-            }
-            
-
-
-            
+            }       
 
         }
 
@@ -67,6 +71,14 @@ namespace GenealoTree
         {
             
         }
+<<<<<<< HEAD
         
+=======
+
+        private void profilePictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+>>>>>>> 44b5b7045845444ecd788e04b0d700cd9440fc72
     }
 }
