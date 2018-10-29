@@ -17,15 +17,9 @@ namespace GenealoTree
         Person[] persons = new Person[4];
         Relationship[] relationships = new Relationship[4];
 
-        public SelectionViewForm()
+        public SelectionViewForm(Person p)
         {
             InitializeComponent();
-        }
-
-        private void SelectionViewForm_Load(object sender, EventArgs e)
-        {
-            
-
             persons[0] = new Person('a');
             persons[1] = new Person('a');
             persons[2] = new Person('a');
@@ -42,7 +36,14 @@ namespace GenealoTree
             relationships[2] = new Relationship(persons[0], persons[3], "Sibling");
             relationships[3] = new Relationship(persons[3], persons[1], "ParentChild");
 
-            changeSelected(persons[1]);
+            changeSelected(p);
+        }
+
+        private void SelectionViewForm_Load(object sender, EventArgs e)
+        {
+            
+
+            
         }
 
 
@@ -169,6 +170,11 @@ namespace GenealoTree
                 index++;
                 this.Controls.Add(childBox);
             }
+        }
+
+        public void viewDetails()
+        {
+
         }
     }
 }
