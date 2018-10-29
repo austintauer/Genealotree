@@ -25,7 +25,7 @@ namespace GenealoTree
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            Form f1 = new SelectionViewForm();
+            Form f1 = new SelectionViewForm(null);
             f1.Show();
         }
     }
