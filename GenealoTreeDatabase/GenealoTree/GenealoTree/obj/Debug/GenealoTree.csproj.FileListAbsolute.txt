@@ -10,3 +10,16 @@ C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoT
 C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csproj.GenerateResource.Cache
 C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.exe
 C:\Users\emily.k.budke\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.pdb
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.exe.config
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.exe
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.pdb
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.exe
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.pdb
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csprojResolveAssemblyReference.cache
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.AddModifyForm.resources
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GeneologyManager.GeneologyManagerForm.resources
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.PersonalInformationForm.resources
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.Properties.Resources.resources
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.SelectionViewForm.resources
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.WelcomeScreen.resources
+C:\Users\arctu_000\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csproj.GenerateResource.Cache

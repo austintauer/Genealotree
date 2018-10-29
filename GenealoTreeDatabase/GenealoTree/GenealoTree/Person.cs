@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace GenealoTree
 {
-    class Person : EventArgs
+    public class Person
     {
         public string firstName { get; set; }
         public string middleName { get; set; }
@@ -37,8 +37,7 @@ namespace GenealoTree
 
 public Person()
         {
-
-            
+            profilePicturePath = @"../../Images/banana-cat.png";
         }
 
         /**
