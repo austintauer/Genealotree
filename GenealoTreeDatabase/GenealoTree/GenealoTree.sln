@@ -5,13 +5,6 @@ VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenealoTree", "GenealoTree\GenealoTree.csproj", "{80D7E9DD-E3BF-4326-8443-C2B601820C6B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE8E113A-3937-4331-AFA7-6C6BA14F9E85}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\..\Downloads\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\GenealoTreeDatabase\GenealoTree\GenealoTree\SelectionViewForm.cs = ..\..\..\..\..\Downloads\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\GenealoTreeDatabase\GenealoTree\GenealoTree\SelectionViewForm.cs
-		..\..\..\..\..\Downloads\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\GenealoTreeDatabase\GenealoTree\GenealoTree\SelectionViewForm.Designer.cs = ..\..\..\..\..\Downloads\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\GenealoTreeDatabase\GenealoTree\GenealoTree\SelectionViewForm.Designer.cs
-		..\..\..\..\..\Downloads\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\GenealoTreeDatabase\GenealoTree\GenealoTree\SelectionViewForm.resx = ..\..\..\..\..\Downloads\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\Genealotree-d787da799b9b27e91a653377261d8be599ac141a\GenealoTreeDatabase\GenealoTree\GenealoTree\SelectionViewForm.resx
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

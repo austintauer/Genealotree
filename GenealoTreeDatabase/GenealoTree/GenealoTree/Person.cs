@@ -108,6 +108,16 @@ public Person(string fname, string mname, string lname, string s, string birth, 
 
             return gb;
         }
+
+        /*
+         * 
+         * Expand equals to all fields. 
+         */
+        public bool equals(Person p)
+        {
+
+            return p.firstName.Equals(this.firstName) && p.middleName.Equals(this.middleName) && p.lastName.Equals(this.lastName);
+        }
     }
 }
 

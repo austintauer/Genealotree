@@ -12,7 +12,7 @@ namespace GenealoTree
 {
     public partial class SelectionViewForm : Form
     {
-        static Person selected = null;
+        Person selected = null;
 
         Person[] persons = new Person[4];
         Relationship[] relationships = new Relationship[4];
@@ -41,9 +41,24 @@ namespace GenealoTree
 
         private void SelectionViewForm_Load(object sender, EventArgs e)
         {
-            
+            InitializeComponent();
+            /*persons[0] = new Person('a');
+            persons[1] = new Person('a');
+            persons[2] = new Person('a');
+            persons[3] = new Person('a');
 
-            
+            persons[1].firstName = "Emily";
+            persons[2].firstName = "Taylor";
+            persons[3].firstName = "Kevin";
+            persons[0].sex = persons[3].sex = "Male";
+            persons[1].sex = persons[2].sex = "Female";
+
+            relationships[0] = new Relationship(persons[0], persons[1], "ParentChild");
+            relationships[1] = new Relationship(persons[1], persons[2], "ParentChild");
+            relationships[2] = new Relationship(persons[0], persons[3], "Sibling");
+            relationships[3] = new Relationship(persons[3], persons[1], "ParentChild");*/
+
+            changeSelected(selected);
         }
 
 
@@ -67,15 +82,15 @@ namespace GenealoTree
 
             foreach (Relationship r in relationships)
             {
-                if (r.person2 == selected && r.relationshipType.Equals("ParentChild"))
+                if (r.person2.equals(selected) && r.relationshipType.Equals("ParentChild"))
                 {
                     parentRelationShips.Add(r);
                 }
-                else if (r.person1 == selected && r.relationshipType.Equals("ParentChild"))
+                else if (r.person1.equals(selected) && r.relationshipType.Equals("ParentChild"))
                 {
                     childRelationShips.Add(r);
                 }
-                else if ((r.person1 == selected || r.person2 == selected) && r.relationshipType.Equals("Sibling"))
+                else if ((r.person1.equals(selected) || r.person2.equals(selected)) && r.relationshipType.Equals("Sibling"))
                 {
                     siblingRelationShips.Add(r);
                 }
@@ -112,6 +127,10 @@ namespace GenealoTree
             this.Controls.Add(siblingLabel);
 
             GroupBox selBox = selected.createGroupBox();
+            selBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
+            {
+                viewDetails(selected);
+            };
             selBox.Location = new Point(200, 150);
             selBox.BackColor = Color.Yellow;
             RichTextBox selText = selBox.Controls.OfType<RichTextBox>().ToArray()[0];
@@ -172,9 +191,12 @@ namespace GenealoTree
             }
         }
 
-        public void viewDetails()
+        public void viewDetails(Person p)
         {
-
+            //this.Hide();
+            PersonalInformationForm details = new PersonalInformationForm(p);
+            details.ShowDialog();
+            this.Close();
         }
     }
 }

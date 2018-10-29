@@ -12,10 +12,11 @@ namespace GenealoTree
 {
     public partial class PersonalInformationForm : Form
     {
+        Person person;
         public PersonalInformationForm(Person familyMember)
         {
             InitializeComponent();
-            Person person = familyMember;
+            person = familyMember;
 
             Text = person.firstName + " " + person.lastName + "'s Personal Information";
             
@@ -75,6 +76,14 @@ namespace GenealoTree
         private void profilePictureBox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void selectButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SelectionViewForm tree = new SelectionViewForm(person);
+            tree.ShowDialog();
+            this.Close();
         }
     }
 }
