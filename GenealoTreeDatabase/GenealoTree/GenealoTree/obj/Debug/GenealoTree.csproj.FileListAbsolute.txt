@@ -1,0 +1,13 @@
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.exe.config
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.exe
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\bin\Debug\GenealoTree.pdb
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csprojAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.AddModifyForm.resources
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GeneologyManager.GeneologyManagerForm.resources
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.PersonalInformationForm.resources
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.SelectionViewForm.resources
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csproj.GenerateResource.cache
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.exe
+C:\Users\user\Documents\GitHub\Genealotree\GenealoTreeDatabase\GenealoTree\GenealoTree\obj\Debug\GenealoTree.pdb

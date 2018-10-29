@@ -69,18 +69,32 @@ namespace GenealoTree
                 }
             }
 
+            Label parentLabel = new Label();
+            parentLabel.Text = "Parents: ";
+            parentLabel.Font = new Font(parentLabel.Font.Name, 20);
+            parentLabel.AutoSize = true;
+            parentLabel.Location = new Point(10, 10);
+            this.Controls.Add(parentLabel);
+
             int index = 0;
             foreach (Relationship r in parentRelationShips)
             {
                 GroupBox parentBox = r.person1.createGroupBox();
-                parentBox.Location = new Point(index * 120 + 10, 10);
+                parentBox.Location = new Point(index * 120 + 200, 10);
                 index++;
                 this.Controls.Add(parentBox);
 
             }
 
+            Label siblingLabel = new Label();
+            siblingLabel.Text = "Self/Siblings: ";
+            siblingLabel.Font = new Font(siblingLabel.Font.Name, 20);
+            siblingLabel.AutoSize = true;
+            siblingLabel.Location = new Point(10, 120);
+            this.Controls.Add(siblingLabel);
+
             GroupBox selBox = selected.createGroupBox();
-            selBox.Location = new Point(10, 110);
+            selBox.Location = new Point(200, 120);
             selBox.BackColor = Color.Yellow;
             RichTextBox selText = selBox.Controls.OfType<RichTextBox>().ToArray()[0];
             selText.BackColor = Color.Yellow;
@@ -102,17 +116,23 @@ namespace GenealoTree
                 }
                 
                 
-                siblingBox.Location = new Point(index * 120 + 130, 110);
+                siblingBox.Location = new Point(index * 120 + 320, 120);
                 index++;
                 this.Controls.Add(siblingBox);
             }
 
+            Label childLabel = new Label();
+            childLabel.Text = "Children: ";
+            childLabel.Font = new Font(childLabel.Font.Name, 20);
+            childLabel.AutoSize = true;
+            childLabel.Location = new Point(10, 230);
+            this.Controls.Add(childLabel);
 
             index = 0;
             foreach (Relationship r in childRelationShips)
             {
                 GroupBox childBox = r.person2.createGroupBox();
-                childBox.Location = new Point(index * 120 + 10, 220);
+                childBox.Location = new Point(index * 120 + 200, 230);
                 index++;
                 this.Controls.Add(childBox);
             }
