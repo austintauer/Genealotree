@@ -131,6 +131,7 @@ namespace GenealoTree
             {
                 viewDetails(selected);
             };
+            selBox.Controls.OfType<Button>().ToArray()[0].Text = "View Details";
             selBox.Location = new Point(200, 150);
             selBox.BackColor = Color.Yellow;
             RichTextBox selText = selBox.Controls.OfType<RichTextBox>().ToArray()[0];

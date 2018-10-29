@@ -85,5 +85,13 @@ namespace GenealoTree
             tree.ShowDialog();
             this.Close();
         }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            AddModifyForm edit = new AddModifyForm(person);
+            edit.ShowDialog();
+            this.Close();
+        }
     }
 }

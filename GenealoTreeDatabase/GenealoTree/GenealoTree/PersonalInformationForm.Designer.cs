@@ -80,6 +80,7 @@
             this.middleNameLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.selectButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.questionBox.SuspendLayout();
             this.notes.SuspendLayout();
@@ -129,7 +130,7 @@
             this.notes.Controls.Add(this.label26);
             this.notes.Location = new System.Drawing.Point(12, 334);
             this.notes.Name = "notes";
-            this.notes.Size = new System.Drawing.Size(200, 205);
+            this.notes.Size = new System.Drawing.Size(200, 184);
             this.notes.TabIndex = 40;
             this.notes.TabStop = false;
             this.notes.Text = "Notes:";
@@ -593,7 +594,7 @@
             // 
             // selectButton
             // 
-            this.selectButton.Location = new System.Drawing.Point(9, 546);
+            this.selectButton.Location = new System.Drawing.Point(9, 553);
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(203, 23);
             this.selectButton.TabIndex = 43;
@@ -601,12 +602,23 @@
             this.selectButton.UseVisualStyleBackColor = true;
             this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
             // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(9, 524);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(203, 23);
+            this.editButton.TabIndex = 44;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
             // PersonalInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(452, 583);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.selectButton);
             this.Controls.Add(this.profilePictureBox);
             this.Controls.Add(this.questionBox);
@@ -692,6 +704,7 @@
         private System.Windows.Forms.Label questionsLabel;
         private System.Windows.Forms.Label notesLabel;
         private System.Windows.Forms.Button selectButton;
+        private System.Windows.Forms.Button editButton;
     }
 }
 
