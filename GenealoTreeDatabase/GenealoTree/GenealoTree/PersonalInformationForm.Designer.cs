@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonalInformationForm));
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.questionBox = new System.Windows.Forms.GroupBox();
             this.questionsLabel = new System.Windows.Forms.Label();
@@ -90,10 +91,13 @@
             this.SuspendLayout();
             // 
             // profilePictureBox
-            // 
+            //
             this.profilePictureBox.Location = new System.Drawing.Point(16, 15);
             this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
-            this.profilePictureBox.MaximumSize = new System.Drawing.Size(267, 258);
+            // this.profilePictureBox.MaximumSize = new System.Drawing.Size(267, 258);
+            this.profilePictureBox.BackColor = System.Drawing.Color.Snow;
+            this.profilePictureBox.Location = new System.Drawing.Point(12, 12);
+            this.profilePictureBox.MaximumSize = new System.Drawing.Size(200, 210);
             this.profilePictureBox.Name = "profilePictureBox";
             this.profilePictureBox.Size = new System.Drawing.Size(267, 258);
             this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,6 +106,7 @@
             // 
             // questionBox
             // 
+            this.questionBox.BackColor = System.Drawing.Color.Snow;
             this.questionBox.Controls.Add(this.questionsLabel);
             this.questionBox.Location = new System.Drawing.Point(324, 487);
             this.questionBox.Margin = new System.Windows.Forms.Padding(4);
@@ -124,6 +129,7 @@
             // 
             // notes
             // 
+            this.notes.BackColor = System.Drawing.Color.Snow;
             this.notes.Controls.Add(this.notesLabel);
             this.notes.Controls.Add(this.label23);
             this.notes.Controls.Add(this.label26);
@@ -198,6 +204,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Snow;
             this.groupBox3.Controls.Add(this.ssnLabel);
             this.groupBox3.Controls.Add(this.professionLabel);
             this.groupBox3.Controls.Add(this.ssn);
@@ -267,6 +274,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Snow;
             this.groupBox2.Controls.Add(this.burialPlaceLabel);
             this.groupBox2.Controls.Add(this.burialDateLabel);
             this.groupBox2.Controls.Add(this.burialDate);
@@ -366,6 +374,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Snow;
             this.groupBox1.Controls.Add(this.deathDate);
             this.groupBox1.Controls.Add(this.deathDateLabel);
             this.groupBox1.Controls.Add(this.deathCertificate);
@@ -465,6 +474,7 @@
             // 
             // birthGroupBox
             // 
+            this.birthGroupBox.BackColor = System.Drawing.Color.Snow;
             this.birthGroupBox.Controls.Add(this.birthCertificateLabel);
             this.birthGroupBox.Controls.Add(this.birthDate);
             this.birthGroupBox.Controls.Add(this.birthDateLabel);
@@ -564,6 +574,7 @@
             // 
             // nameGroupBox
             // 
+            this.nameGroupBox.BackColor = System.Drawing.Color.Snow;
             this.nameGroupBox.Controls.Add(this.firstName);
             this.nameGroupBox.Controls.Add(this.middleName);
             this.nameGroupBox.Controls.Add(this.lastName);
@@ -652,6 +663,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 725);
             this.Controls.Add(this.selectButton);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(459, 589);
             this.Controls.Add(this.profilePictureBox);
             this.Controls.Add(this.questionBox);
             this.Controls.Add(this.notes);
@@ -661,6 +674,7 @@
             this.Controls.Add(this.birthGroupBox);
             this.Controls.Add(this.nameGroupBox);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PersonalInformationForm";
             this.Text = "Personal Information";
             this.Load += new System.EventHandler(this.Form1_Load);
