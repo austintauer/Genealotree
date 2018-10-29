@@ -37,7 +37,8 @@ namespace GenealoTree
 
 public Person()
         {
-            profilePicturePath = @"../../Images/banana-cat.png";
+
+            
         }
 
         /**
@@ -89,7 +90,7 @@ public Person(string fname, string mname, string lname, string s, string birth, 
         {
             GroupBox gb = new GroupBox();
             gb.Width = 100;
-            gb.Height = 100;
+            gb.Height = 125;
             gb.Text = firstName + " " + lastName;
 
             RichTextBox infoBox = new RichTextBox();
@@ -99,8 +100,13 @@ public Person(string fname, string mname, string lname, string s, string birth, 
             infoBox.Location = new System.Drawing.Point(5, 12);
             infoBox.BorderStyle = BorderStyle.None;
             infoBox.Text = "Sex: " + sex;
-
             gb.Controls.Add(infoBox);
+
+            Button selectButton = new Button();
+            selectButton.Text = "Select";
+            selectButton.Location = new System.Drawing.Point(5, 100);
+            gb.Controls.Add(selectButton);
+
             return gb;
         }
     }

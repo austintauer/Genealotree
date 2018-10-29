@@ -73,12 +73,6 @@
     <Compile Include="SelectionViewForm.Designer.cs">
       <DependentUpon>SelectionViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WelcomeScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WelcomeScreen.Designer.cs">
-      <DependentUpon>WelcomeScreen.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AddModifyForm.resx">
       <DependentUpon>AddModifyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,9 +93,6 @@
     </Compile>
     <EmbeddedResource Include="SelectionViewForm.resx">
       <DependentUpon>SelectionViewForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WelcomeScreen.resx">
-      <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
