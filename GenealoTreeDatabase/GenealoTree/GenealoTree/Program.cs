@@ -23,7 +23,7 @@ namespace GenealoTree
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new PersonalInformationForm());
+            //Application.Run(new PersonalInformationForm(new Person('a')));
             //Application.Run(new AddModifyForm());
             //Application.Run(new SelectionViewForm());
             Application.Run(new WelcomeScreen());
