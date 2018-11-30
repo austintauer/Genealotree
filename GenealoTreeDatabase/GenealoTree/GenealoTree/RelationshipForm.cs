@@ -51,17 +51,18 @@ namespace GenealoTree
         {
             this.Controls.Clear();
 
-
-            List<Relationship> relationships = person.relationships;
-
-            List<Relationship> parentRelationShips = new List<Relationship>();
-            List<Relationship> childRelationShips = new List<Relationship>();
-            List<Relationship> siblingRelationShips = new List<Relationship>();
-
             if (person == null)
             {
                 person = people.First();
             }
+
+            List<Relationship> relationships = person.relationships;
+            
+            List<Relationship> parentRelationShips = new List<Relationship>();
+            List<Relationship> childRelationShips = new List<Relationship>();
+            List<Relationship> siblingRelationShips = new List<Relationship>();
+
+            
             /*if (person == null)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;

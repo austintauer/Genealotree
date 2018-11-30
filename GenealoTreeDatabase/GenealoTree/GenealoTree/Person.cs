@@ -26,8 +26,8 @@ namespace GenealoTree
 
         public List<string> militaryService;
         public List<string> profession;
-        public string[] notes;
-        public string[] questions;
+        public List<string> notes;
+        public List<string> questions;
 
         public DateTime birthDate { get; set; }
         public DateTime deathDate { get; set; }
@@ -57,8 +57,8 @@ namespace GenealoTree
             profilePicturePath = @"../../Images/banana-cat.png";
             militaryService = new List<string>();
             profession = new List<string>();
-            notes = new String[0];
-            questions = new String[0];
+            notes = new List<string>();
+            questions = new List<string>();
 
             relationships = new List<Relationship>();
         }

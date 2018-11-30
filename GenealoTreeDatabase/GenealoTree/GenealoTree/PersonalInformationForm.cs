@@ -44,42 +44,42 @@ namespace GenealoTree
             ssnLabel.Text = person.socialSecurityNumber;
             causeOfDeathLabel.Text = person.causeOfDeath;
 
-            militaryServiceLabel.Text = "";
-            if (person.militaryService != null)
-            {
-                foreach (String s in person.militaryService)
-                {
-                    militaryServiceLabel.Text += s + "\n";
-                }
-            }
+            
+            
+             foreach (String s in person.militaryService)
+             {
+                militaryListBox.Items.Add(s);
+             }
 
-            professionLabel.Text = "";
-            if (person.profession != null)
+            
+            
+            foreach (String s in person.profession)
             {
-                foreach (String s in person.profession)
-                {
-                    professionLabel.Text += s + "\n";
-                }
+                professionListBox.Items.Add(s);
             }
+            
 
-            notesLabel.Text = "";
-            if (person.notes != null)
+            
+            
+            foreach (String s in person.notes)
             {
-                foreach (String s in person.notes)
-                {
-                    notesLabel.Text += s + "\n";
-                }
+                noteListBox.Items.Add(s);
             }
+            
 
-            questionsLabel.Text = "";
-            if (person.questions != null)
+            
+            
+            
+            foreach (String s in person.questions)
             {
-                foreach (String s in person.questions)
-                {
-                    questionsLabel.Text += s + "\n";
-                }
+                questionListBox.Items.Add(s);
             }
-
+            
+            foreach (Relationship r in person.relationships)
+            {
+                relationshipListBox.Items.Add(r.ToString());
+            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -102,7 +102,7 @@ namespace GenealoTree
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            //this.Hide();
+            this.Hide();
             AddModifyForm edit = new AddModifyForm(people, person);
             edit.ShowDialog();
             this.Close();

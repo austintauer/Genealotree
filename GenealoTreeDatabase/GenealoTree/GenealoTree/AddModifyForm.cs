@@ -130,7 +130,7 @@ namespace GenealoTree
             //populate questions group
             foreach (String s in person.questions)
             {
-                questionTextBox.Text += s + "\n";
+                questionListBox.Items.Add(s);
             }
             //populate additional information group
             ssnTextBox.Text = person.socialSecurityNumber;
@@ -147,7 +147,7 @@ namespace GenealoTree
             //populate notes group
             foreach (String s in person.notes)
             {
-                notesTextBox.Text += s + "\n";
+                noteListBox.Items.Add(s);
             }
 
             //relationships
@@ -159,7 +159,7 @@ namespace GenealoTree
                 {
                     if (p.id == r.id)
                     {
-                        removeRelationshipComboBox.Items.Add(new PersonRelationship(p, r));
+                        relationshipListBox.Items.Add(new PersonRelationship(p, r));
                         break;
                     }
                 }
@@ -187,9 +187,17 @@ namespace GenealoTree
             {
                 return;
             }*/
-            profilePictureBox.Image = new Bitmap(ofd.FileName);
-            profilePictureBox.Visible = true;
-            ((Button)sender).Visible = false;
+            try
+            {
+                profilePictureBox.Image = new Bitmap(ofd.FileName);
+                profilePictureBox.Visible = true;
+                ((Button)sender).Visible = false;
+            }
+            catch (ArgumentException a)
+            {
+
+            }
+            
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -233,16 +241,22 @@ namespace GenealoTree
                 return;
             }
 
-            Person p = new Person();
+            
+            if (person == null)
+            {
+                person = new Person();
+                people.Add(person);
+            }
+
             //name box fields
-            p.firstName = firstNameTextBox.Text;
-            p.middleName = middleNameTextBox.Text;
-            p.lastName = lastNameTextBox.Text;
+            person.firstName = firstNameTextBox.Text;
+            person.middleName = middleNameTextBox.Text;
+            person.lastName = lastNameTextBox.Text;
 
             //birth box fields
-            p.birthDate = birthCalendar.Value;
-            p.birthPlace = birthPlaceTextBox.Text;
-            p.birthCertificateNumber = birthCertificateTextBox.Text;
+            person.birthDate = birthCalendar.Value;
+            person.birthPlace = birthPlaceTextBox.Text;
+            person.birthCertificateNumber = birthCertificateTextBox.Text;
             //sex
             string sex = "";
             bool isChecked = maleRadioButton.Checked;
@@ -262,21 +276,21 @@ namespace GenealoTree
                     sex = "Unknown";
                 }
             }
-            p.sex = sex;
-            
+            person.sex = sex;
+
             //death group fields
-            p.deathDate = deathCalendar.Value;
-            p.deathPlace = deathPlaceTextBox.Text;
-            p.deathCertificateNumber = deathCertificateTextBox.Text;
-            p.causeOfDeath = causeOfDeathTextBox.Text;
+            person.deathDate = deathCalendar.Value;
+            person.deathPlace = deathPlaceTextBox.Text;
+            person.deathCertificateNumber = deathCertificateTextBox.Text;
+            person.causeOfDeath = causeOfDeathTextBox.Text;
 
             //burial group fields
-            p.burialDate = burialCalendar.Value;
-            p.burialPlace = burialPlaceTextBox.Text;
-            p.cemetery = cemetaryTextBox.Text;
+            person.burialDate = burialCalendar.Value;
+            person.burialPlace = burialPlaceTextBox.Text;
+            person.cemetery = cemetaryTextBox.Text;
 
             //additional information fields
-            p.socialSecurityNumber = ssnTextBox.Text;
+            person.socialSecurityNumber = ssnTextBox.Text;
 
             //military service
 
@@ -285,30 +299,18 @@ namespace GenealoTree
             //profession
 
             person.profession = professionListBox.Items.Cast<string>().ToList();
-            
+
             //notes
-            if (notesTextBox.Text != null)
-            {
-                p.notes = notesTextBox.Text.Split(',');
-            }
-            else
-            {
-                p.notes = new string[] { "none" };
-            }
+            person.notes = noteListBox.Items.Cast<string>().ToList();
 
             //questions
-            if (questionTextBox.Text != null)
-            {
-                p.questions = questionTextBox.Text.Split(',');
-            }
-            else
-            {
-                p.questions = new string[] { "none" };
-            }
+            person.questions = questionListBox.Items.Cast<string>().ToList();
 
-            Form newPerson = new PersonalInformationForm(people, p);
+            Form newPerson = new PersonalInformationForm(people, person);
+            this.Hide();
+            newPerson.ShowDialog();
             this.Close();
-            newPerson.Show();
+            
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -316,7 +318,7 @@ namespace GenealoTree
             this.Close();
         }
 
-        private void RemoveRelationshipComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void relationshipListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
@@ -329,11 +331,12 @@ namespace GenealoTree
 
                 person.relationships.Add(newRelationship);
 
-                removeRelationshipComboBox.Items.Add(new PersonRelationship((Person)addPersonRelationshipComboBox.SelectedItem, newRelationship));
+                relationshipListBox.Items.Add(new PersonRelationship((Person)addPersonRelationshipComboBox.SelectedItem, newRelationship));
 
                 ((Person)addPersonRelationshipComboBox.SelectedItem).relationships.Add(new Relationship(person.id, (string)addTypeRelationshipComboBox.SelectedItem));
 
                 MessageBox.Show("The relationship," + (string)addTypeRelationshipComboBox.SelectedItem + ": " + ((Person)addPersonRelationshipComboBox.SelectedItem).ToString() + ", has been successfully added.");
+
             }
             
         }
@@ -341,6 +344,7 @@ namespace GenealoTree
         private void addMilitaryButton_Click(object sender, EventArgs e)
         {
             militaryListBox.Items.Add(newMilitaryTextBox.Text);
+            newMilitaryTextBox.Text = "";
         }
 
         private void removeMilitaryButton_Click(object sender, EventArgs e)
@@ -362,34 +366,67 @@ namespace GenealoTree
         private void addProfessionButton_Click(object sender, EventArgs e)
         {
             professionListBox.Items.Add(professionTextBox.Text);
+            professionTextBox.Text = "";
         }
 
         private void removeRelationshipButton_Click(object sender, EventArgs e)
         {
-            if (removeRelationshipComboBox.SelectedIndex != -1)
+            if (relationshipListBox.SelectedIndex != -1)
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove " + removeRelationshipComboBox.SelectedItem.ToString() + "?", "Remove Relationship", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove " + relationshipListBox.SelectedItem.ToString() + "?", "Remove Relationship", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
 
-                    person.relationships.Remove(((PersonRelationship)removeRelationshipComboBox.SelectedItem).relationship);
+                    person.relationships.Remove(((PersonRelationship)relationshipListBox.SelectedItem).relationship);
 
-                    ((PersonRelationship)removeRelationshipComboBox.SelectedItem).person.relationships.Remove(((PersonRelationship)removeRelationshipComboBox.SelectedItem).relationship);
+                    ((PersonRelationship)relationshipListBox.SelectedItem).person.relationships.Remove(((PersonRelationship)relationshipListBox.SelectedItem).relationship);
 
-                    removeRelationshipComboBox.Items.Remove(removeRelationshipComboBox.SelectedItem);
+                    relationshipListBox.Items.Remove(relationshipListBox.SelectedItem);
 
-                    removeRelationshipComboBox.Text = "";
+                    relationshipListBox.Text = "";
                     
-                    removeRelationshipComboBox.SelectedIndex = -1;
+                    relationshipListBox.SelectedIndex = -1;
 
                     
 
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    removeRelationshipComboBox.SelectedIndex = -1;
+                    relationshipListBox.SelectedIndex = -1;
                 }
             }
+        }
+
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            if (relationshipListBox.SelectedIndex != -1)
+            {
+                PersonalInformationForm view = new PersonalInformationForm(people, ((PersonRelationship)relationshipListBox.SelectedItem).person);
+                view.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void removeQuestionButton_Click(object sender, EventArgs e)
+        {
+            questionListBox.Items.Remove(questionListBox.SelectedItem);
+        }
+
+        private void addQuestonButton_Click(object sender, EventArgs e)
+        {
+            questionListBox.Items.Add(questionTextBox.Text);
+            questionTextBox.Text = "";
+        }
+
+        private void removeNoteButton_Click(object sender, EventArgs e)
+        {
+            noteListBox.Items.Remove(noteListBox.SelectedItem);
+        }
+
+        private void addNoteButton_Click(object sender, EventArgs e)
+        {
+            noteListBox.Items.Add(noteTextBox.Text);
+            noteTextBox.Text = "";
         }
     }
 }

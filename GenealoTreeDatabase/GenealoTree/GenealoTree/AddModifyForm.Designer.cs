@@ -31,9 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddModifyForm));
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.questionBox = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.questionTextBox = new System.Windows.Forms.TextBox();
+            this.removeQuestionButton = new System.Windows.Forms.Button();
+            this.addQuestonButton = new System.Windows.Forms.Button();
+            this.questionListBox = new System.Windows.Forms.ListBox();
             this.notes = new System.Windows.Forms.GroupBox();
-            this.notesTextBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.noteTextBox = new System.Windows.Forms.TextBox();
+            this.removeNoteButton = new System.Windows.Forms.Button();
+            this.addNoteButton = new System.Windows.Forms.Button();
+            this.noteListBox = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.ssn = new System.Windows.Forms.Label();
@@ -74,7 +82,6 @@
             this.lastName = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.removeRelationshipComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -84,6 +91,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.viewButton = new System.Windows.Forms.Button();
+            this.relationshipListBox = new System.Windows.Forms.ListBox();
+            this.removeRelationshipButton = new System.Windows.Forms.Button();
             this.addRelationshipButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -94,11 +104,11 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.militaryListBox = new System.Windows.Forms.ListBox();
-            this.addMilitaryButton = new System.Windows.Forms.Button();
-            this.removeMilitaryButton = new System.Windows.Forms.Button();
-            this.newMilitaryTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.newMilitaryTextBox = new System.Windows.Forms.TextBox();
+            this.removeMilitaryButton = new System.Windows.Forms.Button();
+            this.addMilitaryButton = new System.Windows.Forms.Button();
+            this.militaryListBox = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -106,7 +116,6 @@
             this.removeProfessionButton = new System.Windows.Forms.Button();
             this.addProfessionButton = new System.Windows.Forms.Button();
             this.professionListBox = new System.Windows.Forms.ListBox();
-            this.removeRelationshipButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.questionBox.SuspendLayout();
             this.notes.SuspendLayout();
@@ -135,45 +144,125 @@
             // questionBox
             // 
             this.questionBox.BackColor = System.Drawing.Color.Snow;
+            this.questionBox.Controls.Add(this.label19);
             this.questionBox.Controls.Add(this.questionTextBox);
-            this.questionBox.Location = new System.Drawing.Point(447, 280);
+            this.questionBox.Controls.Add(this.removeQuestionButton);
+            this.questionBox.Controls.Add(this.addQuestonButton);
+            this.questionBox.Controls.Add(this.questionListBox);
+            this.questionBox.Location = new System.Drawing.Point(847, 34);
             this.questionBox.Name = "questionBox";
-            this.questionBox.Size = new System.Drawing.Size(200, 180);
+            this.questionBox.Size = new System.Drawing.Size(200, 222);
             this.questionBox.TabIndex = 49;
             this.questionBox.TabStop = false;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 147);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(99, 13);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "Enter New Service:";
+            // 
             // questionTextBox
             // 
-            this.questionTextBox.Location = new System.Drawing.Point(10, 19);
-            this.questionTextBox.Multiline = true;
+            this.questionTextBox.Location = new System.Drawing.Point(6, 163);
             this.questionTextBox.Name = "questionTextBox";
-            this.questionTextBox.Size = new System.Drawing.Size(184, 155);
-            this.questionTextBox.TabIndex = 0;
+            this.questionTextBox.Size = new System.Drawing.Size(188, 20);
+            this.questionTextBox.TabIndex = 8;
+            // 
+            // removeQuestionButton
+            // 
+            this.removeQuestionButton.Location = new System.Drawing.Point(44, 117);
+            this.removeQuestionButton.Name = "removeQuestionButton";
+            this.removeQuestionButton.Size = new System.Drawing.Size(104, 23);
+            this.removeQuestionButton.TabIndex = 7;
+            this.removeQuestionButton.Text = "Remove Selected";
+            this.removeQuestionButton.UseVisualStyleBackColor = true;
+            this.removeQuestionButton.Click += new System.EventHandler(this.removeQuestionButton_Click);
+            // 
+            // addQuestonButton
+            // 
+            this.addQuestonButton.Location = new System.Drawing.Point(61, 189);
+            this.addQuestonButton.Name = "addQuestonButton";
+            this.addQuestonButton.Size = new System.Drawing.Size(75, 23);
+            this.addQuestonButton.TabIndex = 6;
+            this.addQuestonButton.Text = "Add";
+            this.addQuestonButton.UseVisualStyleBackColor = true;
+            this.addQuestonButton.Click += new System.EventHandler(this.addQuestonButton_Click);
+            // 
+            // questionListBox
+            // 
+            this.questionListBox.FormattingEnabled = true;
+            this.questionListBox.Location = new System.Drawing.Point(6, 3);
+            this.questionListBox.Name = "questionListBox";
+            this.questionListBox.Size = new System.Drawing.Size(188, 108);
+            this.questionListBox.TabIndex = 5;
             // 
             // notes
             // 
             this.notes.BackColor = System.Drawing.Color.Snow;
-            this.notes.Controls.Add(this.notesTextBox);
-            this.notes.Location = new System.Drawing.Point(447, 492);
+            this.notes.Controls.Add(this.label20);
+            this.notes.Controls.Add(this.noteTextBox);
+            this.notes.Controls.Add(this.removeNoteButton);
+            this.notes.Controls.Add(this.addNoteButton);
+            this.notes.Controls.Add(this.noteListBox);
+            this.notes.Location = new System.Drawing.Point(847, 287);
             this.notes.Name = "notes";
-            this.notes.Size = new System.Drawing.Size(200, 183);
+            this.notes.Size = new System.Drawing.Size(200, 227);
             this.notes.TabIndex = 48;
             this.notes.TabStop = false;
             // 
-            // notesTextBox
+            // label20
             // 
-            this.notesTextBox.Location = new System.Drawing.Point(6, 19);
-            this.notesTextBox.Multiline = true;
-            this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(184, 158);
-            this.notesTextBox.TabIndex = 1;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 150);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(99, 13);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Enter New Service:";
+            // 
+            // noteTextBox
+            // 
+            this.noteTextBox.Location = new System.Drawing.Point(6, 166);
+            this.noteTextBox.Name = "noteTextBox";
+            this.noteTextBox.Size = new System.Drawing.Size(188, 20);
+            this.noteTextBox.TabIndex = 8;
+            // 
+            // removeNoteButton
+            // 
+            this.removeNoteButton.Location = new System.Drawing.Point(44, 120);
+            this.removeNoteButton.Name = "removeNoteButton";
+            this.removeNoteButton.Size = new System.Drawing.Size(104, 23);
+            this.removeNoteButton.TabIndex = 7;
+            this.removeNoteButton.Text = "Remove Selected";
+            this.removeNoteButton.UseVisualStyleBackColor = true;
+            this.removeNoteButton.Click += new System.EventHandler(this.removeNoteButton_Click);
+            // 
+            // addNoteButton
+            // 
+            this.addNoteButton.Location = new System.Drawing.Point(61, 192);
+            this.addNoteButton.Name = "addNoteButton";
+            this.addNoteButton.Size = new System.Drawing.Size(75, 23);
+            this.addNoteButton.TabIndex = 6;
+            this.addNoteButton.Text = "Add";
+            this.addNoteButton.UseVisualStyleBackColor = true;
+            this.addNoteButton.Click += new System.EventHandler(this.addNoteButton_Click);
+            // 
+            // noteListBox
+            // 
+            this.noteListBox.FormattingEnabled = true;
+            this.noteListBox.Location = new System.Drawing.Point(6, 6);
+            this.noteListBox.Name = "noteListBox";
+            this.noteListBox.Size = new System.Drawing.Size(188, 108);
+            this.noteListBox.TabIndex = 5;
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Snow;
             this.groupBox3.Controls.Add(this.ssnTextBox);
             this.groupBox3.Controls.Add(this.ssn);
-            this.groupBox3.Location = new System.Drawing.Point(231, 579);
+            this.groupBox3.Location = new System.Drawing.Point(639, 319);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 40);
             this.groupBox3.TabIndex = 47;
@@ -205,7 +294,7 @@
             this.groupBox2.Controls.Add(this.burialCemetary);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.burialPlace);
-            this.groupBox2.Location = new System.Drawing.Point(21, 682);
+            this.groupBox2.Location = new System.Drawing.Point(233, 438);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 89);
             this.groupBox2.TabIndex = 45;
@@ -280,7 +369,7 @@
             this.groupBox1.Controls.Add(this.deathCertificate);
             this.groupBox1.Controls.Add(this.causeOfDeath);
             this.groupBox1.Controls.Add(this.deathPlace);
-            this.groupBox1.Location = new System.Drawing.Point(21, 536);
+            this.groupBox1.Location = new System.Drawing.Point(233, 292);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 116);
             this.groupBox1.TabIndex = 46;
@@ -364,7 +453,7 @@
             this.birthGroupBox.Controls.Add(this.birthCertificate);
             this.birthGroupBox.Controls.Add(this.birthPlace);
             this.birthGroupBox.Controls.Add(this.sex);
-            this.birthGroupBox.Location = new System.Drawing.Point(19, 400);
+            this.birthGroupBox.Location = new System.Drawing.Point(231, 156);
             this.birthGroupBox.Name = "birthGroupBox";
             this.birthGroupBox.Size = new System.Drawing.Size(200, 106);
             this.birthGroupBox.TabIndex = 44;
@@ -473,7 +562,7 @@
             this.nameGroupBox.Controls.Add(this.firstName);
             this.nameGroupBox.Controls.Add(this.middleName);
             this.nameGroupBox.Controls.Add(this.lastName);
-            this.nameGroupBox.Location = new System.Drawing.Point(19, 280);
+            this.nameGroupBox.Location = new System.Drawing.Point(231, 36);
             this.nameGroupBox.Name = "nameGroupBox";
             this.nameGroupBox.Size = new System.Drawing.Size(200, 90);
             this.nameGroupBox.TabIndex = 43;
@@ -534,9 +623,9 @@
             // saveButton
             // 
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(316, 732);
+            this.saveButton.Location = new System.Drawing.Point(17, 255);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(107, 33);
+            this.saveButton.Size = new System.Drawing.Size(204, 33);
             this.saveButton.TabIndex = 51;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -545,28 +634,19 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(450, 732);
+            this.cancelButton.Location = new System.Drawing.Point(17, 294);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(91, 33);
+            this.cancelButton.Size = new System.Drawing.Size(204, 33);
             this.cancelButton.TabIndex = 52;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // removeRelationshipComboBox
-            // 
-            this.removeRelationshipComboBox.FormattingEnabled = true;
-            this.removeRelationshipComboBox.Location = new System.Drawing.Point(73, 13);
-            this.removeRelationshipComboBox.Name = "removeRelationshipComboBox";
-            this.removeRelationshipComboBox.Size = new System.Drawing.Size(121, 21);
-            this.removeRelationshipComboBox.TabIndex = 54;
-            this.removeRelationshipComboBox.SelectedIndexChanged += new System.EventHandler(this.RemoveRelationshipComboBox_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(233, 552);
+            this.label1.Location = new System.Drawing.Point(641, 292);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(190, 24);
             this.label1.TabIndex = 55;
@@ -576,7 +656,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(443, 465);
+            this.label2.Location = new System.Drawing.Point(843, 260);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 24);
             this.label2.TabIndex = 56;
@@ -586,7 +666,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(15, 253);
+            this.label3.Location = new System.Drawing.Point(227, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 24);
             this.label3.TabIndex = 57;
@@ -596,7 +676,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 373);
+            this.label4.Location = new System.Drawing.Point(229, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 24);
             this.label4.TabIndex = 58;
@@ -606,7 +686,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 509);
+            this.label5.Location = new System.Drawing.Point(229, 265);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 24);
             this.label5.TabIndex = 59;
@@ -616,7 +696,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 655);
+            this.label6.Location = new System.Drawing.Point(229, 411);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 24);
             this.label6.TabIndex = 60;
@@ -626,7 +706,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(443, 253);
+            this.label7.Location = new System.Drawing.Point(843, 7);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 24);
             this.label7.TabIndex = 57;
@@ -636,7 +716,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(443, 9);
+            this.label8.Location = new System.Drawing.Point(637, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 24);
             this.label8.TabIndex = 61;
@@ -645,6 +725,8 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.Snow;
+            this.groupBox4.Controls.Add(this.viewButton);
+            this.groupBox4.Controls.Add(this.relationshipListBox);
             this.groupBox4.Controls.Add(this.removeRelationshipButton);
             this.groupBox4.Controls.Add(this.addRelationshipButton);
             this.groupBox4.Controls.Add(this.label12);
@@ -653,16 +735,43 @@
             this.groupBox4.Controls.Add(this.addPersonRelationshipComboBox);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.removeRelationshipComboBox);
-            this.groupBox4.Location = new System.Drawing.Point(447, 36);
+            this.groupBox4.Location = new System.Drawing.Point(641, 34);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 214);
+            this.groupBox4.Size = new System.Drawing.Size(200, 254);
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
             // 
+            // viewButton
+            // 
+            this.viewButton.Location = new System.Drawing.Point(19, 107);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(75, 23);
+            this.viewButton.TabIndex = 66;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
+            // 
+            // relationshipListBox
+            // 
+            this.relationshipListBox.FormattingEnabled = true;
+            this.relationshipListBox.Location = new System.Drawing.Point(63, 6);
+            this.relationshipListBox.Name = "relationshipListBox";
+            this.relationshipListBox.Size = new System.Drawing.Size(120, 95);
+            this.relationshipListBox.TabIndex = 65;
+            // 
+            // removeRelationshipButton
+            // 
+            this.removeRelationshipButton.Location = new System.Drawing.Point(108, 107);
+            this.removeRelationshipButton.Name = "removeRelationshipButton";
+            this.removeRelationshipButton.Size = new System.Drawing.Size(75, 23);
+            this.removeRelationshipButton.TabIndex = 64;
+            this.removeRelationshipButton.Text = "Remove";
+            this.removeRelationshipButton.UseVisualStyleBackColor = true;
+            this.removeRelationshipButton.Click += new System.EventHandler(this.removeRelationshipButton_Click);
+            // 
             // addRelationshipButton
             // 
-            this.addRelationshipButton.Location = new System.Drawing.Point(73, 154);
+            this.addRelationshipButton.Location = new System.Drawing.Point(74, 221);
             this.addRelationshipButton.Name = "addRelationshipButton";
             this.addRelationshipButton.Size = new System.Drawing.Size(75, 23);
             this.addRelationshipButton.TabIndex = 63;
@@ -673,7 +782,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 129);
+            this.label12.Location = new System.Drawing.Point(7, 196);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 13);
             this.label12.TabIndex = 62;
@@ -682,7 +791,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 102);
+            this.label11.Location = new System.Drawing.Point(7, 169);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 59;
@@ -691,7 +800,7 @@
             // addTypeRelationshipComboBox
             // 
             this.addTypeRelationshipComboBox.FormattingEnabled = true;
-            this.addTypeRelationshipComboBox.Location = new System.Drawing.Point(73, 126);
+            this.addTypeRelationshipComboBox.Location = new System.Drawing.Point(74, 193);
             this.addTypeRelationshipComboBox.Name = "addTypeRelationshipComboBox";
             this.addTypeRelationshipComboBox.Size = new System.Drawing.Size(121, 21);
             this.addTypeRelationshipComboBox.TabIndex = 58;
@@ -699,7 +808,7 @@
             // addPersonRelationshipComboBox
             // 
             this.addPersonRelationshipComboBox.FormattingEnabled = true;
-            this.addPersonRelationshipComboBox.Location = new System.Drawing.Point(73, 99);
+            this.addPersonRelationshipComboBox.Location = new System.Drawing.Point(74, 166);
             this.addPersonRelationshipComboBox.Name = "addPersonRelationshipComboBox";
             this.addPersonRelationshipComboBox.Size = new System.Drawing.Size(121, 21);
             this.addPersonRelationshipComboBox.TabIndex = 57;
@@ -707,7 +816,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 75);
+            this.label10.Location = new System.Drawing.Point(7, 142);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(29, 13);
             this.label10.TabIndex = 56;
@@ -737,7 +846,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(227, 9);
+            this.label15.Location = new System.Drawing.Point(431, 7);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(140, 24);
             this.label15.TabIndex = 64;
@@ -751,33 +860,31 @@
             this.groupBox5.Controls.Add(this.removeMilitaryButton);
             this.groupBox5.Controls.Add(this.addMilitaryButton);
             this.groupBox5.Controls.Add(this.militaryListBox);
-            this.groupBox5.Location = new System.Drawing.Point(231, 36);
+            this.groupBox5.Location = new System.Drawing.Point(435, 34);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 241);
+            this.groupBox5.Size = new System.Drawing.Size(200, 227);
             this.groupBox5.TabIndex = 63;
             this.groupBox5.TabStop = false;
             // 
-            // militaryListBox
+            // label16
             // 
-            this.militaryListBox.FormattingEnabled = true;
-            this.militaryListBox.Location = new System.Drawing.Point(6, 19);
-            this.militaryListBox.Name = "militaryListBox";
-            this.militaryListBox.Size = new System.Drawing.Size(188, 108);
-            this.militaryListBox.TabIndex = 0;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 150);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(99, 13);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Enter New Service:";
             // 
-            // addMilitaryButton
+            // newMilitaryTextBox
             // 
-            this.addMilitaryButton.Location = new System.Drawing.Point(61, 205);
-            this.addMilitaryButton.Name = "addMilitaryButton";
-            this.addMilitaryButton.Size = new System.Drawing.Size(75, 23);
-            this.addMilitaryButton.TabIndex = 1;
-            this.addMilitaryButton.Text = "Add";
-            this.addMilitaryButton.UseVisualStyleBackColor = true;
-            this.addMilitaryButton.Click += new System.EventHandler(this.addMilitaryButton_Click);
+            this.newMilitaryTextBox.Location = new System.Drawing.Point(6, 166);
+            this.newMilitaryTextBox.Name = "newMilitaryTextBox";
+            this.newMilitaryTextBox.Size = new System.Drawing.Size(188, 20);
+            this.newMilitaryTextBox.TabIndex = 3;
             // 
             // removeMilitaryButton
             // 
-            this.removeMilitaryButton.Location = new System.Drawing.Point(44, 133);
+            this.removeMilitaryButton.Location = new System.Drawing.Point(44, 120);
             this.removeMilitaryButton.Name = "removeMilitaryButton";
             this.removeMilitaryButton.Size = new System.Drawing.Size(104, 23);
             this.removeMilitaryButton.TabIndex = 2;
@@ -785,27 +892,29 @@
             this.removeMilitaryButton.UseVisualStyleBackColor = true;
             this.removeMilitaryButton.Click += new System.EventHandler(this.removeMilitaryButton_Click);
             // 
-            // newMilitaryTextBox
+            // addMilitaryButton
             // 
-            this.newMilitaryTextBox.Location = new System.Drawing.Point(6, 179);
-            this.newMilitaryTextBox.Name = "newMilitaryTextBox";
-            this.newMilitaryTextBox.Size = new System.Drawing.Size(188, 20);
-            this.newMilitaryTextBox.TabIndex = 3;
+            this.addMilitaryButton.Location = new System.Drawing.Point(61, 192);
+            this.addMilitaryButton.Name = "addMilitaryButton";
+            this.addMilitaryButton.Size = new System.Drawing.Size(75, 23);
+            this.addMilitaryButton.TabIndex = 1;
+            this.addMilitaryButton.Text = "Add";
+            this.addMilitaryButton.UseVisualStyleBackColor = true;
+            this.addMilitaryButton.Click += new System.EventHandler(this.addMilitaryButton_Click);
             // 
-            // label16
+            // militaryListBox
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 163);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 13);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Enter New Service:";
+            this.militaryListBox.FormattingEnabled = true;
+            this.militaryListBox.Location = new System.Drawing.Point(6, 6);
+            this.militaryListBox.Name = "militaryListBox";
+            this.militaryListBox.Size = new System.Drawing.Size(188, 108);
+            this.militaryListBox.TabIndex = 0;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(227, 280);
+            this.label17.Location = new System.Drawing.Point(431, 264);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(103, 24);
             this.label17.TabIndex = 66;
@@ -819,16 +928,16 @@
             this.groupBox6.Controls.Add(this.removeProfessionButton);
             this.groupBox6.Controls.Add(this.addProfessionButton);
             this.groupBox6.Controls.Add(this.professionListBox);
-            this.groupBox6.Location = new System.Drawing.Point(231, 307);
+            this.groupBox6.Location = new System.Drawing.Point(435, 291);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 241);
+            this.groupBox6.Size = new System.Drawing.Size(200, 226);
             this.groupBox6.TabIndex = 65;
             this.groupBox6.TabStop = false;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 163);
+            this.label18.Location = new System.Drawing.Point(6, 151);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(99, 13);
             this.label18.TabIndex = 4;
@@ -836,14 +945,14 @@
             // 
             // professionTextBox
             // 
-            this.professionTextBox.Location = new System.Drawing.Point(6, 179);
+            this.professionTextBox.Location = new System.Drawing.Point(6, 167);
             this.professionTextBox.Name = "professionTextBox";
             this.professionTextBox.Size = new System.Drawing.Size(188, 20);
             this.professionTextBox.TabIndex = 3;
             // 
             // removeProfessionButton
             // 
-            this.removeProfessionButton.Location = new System.Drawing.Point(44, 133);
+            this.removeProfessionButton.Location = new System.Drawing.Point(44, 121);
             this.removeProfessionButton.Name = "removeProfessionButton";
             this.removeProfessionButton.Size = new System.Drawing.Size(104, 23);
             this.removeProfessionButton.TabIndex = 2;
@@ -853,7 +962,7 @@
             // 
             // addProfessionButton
             // 
-            this.addProfessionButton.Location = new System.Drawing.Point(61, 205);
+            this.addProfessionButton.Location = new System.Drawing.Point(61, 193);
             this.addProfessionButton.Name = "addProfessionButton";
             this.addProfessionButton.Size = new System.Drawing.Size(75, 23);
             this.addProfessionButton.TabIndex = 1;
@@ -864,27 +973,17 @@
             // professionListBox
             // 
             this.professionListBox.FormattingEnabled = true;
-            this.professionListBox.Location = new System.Drawing.Point(6, 19);
+            this.professionListBox.Location = new System.Drawing.Point(7, 7);
             this.professionListBox.Name = "professionListBox";
             this.professionListBox.Size = new System.Drawing.Size(188, 108);
             this.professionListBox.TabIndex = 0;
-            // 
-            // removeRelationshipButton
-            // 
-            this.removeRelationshipButton.Location = new System.Drawing.Point(73, 40);
-            this.removeRelationshipButton.Name = "removeRelationshipButton";
-            this.removeRelationshipButton.Size = new System.Drawing.Size(75, 23);
-            this.removeRelationshipButton.TabIndex = 64;
-            this.removeRelationshipButton.Text = "Remove";
-            this.removeRelationshipButton.UseVisualStyleBackColor = true;
-            this.removeRelationshipButton.Click += new System.EventHandler(this.removeRelationshipButton_Click);
             // 
             // AddModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(711, 810);
+            this.ClientSize = new System.Drawing.Size(1219, 589);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.label15);
@@ -965,8 +1064,6 @@
         private System.Windows.Forms.Label firstName;
         private System.Windows.Forms.Label middleName;
         private System.Windows.Forms.Label lastName;
-        private System.Windows.Forms.TextBox questionTextBox;
-        private System.Windows.Forms.TextBox notesTextBox;
         private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.TextBox cemetaryTextBox;
         private System.Windows.Forms.TextBox burialPlaceTextBox;
@@ -983,7 +1080,6 @@
         private System.Windows.Forms.RadioButton naSexRadioButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.ComboBox removeRelationshipComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -1019,5 +1115,17 @@
         private System.Windows.Forms.Button addProfessionButton;
         private System.Windows.Forms.ListBox professionListBox;
         private System.Windows.Forms.Button removeRelationshipButton;
+        private System.Windows.Forms.Button viewButton;
+        private System.Windows.Forms.ListBox relationshipListBox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox questionTextBox;
+        private System.Windows.Forms.Button removeQuestionButton;
+        private System.Windows.Forms.Button addQuestonButton;
+        private System.Windows.Forms.ListBox questionListBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox noteTextBox;
+        private System.Windows.Forms.Button removeNoteButton;
+        private System.Windows.Forms.Button addNoteButton;
+        private System.Windows.Forms.ListBox noteListBox;
     }
 }

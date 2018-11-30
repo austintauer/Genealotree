@@ -12,20 +12,23 @@ namespace GenealoTree
 {
     public partial class WelcomeScreen : Form
     {
-        public WelcomeScreen()
+        List<Person> people;
+        public WelcomeScreen(List<Person> people)
         {
             InitializeComponent();
+            this.people = people;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Form f1 = new AddModifyForm(null);
+            Form f1 = new AddModifyForm(people, null);
             f1.Show();
         }
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            Form f1 = new RelationshipForm(null, null);
+            Form f1 = new RelationshipForm(people, null);
             f1.Show();
         }
     }
