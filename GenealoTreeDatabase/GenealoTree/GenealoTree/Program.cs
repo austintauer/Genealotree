@@ -50,7 +50,7 @@ namespace GenealoTree
 
 
             //Application.Run(new PersonalInformationForm(people, person));
-           Application.Run(new AddModifyForm(people, person));
+            Application.Run(new AddModifyForm(people, person));
             //Application.Run(new SelectionViewForm(null));
             //Application.Run(new SelectionViewForm());
             //Application.Run(new WelcomeScreen());

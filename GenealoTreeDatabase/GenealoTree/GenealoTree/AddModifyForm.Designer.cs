@@ -44,10 +44,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cemetaryTextBox = new System.Windows.Forms.TextBox();
             this.burialPlaceTextBox = new System.Windows.Forms.TextBox();
-            this.burialYearTextBox = new System.Windows.Forms.TextBox();
             this.burialDate = new System.Windows.Forms.Label();
-            this.burialDayTextBox = new System.Windows.Forms.TextBox();
-            this.burialMonthTextBox = new System.Windows.Forms.TextBox();
             this.burialCemetary = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.burialPlace = new System.Windows.Forms.Label();
@@ -55,9 +52,6 @@
             this.causeOfDeathTextBox = new System.Windows.Forms.TextBox();
             this.deathCertificateTextBox = new System.Windows.Forms.TextBox();
             this.deathPlaceTextBox = new System.Windows.Forms.TextBox();
-            this.deathYearTextBox = new System.Windows.Forms.TextBox();
-            this.deathDayTextBox = new System.Windows.Forms.TextBox();
-            this.deathMonthTextBox = new System.Windows.Forms.TextBox();
             this.deathDate = new System.Windows.Forms.Label();
             this.deathCertificate = new System.Windows.Forms.Label();
             this.causeOfDeath = new System.Windows.Forms.Label();
@@ -68,9 +62,6 @@
             this.maleRadioButton = new System.Windows.Forms.RadioButton();
             this.birthCertificateTextBox = new System.Windows.Forms.TextBox();
             this.birthPlaceTextBox = new System.Windows.Forms.TextBox();
-            this.birthYearTextBox = new System.Windows.Forms.TextBox();
-            this.birthDayTextBox = new System.Windows.Forms.TextBox();
-            this.birthMonthTextBox = new System.Windows.Forms.TextBox();
             this.birthDate = new System.Windows.Forms.Label();
             this.birthCertificate = new System.Windows.Forms.Label();
             this.birthPlace = new System.Windows.Forms.Label();
@@ -101,6 +92,10 @@
             this.addPersonRelationshipComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.birthCalendar = new System.Windows.Forms.DateTimePicker();
+            this.deathCalendar = new System.Windows.Forms.DateTimePicker();
+            this.burialCalendar = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.questionBox.SuspendLayout();
             this.notes.SuspendLayout();
@@ -128,7 +123,7 @@
             // 
             this.questionBox.BackColor = System.Drawing.Color.Snow;
             this.questionBox.Controls.Add(this.questionTextBox);
-            this.questionBox.Location = new System.Drawing.Point(252, 565);
+            this.questionBox.Location = new System.Drawing.Point(458, 226);
             this.questionBox.Name = "questionBox";
             this.questionBox.Size = new System.Drawing.Size(200, 180);
             this.questionBox.TabIndex = 49;
@@ -146,9 +141,9 @@
             // 
             this.notes.BackColor = System.Drawing.Color.Snow;
             this.notes.Controls.Add(this.notesTextBox);
-            this.notes.Location = new System.Drawing.Point(25, 375);
+            this.notes.Location = new System.Drawing.Point(458, 438);
             this.notes.Name = "notes";
-            this.notes.Size = new System.Drawing.Size(200, 370);
+            this.notes.Size = new System.Drawing.Size(200, 252);
             this.notes.TabIndex = 48;
             this.notes.TabStop = false;
             // 
@@ -157,7 +152,7 @@
             this.notesTextBox.Location = new System.Drawing.Point(6, 19);
             this.notesTextBox.Multiline = true;
             this.notesTextBox.Name = "notesTextBox";
-            this.notesTextBox.Size = new System.Drawing.Size(184, 345);
+            this.notesTextBox.Size = new System.Drawing.Size(184, 227);
             this.notesTextBox.TabIndex = 1;
             // 
             // groupBox3
@@ -226,16 +221,14 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Snow;
+            this.groupBox2.Controls.Add(this.burialCalendar);
             this.groupBox2.Controls.Add(this.cemetaryTextBox);
             this.groupBox2.Controls.Add(this.burialPlaceTextBox);
-            this.groupBox2.Controls.Add(this.burialYearTextBox);
             this.groupBox2.Controls.Add(this.burialDate);
-            this.groupBox2.Controls.Add(this.burialDayTextBox);
-            this.groupBox2.Controls.Add(this.burialMonthTextBox);
             this.groupBox2.Controls.Add(this.burialCemetary);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.burialPlace);
-            this.groupBox2.Location = new System.Drawing.Point(252, 446);
+            this.groupBox2.Location = new System.Drawing.Point(254, 465);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 89);
             this.groupBox2.TabIndex = 45;
@@ -243,24 +236,17 @@
             // 
             // cemetaryTextBox
             // 
-            this.cemetaryTextBox.Location = new System.Drawing.Point(97, 59);
+            this.cemetaryTextBox.Location = new System.Drawing.Point(94, 59);
             this.cemetaryTextBox.Name = "cemetaryTextBox";
             this.cemetaryTextBox.Size = new System.Drawing.Size(100, 20);
             this.cemetaryTextBox.TabIndex = 40;
             // 
             // burialPlaceTextBox
             // 
-            this.burialPlaceTextBox.Location = new System.Drawing.Point(50, 37);
+            this.burialPlaceTextBox.Location = new System.Drawing.Point(94, 36);
             this.burialPlaceTextBox.Name = "burialPlaceTextBox";
             this.burialPlaceTextBox.Size = new System.Drawing.Size(100, 20);
             this.burialPlaceTextBox.TabIndex = 39;
-            // 
-            // burialYearTextBox
-            // 
-            this.burialYearTextBox.Location = new System.Drawing.Point(115, 13);
-            this.burialYearTextBox.Name = "burialYearTextBox";
-            this.burialYearTextBox.Size = new System.Drawing.Size(57, 20);
-            this.burialYearTextBox.TabIndex = 38;
             // 
             // burialDate
             // 
@@ -270,20 +256,6 @@
             this.burialDate.Size = new System.Drawing.Size(33, 13);
             this.burialDate.TabIndex = 13;
             this.burialDate.Text = "Date:";
-            // 
-            // burialDayTextBox
-            // 
-            this.burialDayTextBox.Location = new System.Drawing.Point(80, 13);
-            this.burialDayTextBox.Name = "burialDayTextBox";
-            this.burialDayTextBox.Size = new System.Drawing.Size(29, 20);
-            this.burialDayTextBox.TabIndex = 37;
-            // 
-            // burialMonthTextBox
-            // 
-            this.burialMonthTextBox.Location = new System.Drawing.Point(45, 13);
-            this.burialMonthTextBox.Name = "burialMonthTextBox";
-            this.burialMonthTextBox.Size = new System.Drawing.Size(29, 20);
-            this.burialMonthTextBox.TabIndex = 36;
             // 
             // burialCemetary
             // 
@@ -308,24 +280,22 @@
             this.burialPlace.AutoSize = true;
             this.burialPlace.Location = new System.Drawing.Point(6, 41);
             this.burialPlace.Name = "burialPlace";
-            this.burialPlace.Size = new System.Drawing.Size(37, 13);
+            this.burialPlace.Size = new System.Drawing.Size(66, 13);
             this.burialPlace.TabIndex = 4;
-            this.burialPlace.Text = "Place:";
+            this.burialPlace.Text = "Burial Place:";
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Snow;
+            this.groupBox1.Controls.Add(this.deathCalendar);
             this.groupBox1.Controls.Add(this.causeOfDeathTextBox);
             this.groupBox1.Controls.Add(this.deathCertificateTextBox);
             this.groupBox1.Controls.Add(this.deathPlaceTextBox);
-            this.groupBox1.Controls.Add(this.deathYearTextBox);
-            this.groupBox1.Controls.Add(this.deathDayTextBox);
-            this.groupBox1.Controls.Add(this.deathMonthTextBox);
             this.groupBox1.Controls.Add(this.deathDate);
             this.groupBox1.Controls.Add(this.deathCertificate);
             this.groupBox1.Controls.Add(this.causeOfDeath);
             this.groupBox1.Controls.Add(this.deathPlace);
-            this.groupBox1.Location = new System.Drawing.Point(252, 300);
+            this.groupBox1.Location = new System.Drawing.Point(254, 319);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 116);
             this.groupBox1.TabIndex = 46;
@@ -333,7 +303,7 @@
             // 
             // causeOfDeathTextBox
             // 
-            this.causeOfDeathTextBox.Location = new System.Drawing.Point(92, 88);
+            this.causeOfDeathTextBox.Location = new System.Drawing.Point(94, 88);
             this.causeOfDeathTextBox.Name = "causeOfDeathTextBox";
             this.causeOfDeathTextBox.Size = new System.Drawing.Size(100, 20);
             this.causeOfDeathTextBox.TabIndex = 35;
@@ -347,31 +317,10 @@
             // 
             // deathPlaceTextBox
             // 
-            this.deathPlaceTextBox.Location = new System.Drawing.Point(51, 40);
+            this.deathPlaceTextBox.Location = new System.Drawing.Point(94, 37);
             this.deathPlaceTextBox.Name = "deathPlaceTextBox";
             this.deathPlaceTextBox.Size = new System.Drawing.Size(100, 20);
             this.deathPlaceTextBox.TabIndex = 33;
-            // 
-            // deathYearTextBox
-            // 
-            this.deathYearTextBox.Location = new System.Drawing.Point(115, 13);
-            this.deathYearTextBox.Name = "deathYearTextBox";
-            this.deathYearTextBox.Size = new System.Drawing.Size(57, 20);
-            this.deathYearTextBox.TabIndex = 32;
-            // 
-            // deathDayTextBox
-            // 
-            this.deathDayTextBox.Location = new System.Drawing.Point(80, 13);
-            this.deathDayTextBox.Name = "deathDayTextBox";
-            this.deathDayTextBox.Size = new System.Drawing.Size(29, 20);
-            this.deathDayTextBox.TabIndex = 31;
-            // 
-            // deathMonthTextBox
-            // 
-            this.deathMonthTextBox.Location = new System.Drawing.Point(45, 13);
-            this.deathMonthTextBox.Name = "deathMonthTextBox";
-            this.deathMonthTextBox.Size = new System.Drawing.Size(29, 20);
-            this.deathMonthTextBox.TabIndex = 30;
             // 
             // deathDate
             // 
@@ -405,28 +354,26 @@
             this.deathPlace.AutoSize = true;
             this.deathPlace.Location = new System.Drawing.Point(6, 42);
             this.deathPlace.Name = "deathPlace";
-            this.deathPlace.Size = new System.Drawing.Size(37, 13);
+            this.deathPlace.Size = new System.Drawing.Size(69, 13);
             this.deathPlace.TabIndex = 4;
-            this.deathPlace.Text = "Place:";
+            this.deathPlace.Text = "Death Place:";
             // 
             // birthGroupBox
             // 
             this.birthGroupBox.BackColor = System.Drawing.Color.Snow;
+            this.birthGroupBox.Controls.Add(this.birthCalendar);
             this.birthGroupBox.Controls.Add(this.naSexRadioButton);
             this.birthGroupBox.Controls.Add(this.femaleRadioButton);
             this.birthGroupBox.Controls.Add(this.maleRadioButton);
             this.birthGroupBox.Controls.Add(this.birthCertificateTextBox);
             this.birthGroupBox.Controls.Add(this.birthPlaceTextBox);
-            this.birthGroupBox.Controls.Add(this.birthYearTextBox);
-            this.birthGroupBox.Controls.Add(this.birthDayTextBox);
-            this.birthGroupBox.Controls.Add(this.birthMonthTextBox);
             this.birthGroupBox.Controls.Add(this.birthDate);
             this.birthGroupBox.Controls.Add(this.birthCertificate);
             this.birthGroupBox.Controls.Add(this.birthPlace);
             this.birthGroupBox.Controls.Add(this.sex);
-            this.birthGroupBox.Location = new System.Drawing.Point(252, 156);
+            this.birthGroupBox.Location = new System.Drawing.Point(252, 183);
             this.birthGroupBox.Name = "birthGroupBox";
-            this.birthGroupBox.Size = new System.Drawing.Size(200, 114);
+            this.birthGroupBox.Size = new System.Drawing.Size(200, 106);
             this.birthGroupBox.TabIndex = 44;
             this.birthGroupBox.TabStop = false;
             // 
@@ -434,7 +381,7 @@
             // 
             this.naSexRadioButton.AutoSize = true;
             this.naSexRadioButton.Checked = true;
-            this.naSexRadioButton.Location = new System.Drawing.Point(140, 82);
+            this.naSexRadioButton.Location = new System.Drawing.Point(151, 83);
             this.naSexRadioButton.Name = "naSexRadioButton";
             this.naSexRadioButton.Size = new System.Drawing.Size(45, 17);
             this.naSexRadioButton.TabIndex = 34;
@@ -445,7 +392,7 @@
             // femaleRadioButton
             // 
             this.femaleRadioButton.AutoSize = true;
-            this.femaleRadioButton.Location = new System.Drawing.Point(82, 82);
+            this.femaleRadioButton.Location = new System.Drawing.Point(93, 83);
             this.femaleRadioButton.Name = "femaleRadioButton";
             this.femaleRadioButton.Size = new System.Drawing.Size(59, 17);
             this.femaleRadioButton.TabIndex = 33;
@@ -455,7 +402,7 @@
             // maleRadioButton
             // 
             this.maleRadioButton.AutoSize = true;
-            this.maleRadioButton.Location = new System.Drawing.Point(35, 82);
+            this.maleRadioButton.Location = new System.Drawing.Point(46, 83);
             this.maleRadioButton.Name = "maleRadioButton";
             this.maleRadioButton.Size = new System.Drawing.Size(48, 17);
             this.maleRadioButton.TabIndex = 32;
@@ -464,42 +411,23 @@
             // 
             // birthCertificateTextBox
             // 
-            this.birthCertificateTextBox.Location = new System.Drawing.Point(93, 57);
+            this.birthCertificateTextBox.Location = new System.Drawing.Point(93, 58);
             this.birthCertificateTextBox.Name = "birthCertificateTextBox";
             this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthCertificateTextBox.TabIndex = 31;
             // 
             // birthPlaceTextBox
             // 
-            this.birthPlaceTextBox.Location = new System.Drawing.Point(45, 35);
+            this.birthPlaceTextBox.Location = new System.Drawing.Point(93, 36);
             this.birthPlaceTextBox.Name = "birthPlaceTextBox";
             this.birthPlaceTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthPlaceTextBox.TabIndex = 30;
             // 
-            // birthYearTextBox
-            // 
-            this.birthYearTextBox.Location = new System.Drawing.Point(115, 13);
-            this.birthYearTextBox.Name = "birthYearTextBox";
-            this.birthYearTextBox.Size = new System.Drawing.Size(57, 20);
-            this.birthYearTextBox.TabIndex = 29;
-            // 
-            // birthDayTextBox
-            // 
-            this.birthDayTextBox.Location = new System.Drawing.Point(80, 13);
-            this.birthDayTextBox.Name = "birthDayTextBox";
-            this.birthDayTextBox.Size = new System.Drawing.Size(29, 20);
-            this.birthDayTextBox.TabIndex = 28;
-            // 
-            // birthMonthTextBox
-            // 
-            this.birthMonthTextBox.Location = new System.Drawing.Point(45, 13);
-            this.birthMonthTextBox.Name = "birthMonthTextBox";
-            this.birthMonthTextBox.Size = new System.Drawing.Size(29, 20);
-            this.birthMonthTextBox.TabIndex = 27;
-            // 
             // birthDate
             // 
             this.birthDate.AutoSize = true;
+            this.birthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthDate.ForeColor = System.Drawing.Color.Black;
             this.birthDate.Location = new System.Drawing.Point(6, 16);
             this.birthDate.Name = "birthDate";
             this.birthDate.Size = new System.Drawing.Size(33, 13);
@@ -509,7 +437,7 @@
             // birthCertificate
             // 
             this.birthCertificate.AutoSize = true;
-            this.birthCertificate.Location = new System.Drawing.Point(6, 60);
+            this.birthCertificate.Location = new System.Drawing.Point(6, 61);
             this.birthCertificate.Name = "birthCertificate";
             this.birthCertificate.Size = new System.Drawing.Size(81, 13);
             this.birthCertificate.TabIndex = 26;
@@ -518,16 +446,18 @@
             // birthPlace
             // 
             this.birthPlace.AutoSize = true;
-            this.birthPlace.Location = new System.Drawing.Point(6, 38);
+            this.birthPlace.Location = new System.Drawing.Point(6, 39);
             this.birthPlace.Name = "birthPlace";
-            this.birthPlace.Size = new System.Drawing.Size(37, 13);
+            this.birthPlace.Size = new System.Drawing.Size(61, 13);
             this.birthPlace.TabIndex = 4;
-            this.birthPlace.Text = "Place:";
+            this.birthPlace.Text = "Birth Place:";
             // 
             // sex
             // 
             this.sex.AutoSize = true;
-            this.sex.Location = new System.Drawing.Point(7, 82);
+            this.sex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sex.ForeColor = System.Drawing.Color.Black;
+            this.sex.Location = new System.Drawing.Point(7, 83);
             this.sex.Name = "sex";
             this.sex.Size = new System.Drawing.Size(28, 13);
             this.sex.TabIndex = 3;
@@ -542,7 +472,7 @@
             this.nameGroupBox.Controls.Add(this.firstName);
             this.nameGroupBox.Controls.Add(this.middleName);
             this.nameGroupBox.Controls.Add(this.lastName);
-            this.nameGroupBox.Location = new System.Drawing.Point(252, 36);
+            this.nameGroupBox.Location = new System.Drawing.Point(252, 63);
             this.nameGroupBox.Name = "nameGroupBox";
             this.nameGroupBox.Size = new System.Drawing.Size(200, 90);
             this.nameGroupBox.TabIndex = 43;
@@ -550,33 +480,35 @@
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(43, 61);
+            this.lastNameTextBox.Location = new System.Drawing.Point(58, 61);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lastNameTextBox.Size = new System.Drawing.Size(136, 20);
             this.lastNameTextBox.TabIndex = 12;
             // 
             // middleNameTextBox
             // 
-            this.middleNameTextBox.Location = new System.Drawing.Point(53, 37);
+            this.middleNameTextBox.Location = new System.Drawing.Point(58, 37);
             this.middleNameTextBox.Name = "middleNameTextBox";
-            this.middleNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.middleNameTextBox.Size = new System.Drawing.Size(136, 20);
             this.middleNameTextBox.TabIndex = 11;
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(41, 13);
+            this.firstNameTextBox.Location = new System.Drawing.Point(58, 13);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.firstNameTextBox.Size = new System.Drawing.Size(136, 20);
             this.firstNameTextBox.TabIndex = 10;
             // 
             // firstName
             // 
             this.firstName.AutoSize = true;
+            this.firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstName.ForeColor = System.Drawing.Color.Red;
             this.firstName.Location = new System.Drawing.Point(6, 16);
             this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(29, 13);
+            this.firstName.Size = new System.Drawing.Size(40, 13);
             this.firstName.TabIndex = 0;
-            this.firstName.Text = "First:";
+            this.firstName.Text = "First:*";
             // 
             // middleName
             // 
@@ -590,16 +522,18 @@
             // lastName
             // 
             this.lastName.AutoSize = true;
+            this.lastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastName.ForeColor = System.Drawing.Color.Red;
             this.lastName.Location = new System.Drawing.Point(7, 64);
             this.lastName.Name = "lastName";
-            this.lastName.Size = new System.Drawing.Size(30, 13);
+            this.lastName.Size = new System.Drawing.Size(40, 13);
             this.lastName.TabIndex = 1;
-            this.lastName.Text = "Last:";
+            this.lastName.Text = "Last:*";
             // 
             // saveButton
             // 
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(118, 751);
+            this.saveButton.Location = new System.Drawing.Point(164, 703);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(107, 33);
             this.saveButton.TabIndex = 51;
@@ -610,7 +544,7 @@
             // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(252, 751);
+            this.cancelButton.Location = new System.Drawing.Point(298, 703);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(91, 33);
             this.cancelButton.TabIndex = 52;
@@ -641,7 +575,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 348);
+            this.label2.Location = new System.Drawing.Point(454, 411);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 24);
             this.label2.TabIndex = 56;
@@ -651,7 +585,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(248, 9);
+            this.label3.Location = new System.Drawing.Point(248, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 24);
             this.label3.TabIndex = 57;
@@ -661,7 +595,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(248, 129);
+            this.label4.Location = new System.Drawing.Point(248, 156);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 24);
             this.label4.TabIndex = 58;
@@ -671,7 +605,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(248, 273);
+            this.label5.Location = new System.Drawing.Point(250, 292);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 24);
             this.label5.TabIndex = 59;
@@ -681,7 +615,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(248, 419);
+            this.label6.Location = new System.Drawing.Point(250, 438);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 24);
             this.label6.TabIndex = 60;
@@ -691,7 +625,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(248, 538);
+            this.label7.Location = new System.Drawing.Point(454, 199);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 24);
             this.label7.TabIndex = 57;
@@ -720,7 +654,7 @@
             this.groupBox4.Controls.Add(this.removeRelationshipComboBox);
             this.groupBox4.Location = new System.Drawing.Point(458, 36);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 214);
+            this.groupBox4.Size = new System.Drawing.Size(200, 158);
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
             // 
@@ -786,12 +720,48 @@
             this.label9.TabIndex = 55;
             this.label9.Text = "Delete:";
             // 
+            // birthCalendar
+            // 
+            this.birthCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.birthCalendar.Location = new System.Drawing.Point(52, 10);
+            this.birthCalendar.Name = "birthCalendar";
+            this.birthCalendar.Size = new System.Drawing.Size(142, 20);
+            this.birthCalendar.TabIndex = 35;
+            // 
+            // deathCalendar
+            // 
+            this.deathCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.deathCalendar.Location = new System.Drawing.Point(52, 10);
+            this.deathCalendar.Name = "deathCalendar";
+            this.deathCalendar.Size = new System.Drawing.Size(142, 20);
+            this.deathCalendar.TabIndex = 36;
+            // 
+            // burialCalendar
+            // 
+            this.burialCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.burialCalendar.Location = new System.Drawing.Point(52, 10);
+            this.burialCalendar.Name = "burialCalendar";
+            this.burialCalendar.Size = new System.Drawing.Size(142, 20);
+            this.burialCalendar.TabIndex = 41;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(250, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(167, 24);
+            this.label14.TabIndex = 62;
+            this.label14.Text = "Required Fields*";
+            // 
             // AddModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(798, 807);
+            this.ClientSize = new System.Drawing.Size(683, 742);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -872,22 +842,13 @@
         private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.TextBox cemetaryTextBox;
         private System.Windows.Forms.TextBox burialPlaceTextBox;
-        private System.Windows.Forms.TextBox burialYearTextBox;
-        private System.Windows.Forms.TextBox burialDayTextBox;
-        private System.Windows.Forms.TextBox burialMonthTextBox;
         private System.Windows.Forms.TextBox causeOfDeathTextBox;
         private System.Windows.Forms.TextBox deathCertificateTextBox;
         private System.Windows.Forms.TextBox deathPlaceTextBox;
-        private System.Windows.Forms.TextBox deathYearTextBox;
-        private System.Windows.Forms.TextBox deathDayTextBox;
-        private System.Windows.Forms.TextBox deathMonthTextBox;
         private System.Windows.Forms.RadioButton femaleRadioButton;
         private System.Windows.Forms.RadioButton maleRadioButton;
         private System.Windows.Forms.TextBox birthCertificateTextBox;
         private System.Windows.Forms.TextBox birthPlaceTextBox;
-        private System.Windows.Forms.TextBox birthYearTextBox;
-        private System.Windows.Forms.TextBox birthDayTextBox;
-        private System.Windows.Forms.TextBox birthMonthTextBox;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.TextBox middleNameTextBox;
         private System.Windows.Forms.TextBox firstNameTextBox;
@@ -911,5 +872,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button addRelationshipButton;
+        private System.Windows.Forms.DateTimePicker burialCalendar;
+        private System.Windows.Forms.DateTimePicker deathCalendar;
+        private System.Windows.Forms.DateTimePicker birthCalendar;
+        private System.Windows.Forms.Label label14;
     }
 }

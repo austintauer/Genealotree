@@ -29,9 +29,9 @@ namespace GenealoTree
         public string[] notes;
         public string[] questions;
 
-        public string birthDate { get; set; }
-        public string deathDate { get; set; }
-        public string burialDate{ get; set; }
+        public DateTime birthDate { get; set; }
+        public DateTime deathDate { get; set; }
+        public DateTime burialDate { get; set; }
 
         public List<Relationship> relationships { get; set; }
 
@@ -50,9 +50,9 @@ namespace GenealoTree
             deathCertificateNumber = "";
             socialSecurityNumber = "";
             causeOfDeath = "";
-            birthDate = "";
-            deathDate = "";
-            burialDate = "";
+            birthDate = DateTimePicker.MinimumDateTime;
+            deathDate = DateTimePicker.MinimumDateTime;
+            burialDate = DateTimePicker.MinimumDateTime;
 
             profilePicturePath = @"../../Images/banana-cat.png";
             militaryService = new String[0];
@@ -68,29 +68,29 @@ namespace GenealoTree
             instanciate();
         }
 
-        /**
-         * Splits out a person with predetermined values.
-         * */
-        public Person(char Austin)
-        {
-            instanciate();
-            firstName = middleName = lastName = birthPlace = deathPlace = burialPlace = cemetery =
+        ///**
+        // * Splits out a person with predetermined values.
+        // * */
+        //public Person(char Austin)
+        //{
+        //    instanciate();
+        //    firstName = middleName = lastName = birthPlace = deathPlace = burialPlace = cemetery =
 
-            birthCertificateNumber = deathCertificateNumber = socialSecurityNumber = causeOfDeath = "Austin";
-            sex = null;
+        //    birthCertificateNumber = deathCertificateNumber = socialSecurityNumber = causeOfDeath = "Austin";
+        //    sex = null;
 
-            profilePicturePath = @"../../Images/banana-cat.png";
-            birthDate = "01011990";
-            deathDate = "02021852";
-            burialDate = "05052036";
+        //    profilePicturePath = @"../../Images/banana-cat.png";
+        //    birthDate = "01011990";
+        //    deathDate = "02021852";
+        //    burialDate = "05052036";
         
 
-            militaryService = new string[] { "military service" };
-            profession = new string[] { "profession" };
-            notes = new string[] { "notes" };
-            questions = new string[] { "questions" };
-        }
-        public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, string dob, string dod, string doburial)
+        //    militaryService = new string[] { "military service" };
+        //    profession = new string[] { "profession" };
+        //    notes = new string[] { "notes" };
+        //    questions = new string[] { "questions" };
+        //}
+        public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, DateTime dob, DateTime dod, DateTime doburial)
         {
             instanciate();
             firstName = fname;

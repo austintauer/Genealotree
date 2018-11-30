@@ -41,6 +41,15 @@ namespace GenealoTree
 
                 profilePictureBox.Visible = false;
             }
+
+            if (person == null)
+            {
+                birthCalendar.Value = DateTime.Today;
+                deathCalendar.Value = DateTime.Today;
+                burialCalendar.Value = DateTime.Today;
+            }
+            
+            
         }
 
         private void profilePictureBox_Click(object sender, EventArgs e)
@@ -51,7 +60,11 @@ namespace GenealoTree
             {
                 return;
             }*/
-            profilePictureBox.Image = new Bitmap(ofd.FileName);
+            if (!ofd.FileName.Equals(""))
+            {
+                profilePictureBox.Image = new Bitmap(ofd.FileName);
+            }
+            
         }
 
         private void AddModifyForm_Load(object sender, EventArgs e)
@@ -76,35 +89,6 @@ namespace GenealoTree
 
                 profilePictureBox.Visible = false;
             }
-
-
-            string birthm = "";
-            string birthd = "";
-            string birthy = "";
-            string deathm = "";
-            string deathd = "";
-            string deathy = "";
-            string burialm = "";
-            string buriald = "";
-            string burialy = "";
-            try
-            {
-                birthm = person.birthDate.Substring(0, 2);
-                birthd = person.birthDate.Substring(2, 2);
-                birthy = person.birthDate.Substring(4);
-
-                deathm = person.deathDate.Substring(0, 2);
-                deathd = person.deathDate.Substring(2, 2);
-                deathy = person.deathDate.Substring(4);
-
-                burialm = person.burialDate.Substring(0, 2);
-                buriald = person.burialDate.Substring(2, 2);
-                burialy = person.burialDate.Substring(4);
-            }
-            catch (ArgumentOutOfRangeException a)
-            {
-
-            }
             
 
             //populate name group
@@ -112,9 +96,7 @@ namespace GenealoTree
             middleNameTextBox.Text = person.middleName;
             lastNameTextBox.Text = person.lastName;
             //populate birth group
-            birthMonthTextBox.Text = birthm;
-            birthDayTextBox.Text = birthd;
-            birthYearTextBox.Text = birthy;
+            birthCalendar.Value = person.birthDate;
             birthPlaceTextBox.Text = person.birthPlace;
             birthCertificateTextBox.Text = person.birthCertificateNumber;
             //radio button sex
@@ -137,16 +119,12 @@ namespace GenealoTree
                     break;
             }
             //populate death group
-            deathMonthTextBox.Text = deathm;
-            deathDayTextBox.Text = deathd;
-            deathYearTextBox.Text = deathy;
+            deathCalendar.Value = person.deathDate;
             deathPlaceTextBox.Text = person.deathPlace;
             deathCertificateTextBox.Text = person.deathCertificateNumber;
             causeOfDeathTextBox.Text = person.causeOfDeath;
             //populate burial group
-            burialMonthTextBox.Text = burialm;
-            burialDayTextBox.Text = buriald;
-            burialYearTextBox.Text = burialy;
+            burialCalendar.Value = person.burialDate;
             burialPlaceTextBox.Text = person.burialPlace;
             cemetaryTextBox.Text = person.cemetery;
             //populate questions group
@@ -216,6 +194,45 @@ namespace GenealoTree
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            //validate that birth is not in the future
+            if (DateTime.Compare(birthCalendar.Value, DateTime.Today) > 0)
+            {
+                MessageBox.Show("The birth date cannot be a future date.", "Date Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //validate that death is not in the future
+            if (DateTime.Compare(deathCalendar.Value, DateTime.Today) > 0)
+            {
+                MessageBox.Show("The death date cannot be a future date.", "Date Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //validate birth date versus death date
+            if (DateTime.Compare(birthCalendar.Value, deathCalendar.Value) > 0)
+            {
+                MessageBox.Show("The birth date must be earlier than or the same as the death date.", "Date Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //validate death date versus burial date
+            if (DateTime.Compare(deathCalendar.Value, burialCalendar.Value) > 0)
+            {
+                MessageBox.Show("The death date must be earlier than or the same as the burial date.", "Date Input Error", MessageBoxButtons.OK ,MessageBoxIcon.Error);
+                return;
+            }
+            //validate that first name is present
+            if (firstNameTextBox.Text.Equals("") || firstNameTextBox.Text.Trim().Equals(""))
+            {
+                firstNameTextBox.Text = "";
+                MessageBox.Show("The first name is a required field.", "Required Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //validate that last name is present
+            if (lastNameTextBox.Text.Equals("") || lastNameTextBox.Text.Trim().Equals(""))
+            {
+                lastNameTextBox.Text = "";
+                MessageBox.Show("The last name is a required field.", "Required Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Person p = new Person();
             //name box fields
             p.firstName = firstNameTextBox.Text;
@@ -223,7 +240,7 @@ namespace GenealoTree
             p.lastName = lastNameTextBox.Text;
 
             //birth box fields
-            p.birthDate = birthMonthTextBox.Text + birthDayTextBox.Text + birthYearTextBox.Text;
+            p.birthDate = birthCalendar.Value;
             p.birthPlace = birthPlaceTextBox.Text;
             p.birthCertificateNumber = birthCertificateTextBox.Text;
             //sex
@@ -248,13 +265,13 @@ namespace GenealoTree
             p.sex = sex;
             
             //death group fields
-            p.deathDate = deathMonthTextBox.Text + deathDayTextBox.Text + deathYearTextBox.Text;
+            p.deathDate = deathCalendar.Value;
             p.deathPlace = deathPlaceTextBox.Text;
             p.deathCertificateNumber = deathCertificateTextBox.Text;
             p.causeOfDeath = causeOfDeathTextBox.Text;
 
             //burial group fields
-            p.burialDate = burialMonthTextBox.Text + burialDayTextBox.Text + burialYearTextBox.Text;
+            p.burialDate = burialCalendar.Value;
             p.burialPlace = burialPlaceTextBox.Text;
             p.cemetery = cemetaryTextBox.Text;
 
@@ -353,5 +370,8 @@ namespace GenealoTree
             }
             
         }
+
+        
+
     }
 }
