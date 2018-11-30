@@ -137,12 +137,12 @@ namespace GenealoTree
             //populate military service
             foreach (String s in person.militaryService)
             {
-                militaryServiceTextBox.Text += s + "\n";
+                militaryListBox.Items.Add(s);
             }
             //populate profession
             foreach (String s in person.profession)
             {
-                professionTextBox.Text += s + "\n";
+                professionListBox.Items.Add(s);
             }
             //populate notes group
             foreach (String s in person.notes)
@@ -277,25 +277,15 @@ namespace GenealoTree
 
             //additional information fields
             p.socialSecurityNumber = ssnTextBox.Text;
-            //military service
-            if (militaryServiceTextBox.Text != null)
-            {
-                p.militaryService = militaryServiceTextBox.Text.Split(',');
-            }
-            else
-            {
-                p.militaryService = new string[] { "none" };
-            }
-            //profession
-            if (professionTextBox.Text != null)
-            {
-                p.profession = professionTextBox.Text.Split(',');
-            }
-            else
-            {
-                p.profession = new string[] { "none" };
-            }
 
+            //military service
+
+            person.militaryService = militaryListBox.Items.Cast<string>().ToList();
+            
+            //profession
+
+            person.profession = professionListBox.Items.Cast<string>().ToList();
+            
             //notes
             if (notesTextBox.Text != null)
             {
@@ -328,29 +318,6 @@ namespace GenealoTree
 
         private void RemoveRelationshipComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (removeRelationshipComboBox.SelectedIndex != -1)
-            {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove " + removeRelationshipComboBox.SelectedText + "?", "Remove Relationship", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-
-                    person.relationships.Remove( ((PersonRelationship) removeRelationshipComboBox.SelectedItem).relationship);
-
-                    ((PersonRelationship)removeRelationshipComboBox.SelectedItem).person.relationships.Remove(((PersonRelationship)removeRelationshipComboBox.SelectedItem).relationship);
-
-                    removeRelationshipComboBox.Items.Remove(removeRelationshipComboBox.SelectedItem);
-                    
-                    
-
-                    removeRelationshipComboBox.SelectedIndex = -1;
-
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    removeRelationshipComboBox.SelectedIndex = -1;
-                }
-            }
-
             
         }
 
@@ -371,7 +338,58 @@ namespace GenealoTree
             
         }
 
-        
+        private void addMilitaryButton_Click(object sender, EventArgs e)
+        {
+            militaryListBox.Items.Add(newMilitaryTextBox.Text);
+        }
 
+        private void removeMilitaryButton_Click(object sender, EventArgs e)
+        {
+            if (militaryListBox.SelectedIndex != -1)
+            {
+                militaryListBox.Items.Remove(militaryListBox.SelectedItem);
+            }
+        }
+
+        private void removeProfessionButton_Click(object sender, EventArgs e)
+        {
+            if (professionListBox.SelectedIndex != -1)
+            {
+                professionListBox.Items.Remove(professionListBox.SelectedItem);
+            }
+        }
+
+        private void addProfessionButton_Click(object sender, EventArgs e)
+        {
+            professionListBox.Items.Add(professionTextBox.Text);
+        }
+
+        private void removeRelationshipButton_Click(object sender, EventArgs e)
+        {
+            if (removeRelationshipComboBox.SelectedIndex != -1)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove " + removeRelationshipComboBox.SelectedItem.ToString() + "?", "Remove Relationship", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    person.relationships.Remove(((PersonRelationship)removeRelationshipComboBox.SelectedItem).relationship);
+
+                    ((PersonRelationship)removeRelationshipComboBox.SelectedItem).person.relationships.Remove(((PersonRelationship)removeRelationshipComboBox.SelectedItem).relationship);
+
+                    removeRelationshipComboBox.Items.Remove(removeRelationshipComboBox.SelectedItem);
+
+                    removeRelationshipComboBox.Text = "";
+                    
+                    removeRelationshipComboBox.SelectedIndex = -1;
+
+                    
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    removeRelationshipComboBox.SelectedIndex = -1;
+                }
+            }
+        }
     }
 }

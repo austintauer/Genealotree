@@ -24,8 +24,8 @@ namespace GenealoTree
         public string socialSecurityNumber { get; set; }
         public string causeOfDeath { get; set; }
 
-        public string[] militaryService;
-        public string[] profession;
+        public List<string> militaryService;
+        public List<string> profession;
         public string[] notes;
         public string[] questions;
 
@@ -55,8 +55,8 @@ namespace GenealoTree
             burialDate = DateTimePicker.MinimumDateTime;
 
             profilePicturePath = @"../../Images/banana-cat.png";
-            militaryService = new String[0];
-            profession = new String[0];
+            militaryService = new List<string>();
+            profession = new List<string>();
             notes = new String[0];
             questions = new String[0];
 
@@ -90,7 +90,7 @@ namespace GenealoTree
         //    notes = new string[] { "notes" };
         //    questions = new string[] { "questions" };
         //}
-        public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, DateTime dob, DateTime dod, DateTime doburial)
+        public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, DateTime dob, DateTime dod, DateTime doburial, List<string> militaryService, List<string> profession)
         {
             instanciate();
             firstName = fname;
@@ -110,8 +110,8 @@ namespace GenealoTree
             burialDate = doburial;
 
             profilePicturePath = @"../../Images/banana-cat.png";
-            militaryService = new String[] { "military service" };
-            profession = new String[] { "profession" };
+            this.militaryService = militaryService;
+            this.profession = profession;
             
         }
 
