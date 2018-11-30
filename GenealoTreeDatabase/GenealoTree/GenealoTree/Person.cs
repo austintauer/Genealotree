@@ -9,6 +9,7 @@ namespace GenealoTree
 {
     public class Person
     {
+        public int id { get; set; }
         public string firstName { get; set; }
         public string middleName { get; set; }
         public string lastName { get; set; }
@@ -32,20 +33,47 @@ namespace GenealoTree
         public string deathDate { get; set; }
         public string burialDate{ get; set; }
 
+        public List<Relationship> relationships { get; set; }
 
 
-
-public Person()
+        public void instanciate()
         {
+            firstName = "";
+            middleName = "";
+            lastName = "";
+            sex = "";
+            birthPlace = "";
+            deathPlace = "";
+            burialPlace = "";
+            cemetery = "";
+            birthCertificateNumber = "";
+            deathCertificateNumber = "";
+            socialSecurityNumber = "";
+            causeOfDeath = "";
+            birthDate = "";
+            deathDate = "";
+            burialDate = "";
+
             profilePicturePath = @"../../Images/banana-cat.png";
+            militaryService = new String[0];
+            profession = new String[0];
+            notes = new String[0];
+            questions = new String[0];
+
+            relationships = new List<Relationship>();
+        }
+
+        public Person()
+        {
+            instanciate();
         }
 
         /**
          * Splits out a person with predetermined values.
          * */
-public Person(char Austin)
+        public Person(char Austin)
         {
-
+            instanciate();
             firstName = middleName = lastName = birthPlace = deathPlace = burialPlace = cemetery =
 
             birthCertificateNumber = deathCertificateNumber = socialSecurityNumber = causeOfDeath = "Austin";
@@ -62,8 +90,9 @@ public Person(char Austin)
             notes = new string[] { "notes" };
             questions = new string[] { "questions" };
         }
-public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, string dob, string dod, string doburial)
+        public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, string dob, string dod, string doburial)
         {
+            instanciate();
             firstName = fname;
             middleName = mname;
             lastName = lname;
@@ -83,6 +112,7 @@ public Person(string fname, string mname, string lname, string s, string birth, 
             profilePicturePath = @"../../Images/banana-cat.png";
             militaryService = new String[] { "military service" };
             profession = new String[] { "profession" };
+            
         }
 
         public GroupBox createGroupBox()
@@ -117,6 +147,11 @@ public Person(string fname, string mname, string lname, string s, string birth, 
         {
 
             return p.firstName.Equals(this.firstName) && p.middleName.Equals(this.middleName) && p.lastName.Equals(this.lastName);
+        }
+
+        public override string ToString()
+        {
+            return firstName + " " + lastName;
         }
     }
 }

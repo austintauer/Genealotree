@@ -13,10 +13,12 @@ namespace GenealoTree
     public partial class PersonalInformationForm : Form
     {
         Person person;
-        public PersonalInformationForm(Person familyMember)
+        List<Person> people;
+        public PersonalInformationForm(List<Person> people, Person familyMember)
         {
             InitializeComponent();
             person = familyMember;
+            this.people = people;
 
             Text = person.firstName + " " + person.lastName + "'s Personal Information";
             
@@ -43,28 +45,40 @@ namespace GenealoTree
             causeOfDeathLabel.Text = person.causeOfDeath;
 
             militaryServiceLabel.Text = "";
-            foreach (String s in person.militaryService)
+            if (person.militaryService != null)
             {
-                militaryServiceLabel.Text += s + "\n";
+                foreach (String s in person.militaryService)
+                {
+                    militaryServiceLabel.Text += s + "\n";
+                }
             }
 
             professionLabel.Text = "";
-            foreach (String s in person.profession)
+            if (person.profession != null)
             {
-                professionLabel.Text += s + "\n";
+                foreach (String s in person.profession)
+                {
+                    professionLabel.Text += s + "\n";
+                }
             }
 
             notesLabel.Text = "";
-            foreach (String s in person.notes)
+            if (person.notes != null)
             {
-                notesLabel.Text += s + "\n";
+                foreach (String s in person.notes)
+                {
+                    notesLabel.Text += s + "\n";
+                }
             }
 
             questionsLabel.Text = "";
-            foreach (String s in person.questions)
+            if (person.questions != null)
             {
-                questionsLabel.Text += s + "\n";
-            }       
+                foreach (String s in person.questions)
+                {
+                    questionsLabel.Text += s + "\n";
+                }
+            }
 
         }
 
@@ -81,7 +95,7 @@ namespace GenealoTree
         private void selectButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            SelectionViewForm tree = new SelectionViewForm(person);
+            RelationshipForm tree = new RelationshipForm(people, person);
             tree.ShowDialog();
             this.Close();
         }
@@ -89,7 +103,7 @@ namespace GenealoTree
         private void editButton_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            AddModifyForm edit = new AddModifyForm(person);
+            AddModifyForm edit = new AddModifyForm(people, person);
             edit.ShowDialog();
             this.Close();
         }

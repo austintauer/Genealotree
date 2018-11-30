@@ -1,6 +1,6 @@
 ﻿namespace GenealoTree
 {
-    partial class SelectionViewForm
+    partial class RelationshipForm
     {
         /// <summary>
         /// Required designer variable.

@@ -19,13 +19,13 @@ namespace GenealoTree
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Form f1 = new AddModifyForm();
+            Form f1 = new AddModifyForm(null);
             f1.Show();
         }
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            Form f1 = new SelectionViewForm(null);
+            Form f1 = new RelationshipForm(null, null);
             f1.Show();
         }
     }

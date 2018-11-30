@@ -10,36 +10,11 @@ using System.Windows.Forms;
 
 namespace GenealoTree
 {
-    public partial class SelectionViewForm : Form
+    public partial class RelationshipForm : Form
     {
-        Person selected = null;
-
-        Person[] persons = new Person[4];
-        Relationship[] relationships = new Relationship[4];
-
-        public SelectionViewForm(Person p)
-        {
-            InitializeComponent();
-            persons[0] = new Person('a');
-            persons[1] = new Person('a');
-            persons[2] = new Person('a');
-            persons[3] = new Person('a');
-
-            persons[1].firstName = "Emily";
-            persons[2].firstName = "Taylor";
-            persons[3].firstName = "Kevin";
-            persons[0].sex = persons[3].sex = "Male";
-            persons[1].sex = persons[2].sex = "Female";
-
-            relationships[0] = new Relationship(persons[0], persons[1], "ParentChild");
-            relationships[1] = new Relationship(persons[1], persons[2], "ParentChild");
-            relationships[2] = new Relationship(persons[0], persons[3], "Sibling");
-            relationships[3] = new Relationship(persons[3], persons[1], "ParentChild");
-
-            changeSelected(p);
-        }
-
-        private void SelectionViewForm_Load(object sender, EventArgs e)
+        Person person = null;
+        List<Person> people = null;
+        public RelationshipForm(List<Person> people, Person person)
         {
             InitializeComponent();
             /*persons[0] = new Person('a');
@@ -58,39 +33,51 @@ namespace GenealoTree
             relationships[2] = new Relationship(persons[0], persons[3], "Sibling");
             relationships[3] = new Relationship(persons[3], persons[1], "ParentChild");*/
 
-            changeSelected(selected);
+            this.person = person;
+            this.people = people;
+            changeSelected(person);
+        }
+
+        private void SelectionViewForm_Load(object sender, EventArgs e)
+        {
+            InitializeComponent();
+            
+
+            changeSelected(person);
         }
 
 
-        private void changeSelected(Person p)
+        private void changeSelected(Person person)
         {
-            selected = p;
             this.Controls.Clear();
+
+
+            List<Relationship> relationships = person.relationships;
 
             List<Relationship> parentRelationShips = new List<Relationship>();
             List<Relationship> childRelationShips = new List<Relationship>();
             List<Relationship> siblingRelationShips = new List<Relationship>();
 
-            if (selected == null)
+            if (person == null)
             {
-                selected = persons[0];
+                person = people.First();
             }
-            /*if (selected == null)
+            /*if (person == null)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
             }*/
 
             foreach (Relationship r in relationships)
             {
-                if (r.person2.equals(selected) && r.relationshipType.Equals("ParentChild"))
+                if (r.id == person.id && r.type.Equals("Parent"))
                 {
                     parentRelationShips.Add(r);
                 }
-                else if (r.person1.equals(selected) && r.relationshipType.Equals("ParentChild"))
+                else if (r.id == person.id && r.type.Equals("Child"))
                 {
                     childRelationShips.Add(r);
                 }
-                else if ((r.person1.equals(selected) || r.person2.equals(selected)) && r.relationshipType.Equals("Sibling"))
+                else if (r.id == person.id && r.type.Equals("Sibling"))
                 {
                     siblingRelationShips.Add(r);
                 }
@@ -104,12 +91,23 @@ namespace GenealoTree
             this.Controls.Add(parentLabel);
 
             int index = 0;
+
+            
             foreach (Relationship r in parentRelationShips)
             {
-                GroupBox parentBox = r.person1.createGroupBox();
+                Person relationshipPerson = new Person();
+                foreach (Person p in people)
+                {
+                    if (p.id == r.id)
+                    {
+                        relationshipPerson = p;
+                    }
+                }
+
+                GroupBox parentBox = relationshipPerson.createGroupBox();
                 parentBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
                 {
-                    changeSelected(r.person1);
+                    changeSelected(relationshipPerson);
                 };
 
 
@@ -126,10 +124,10 @@ namespace GenealoTree
             siblingLabel.Location = new Point(10, 150);
             this.Controls.Add(siblingLabel);
 
-            GroupBox selBox = selected.createGroupBox();
+            GroupBox selBox = person.createGroupBox();
             selBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
             {
-                viewDetails(selected);
+                viewDetails(person);
             };
             selBox.Controls.OfType<Button>().ToArray()[0].Text = "View Details";
             selBox.Location = new Point(200, 150);
@@ -143,23 +141,32 @@ namespace GenealoTree
             index = 0;
             foreach (Relationship r in siblingRelationShips)
             {
-                GroupBox siblingBox;
-                if (r.person1 == selected)
+                Person relationshipPerson = new Person();
+                foreach (Person p in people)
                 {
-                    siblingBox = r.person2.createGroupBox();
+                    if (p.id == r.id)
+                    {
+                        relationshipPerson = p;
+                    }
+                }
+
+                GroupBox siblingBox;
+                if (relationshipPerson == person)
+                {
+                    siblingBox = relationshipPerson.createGroupBox();
 
                     siblingBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
                     {
-                        changeSelected(r.person2);
+                        changeSelected(relationshipPerson);
                     };
                 }
                 else
                 {
-                    siblingBox = r.person1.createGroupBox();
+                    siblingBox = relationshipPerson.createGroupBox();
 
                     siblingBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
                     {
-                        changeSelected(r.person1);
+                        changeSelected(relationshipPerson);
                     };
                 }
 
@@ -181,10 +188,19 @@ namespace GenealoTree
             index = 0;
             foreach (Relationship r in childRelationShips)
             {
-                GroupBox childBox = r.person2.createGroupBox();
+                Person relationshipPerson = new Person();
+                foreach (Person p in people)
+                {
+                    if (p.id == r.id)
+                    {
+                        relationshipPerson = p;
+                    }
+                }
+
+                GroupBox childBox = relationshipPerson.createGroupBox();
                 childBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
                 {
-                    changeSelected(r.person2);
+                    changeSelected(relationshipPerson);
                 };
                 childBox.Location = new Point(index * 120 + 200, 280);
                 index++;
@@ -195,7 +211,7 @@ namespace GenealoTree
         public void viewDetails(Person p)
         {
             //this.Hide();
-            PersonalInformationForm details = new PersonalInformationForm(p);
+            PersonalInformationForm details = new PersonalInformationForm(people, p);
             details.ShowDialog();
             this.Close();
         }

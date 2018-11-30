@@ -84,6 +84,7 @@
             this.lastName = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.relationshipListBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.questionBox.SuspendLayout();
             this.notes.SuspendLayout();
@@ -605,12 +606,21 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // relationshipListBox
+            // 
+            this.relationshipListBox.FormattingEnabled = true;
+            this.relationshipListBox.Location = new System.Drawing.Point(551, 9);
+            this.relationshipListBox.Name = "relationshipListBox";
+            this.relationshipListBox.Size = new System.Drawing.Size(167, 134);
+            this.relationshipListBox.TabIndex = 53;
+            // 
             // AddModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(471, 668);
+            this.ClientSize = new System.Drawing.Size(741, 668);
+            this.Controls.Add(this.relationshipListBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.profilePictureBox);
@@ -701,5 +711,6 @@
         private System.Windows.Forms.RadioButton naSexRadioButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ListBox relationshipListBox;
     }
 }

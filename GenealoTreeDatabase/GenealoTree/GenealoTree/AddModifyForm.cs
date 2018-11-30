@@ -13,12 +13,18 @@ namespace GenealoTree
 {
     public partial class AddModifyForm : Form
     {
-        public AddModifyForm(Person p = null)
+        List<Person> people;
+        Person person;
+        public AddModifyForm(List<Person> people, Person person = null)
         {
             InitializeComponent();
-            if (p != null)
+
+            this.person = person;
+            this.people = people;
+
+            if (person != null)
             {
-                populate(p);
+                populate();
             }
             Button profilePictureButton;
 
@@ -53,9 +59,9 @@ namespace GenealoTree
             
         }
 
-        public void populate(Person p)
+        public void populate()
         {
-            profilePictureBox.Image = Image.FromFile(p.profilePicturePath);
+            profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
 
             Button profilePictureButton;
 
@@ -71,30 +77,48 @@ namespace GenealoTree
                 profilePictureBox.Visible = false;
             }
 
-            string birthm = p.birthDate.Substring(0, 2);
-            string birthd = p.birthDate.Substring(2, 2);
-            string birthy = p.birthDate.Substring(4);
 
-            string deathm = p.deathDate.Substring(0, 2);
-            string deathd = p.deathDate.Substring(2, 2);
-            string deathy = p.deathDate.Substring(4);
+            string birthm = "";
+            string birthd = "";
+            string birthy = "";
+            string deathm = "";
+            string deathd = "";
+            string deathy = "";
+            string burialm = "";
+            string buriald = "";
+            string burialy = "";
+            try
+            {
+                birthm = person.birthDate.Substring(0, 2);
+                birthd = person.birthDate.Substring(2, 2);
+                birthy = person.birthDate.Substring(4);
 
-            string burialm = p.burialDate.Substring(0, 2);
-            string buriald = p.burialDate.Substring(2, 2);
-            string burialy = p.burialDate.Substring(4);
+                deathm = person.deathDate.Substring(0, 2);
+                deathd = person.deathDate.Substring(2, 2);
+                deathy = person.deathDate.Substring(4);
+
+                burialm = person.burialDate.Substring(0, 2);
+                buriald = person.burialDate.Substring(2, 2);
+                burialy = person.burialDate.Substring(4);
+            }
+            catch (ArgumentOutOfRangeException a)
+            {
+
+            }
+            
 
             //populate name group
-            firstNameTextBox.Text = p.firstName;
-            middleNameTextBox.Text = p.middleName;
-            lastNameTextBox.Text = p.lastName;
+            firstNameTextBox.Text = person.firstName;
+            middleNameTextBox.Text = person.middleName;
+            lastNameTextBox.Text = person.lastName;
             //populate birth group
             birthMonthTextBox.Text = birthm;
             birthDayTextBox.Text = birthd;
             birthYearTextBox.Text = birthy;
-            birthPlaceTextBox.Text = p.birthPlace;
-            birthCertificateTextBox.Text = p.birthCertificateNumber;
+            birthPlaceTextBox.Text = person.birthPlace;
+            birthCertificateTextBox.Text = person.birthCertificateNumber;
             //radio button sex
-            switch (p.sex)
+            switch (person.sex)
             {
                 case "male":
                     maleRadioButton.Checked = true;
@@ -116,36 +140,48 @@ namespace GenealoTree
             deathMonthTextBox.Text = deathm;
             deathDayTextBox.Text = deathd;
             deathYearTextBox.Text = deathy;
-            deathPlaceTextBox.Text = p.deathPlace;
-            deathCertificateTextBox.Text = p.deathCertificateNumber;
-            causeOfDeathTextBox.Text = p.causeOfDeath;
+            deathPlaceTextBox.Text = person.deathPlace;
+            deathCertificateTextBox.Text = person.deathCertificateNumber;
+            causeOfDeathTextBox.Text = person.causeOfDeath;
             //populate burial group
             burialMonthTextBox.Text = burialm;
             burialDayTextBox.Text = buriald;
             burialYearTextBox.Text = burialy;
-            burialPlaceTextBox.Text = p.burialPlace;
-            cemetaryTextBox.Text = p.cemetery;
+            burialPlaceTextBox.Text = person.burialPlace;
+            cemetaryTextBox.Text = person.cemetery;
             //populate questions group
-            foreach (String s in p.questions)
+            foreach (String s in person.questions)
             {
                 questionTextBox.Text += s + "\n";
             }
             //populate additional information group
-            ssnTextBox.Text = p.socialSecurityNumber;
+            ssnTextBox.Text = person.socialSecurityNumber;
             //populate military service
-            foreach (String s in p.militaryService)
+            foreach (String s in person.militaryService)
             {
                 militaryServiceTextBox.Text += s + "\n";
             }
             //populate profession
-            foreach (String s in p.profession)
+            foreach (String s in person.profession)
             {
                 professionTextBox.Text += s + "\n";
             }
             //populate notes group
-            foreach (String s in p.notes)
+            foreach (String s in person.notes)
             {
                 notesTextBox.Text += s + "\n";
+            }
+
+            //relationships
+            foreach(Relationship r in person.relationships)
+            {
+                foreach(Person p in people)
+                {
+                    if (p.id == r.id)
+                    {
+                        relationshipListBox.Items.Add(new PersonRelationship(p, r.type));
+                    }
+                }
             }
         }
 
@@ -247,7 +283,7 @@ namespace GenealoTree
                 p.questions = new string[] { "none" };
             }
 
-            Form newPerson = new PersonalInformationForm(p);
+            Form newPerson = new PersonalInformationForm(people, p);
             this.Close();
             newPerson.Show();
         }

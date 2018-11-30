@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace GenealoTree
 {
-    public class Relationship
+    class PersonRelationship
     {
-        public int id { get; set; }
+        public Person person { get; set; }
         public string type { get; set; }
 
-        public Relationship()
+        public PersonRelationship()
         {
 
         }
 
-        public Relationship(int id, string type)
+        public PersonRelationship(Person person, string type)
         {
-            this.id = id;
+            this.person = person;
             this.type = type;
         }
 
-        
+
         public override string ToString()
         {
-            return type + " " + id;
+            return type + ": " + person.ToString();
         }
     }
 }
