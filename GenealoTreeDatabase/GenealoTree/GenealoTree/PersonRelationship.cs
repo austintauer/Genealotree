@@ -9,23 +9,24 @@ namespace GenealoTree
     class PersonRelationship
     {
         public Person person { get; set; }
-        public string type { get; set; }
+
+        public Relationship relationship { get; set; }
 
         public PersonRelationship()
         {
 
         }
 
-        public PersonRelationship(Person person, string type)
+        public PersonRelationship(Person person, Relationship relationship)
         {
             this.person = person;
-            this.type = type;
+            this.relationship = relationship;
         }
 
 
         public override string ToString()
         {
-            return type + ": " + person.ToString();
+            return relationship.type + ": " + person.ToString();
         }
     }
 }

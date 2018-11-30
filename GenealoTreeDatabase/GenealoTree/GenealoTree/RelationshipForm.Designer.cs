@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelationshipForm));
             this.SuspendLayout();
             // 
-            // SelectionViewForm
+            // RelationshipForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 577);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "SelectionViewForm";
+            this.ClientSize = new System.Drawing.Size(507, 469);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "RelationshipForm";
             this.Text = "TreeView";
             this.Load += new System.EventHandler(this.SelectionViewForm_Load);
             this.ResumeLayout(false);

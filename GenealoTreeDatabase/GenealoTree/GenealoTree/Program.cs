@@ -46,11 +46,11 @@ namespace GenealoTree
 
                 people.Add(person);
             }
-            Application.Run(new RelationshipForm(people, person));
+            //Application.Run(new RelationshipForm(people, person));
 
 
-            //Application.Run(new PersonalInformationForm(new Person('a')));
-            //Application.Run(new AddModifyForm());
+            //Application.Run(new PersonalInformationForm(people, person));
+           Application.Run(new AddModifyForm(people, person));
             //Application.Run(new SelectionViewForm(null));
             //Application.Run(new SelectionViewForm());
             //Application.Run(new WelcomeScreen());

@@ -173,16 +173,32 @@ namespace GenealoTree
             }
 
             //relationships
+
+            //populate relationships that can be deleted
             foreach(Relationship r in person.relationships)
             {
-                foreach(Person p in people)
+                foreach(Person p in people) //find person with matching id to change type of relationship and add to list
                 {
                     if (p.id == r.id)
                     {
-                        relationshipListBox.Items.Add(new PersonRelationship(p, r.type));
+                        removeRelationshipComboBox.Items.Add(new PersonRelationship(p, r));
+                        break;
                     }
                 }
             }
+
+            //populate people that can be in new relationships
+            foreach(Person p in people)
+            {
+                addPersonRelationshipComboBox.Items.Add(p);
+            }
+
+            //populate possible types for new relationships
+            addTypeRelationshipComboBox.Items.Add("Parent");
+            addTypeRelationshipComboBox.Items.Add("Child");
+            addTypeRelationshipComboBox.Items.Add("Sibling");
+            addTypeRelationshipComboBox.Items.Add("Spouse");
+
         }
 
         private void profilePictureButton_Click(object sender, EventArgs e)
@@ -291,6 +307,51 @@ namespace GenealoTree
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void RemoveRelationshipComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (removeRelationshipComboBox.SelectedIndex != -1)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove " + removeRelationshipComboBox.SelectedText + "?", "Remove Relationship", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+
+                    person.relationships.Remove( ((PersonRelationship) removeRelationshipComboBox.SelectedItem).relationship);
+
+                    ((PersonRelationship)removeRelationshipComboBox.SelectedItem).person.relationships.Remove(((PersonRelationship)removeRelationshipComboBox.SelectedItem).relationship);
+
+                    removeRelationshipComboBox.Items.Remove(removeRelationshipComboBox.SelectedItem);
+                    
+                    
+
+                    removeRelationshipComboBox.SelectedIndex = -1;
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    removeRelationshipComboBox.SelectedIndex = -1;
+                }
+            }
+
+            
+        }
+
+        private void addRelationshipButton_Click(object sender, EventArgs e)
+        {
+            if (addPersonRelationshipComboBox.SelectedIndex != -1 && addTypeRelationshipComboBox.SelectedIndex != -1)
+            {
+                Relationship newRelationship = new Relationship(((Person)addPersonRelationshipComboBox.SelectedItem).id, (string)addTypeRelationshipComboBox.SelectedItem);
+
+                person.relationships.Add(newRelationship);
+
+                removeRelationshipComboBox.Items.Add(new PersonRelationship((Person)addPersonRelationshipComboBox.SelectedItem, newRelationship));
+
+                ((Person)addPersonRelationshipComboBox.SelectedItem).relationships.Add(new Relationship(person.id, (string)addTypeRelationshipComboBox.SelectedItem));
+
+                MessageBox.Show("The relationship," + (string)addTypeRelationshipComboBox.SelectedItem + ": " + ((Person)addPersonRelationshipComboBox.SelectedItem).ToString() + ", has been successfully added.");
+            }
+            
         }
     }
 }
