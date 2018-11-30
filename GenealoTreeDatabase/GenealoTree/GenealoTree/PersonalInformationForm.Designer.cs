@@ -516,6 +516,7 @@
             this.noteListBox.FormattingEnabled = true;
             this.noteListBox.Location = new System.Drawing.Point(5, 7);
             this.noteListBox.Name = "noteListBox";
+            this.noteListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.noteListBox.Size = new System.Drawing.Size(189, 212);
             this.noteListBox.TabIndex = 45;
             // 
@@ -524,6 +525,7 @@
             this.questionListBox.FormattingEnabled = true;
             this.questionListBox.Location = new System.Drawing.Point(6, 5);
             this.questionListBox.Name = "questionListBox";
+            this.questionListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.questionListBox.Size = new System.Drawing.Size(188, 173);
             this.questionListBox.TabIndex = 46;
             // 
@@ -642,6 +644,7 @@
             this.militaryListBox.FormattingEnabled = true;
             this.militaryListBox.Location = new System.Drawing.Point(5, 7);
             this.militaryListBox.Name = "militaryListBox";
+            this.militaryListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.militaryListBox.Size = new System.Drawing.Size(189, 173);
             this.militaryListBox.TabIndex = 45;
             // 
@@ -670,6 +673,7 @@
             this.professionListBox.FormattingEnabled = true;
             this.professionListBox.Location = new System.Drawing.Point(5, 7);
             this.professionListBox.Name = "professionListBox";
+            this.professionListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.professionListBox.Size = new System.Drawing.Size(189, 212);
             this.professionListBox.TabIndex = 45;
             // 
@@ -699,6 +703,7 @@
             this.relationshipListBox.FormattingEnabled = true;
             this.relationshipListBox.Location = new System.Drawing.Point(5, 7);
             this.relationshipListBox.Name = "relationshipListBox";
+            this.relationshipListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.relationshipListBox.Size = new System.Drawing.Size(189, 173);
             this.relationshipListBox.TabIndex = 45;
             // 

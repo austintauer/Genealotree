@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\banana-cat.png" />
+    <None Include="PersonFiles\EmilyBudke.gt" />
     <None Include="PersonFiles\TaylorRuhoff.gt" />
     <None Include="PersonFiles\AustinTauer.gt" />
   </ItemGroup>

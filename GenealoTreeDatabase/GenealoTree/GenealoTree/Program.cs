@@ -40,9 +40,14 @@ namespace GenealoTree
                 person.lastName = sr.ReadLine();
                 person.sex = sr.ReadLine();
                 string relTemp = sr.ReadLine();
-                string[] relTokens = relTemp.Split(' ');
-                person.relationships.Add(new Relationship(int.Parse(relTokens[1]), relTokens[0]));
-
+                if (relTemp != null)
+                {
+                    string[] relTokens = relTemp.Split(',');
+                    for (int i = 0; i < relTokens.Length; i = i + 2)
+                    {
+                        person.relationships.Add(new Relationship(int.Parse(relTokens[i + 1]), relTokens[i]));
+                    }
+                }
 
                 people.Add(person);
             }

@@ -77,7 +77,13 @@ namespace GenealoTree
             
             foreach (Relationship r in person.relationships)
             {
-                relationshipListBox.Items.Add(r.ToString());
+                foreach (Person p in people)
+                {
+                    if (p.id == r.id)
+                    {
+                        relationshipListBox.Items.Add(new PersonRelationship(p, r));
+                    }
+                }
             }
             
         }

@@ -26,6 +26,11 @@ namespace GenealoTree
             {
                 populate();
             }
+            else
+            {
+                nullPopulate();
+                this.person = new Person();
+            }
             Button profilePictureButton;
 
             if (profilePictureBox.Image == null)
@@ -200,6 +205,22 @@ namespace GenealoTree
             
         }
 
+        //populates form if new person is being created
+        private void nullPopulate()
+        {
+            //populate people that can be in new relationships
+            foreach (Person p in people)
+            {
+                addPersonRelationshipComboBox.Items.Add(p);
+            }
+
+            //populate possible types for new relationships
+            addTypeRelationshipComboBox.Items.Add("Parent");
+            addTypeRelationshipComboBox.Items.Add("Child");
+            addTypeRelationshipComboBox.Items.Add("Sibling");
+            addTypeRelationshipComboBox.Items.Add("Spouse");
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             //validate that birth is not in the future
@@ -327,6 +348,8 @@ namespace GenealoTree
         {
             if (addPersonRelationshipComboBox.SelectedIndex != -1 && addTypeRelationshipComboBox.SelectedIndex != -1)
             {
+                
+
                 Relationship newRelationship = new Relationship(((Person)addPersonRelationshipComboBox.SelectedItem).id, (string)addTypeRelationshipComboBox.SelectedItem);
 
                 person.relationships.Add(newRelationship);
@@ -335,8 +358,9 @@ namespace GenealoTree
 
                 ((Person)addPersonRelationshipComboBox.SelectedItem).relationships.Add(new Relationship(person.id, (string)addTypeRelationshipComboBox.SelectedItem));
 
-                MessageBox.Show("The relationship," + (string)addTypeRelationshipComboBox.SelectedItem + ": " + ((Person)addPersonRelationshipComboBox.SelectedItem).ToString() + ", has been successfully added.");
-
+                //MessageBox.Show("The relationship," + (string)addTypeRelationshipComboBox.SelectedItem + ": " + ((Person)addPersonRelationshipComboBox.SelectedItem).ToString() + ", has been successfully added.");
+                addLabel.Text = "The relationship has been added.";
+                addLabel.Font = new Font(addLabel.Font, FontStyle.Bold);
             }
             
         }

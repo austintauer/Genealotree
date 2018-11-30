@@ -10,6 +10,7 @@ namespace GenealoTree
     public class Person
     {
         public int id { get; set; }
+        public static int maxId { get; set; }
         public string firstName { get; set; }
         public string middleName { get; set; }
         public string lastName { get; set; }
@@ -38,6 +39,7 @@ namespace GenealoTree
 
         public void instanciate()
         {
+            id = ++maxId;
             firstName = "";
             middleName = "";
             lastName = "";

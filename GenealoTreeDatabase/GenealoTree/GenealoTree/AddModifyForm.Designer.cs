@@ -99,7 +99,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.addTypeRelationshipComboBox = new System.Windows.Forms.ComboBox();
             this.addPersonRelationshipComboBox = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.addLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -733,7 +733,7 @@
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.addTypeRelationshipComboBox);
             this.groupBox4.Controls.Add(this.addPersonRelationshipComboBox);
-            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.addLabel);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Location = new System.Drawing.Point(641, 34);
             this.groupBox4.Name = "groupBox4";
@@ -813,14 +813,14 @@
             this.addPersonRelationshipComboBox.Size = new System.Drawing.Size(121, 21);
             this.addPersonRelationshipComboBox.TabIndex = 57;
             // 
-            // label10
+            // addLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 142);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 13);
-            this.label10.TabIndex = 56;
-            this.label10.Text = "Add:";
+            this.addLabel.AutoSize = true;
+            this.addLabel.Location = new System.Drawing.Point(7, 142);
+            this.addLabel.Name = "addLabel";
+            this.addLabel.Size = new System.Drawing.Size(29, 13);
+            this.addLabel.TabIndex = 56;
+            this.addLabel.Text = "Add:";
             // 
             // label9
             // 
@@ -1093,7 +1093,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox addTypeRelationshipComboBox;
         private System.Windows.Forms.ComboBox addPersonRelationshipComboBox;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label addLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button addRelationshipButton;
         private System.Windows.Forms.DateTimePicker burialCalendar;
