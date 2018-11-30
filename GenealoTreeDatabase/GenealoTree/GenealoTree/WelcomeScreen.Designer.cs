@@ -34,9 +34,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.viewButton = new System.Windows.Forms.Button();
+            this.infoButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.personListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // welcomeText
@@ -99,27 +99,41 @@
             this.viewButton.UseVisualStyleBackColor = false;
             this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
+            // infoButton
+            // 
+            this.infoButton.BackColor = System.Drawing.Color.LimeGreen;
+            this.infoButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.infoButton.FlatAppearance.BorderSize = 2;
+            this.infoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.infoButton.Location = new System.Drawing.Point(559, 314);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(189, 53);
+            this.infoButton.TabIndex = 7;
+            this.infoButton.Text = "View Person";
+            this.infoButton.UseVisualStyleBackColor = false;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(429, 329);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(530, 273);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(373, 100);
+            this.label2.Size = new System.Drawing.Size(286, 25);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Thank you for choosing GenealoTree as your family \r\ntree database. We hope you wi" +
-    "ll find this a helpful \r\nand interesting resource. Have a great day!\r\n\r\n-The Gen" +
-    "ealoTree Team";
+            this.label2.Text = "Look at Personal Information";
             // 
-            // pictureBox1
+            // personListBox
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(497, 84);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(228, 225);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.personListBox.BackColor = System.Drawing.Color.PaleGreen;
+            this.personListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personListBox.FormattingEnabled = true;
+            this.personListBox.ItemHeight = 16;
+            this.personListBox.Location = new System.Drawing.Point(311, 272);
+            this.personListBox.Name = "personListBox";
+            this.personListBox.Size = new System.Drawing.Size(166, 84);
+            this.personListBox.TabIndex = 8;
             // 
             // WelcomeScreen
             // 
@@ -127,7 +141,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(828, 433);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.personListBox);
+            this.Controls.Add(this.infoButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.viewButton);
             this.Controls.Add(this.addButton);
@@ -137,7 +152,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WelcomeScreen";
             this.Text = "GenealoTree";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +164,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button viewButton;
+        private System.Windows.Forms.Button infoButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ListBox personListBox;
     }
 }

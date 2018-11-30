@@ -35,10 +35,17 @@ namespace GenealoTree
             middleNameLabel.Text = person.middleName;
             lastNameLabel.Text = person.lastName;
             sexLabel.Text = person.sex;
+
+            birthDateLabel.Text = person.birthDate.ToShortDateString();
             birthPlaceLabel.Text = person.birthPlace;
+
+            deathDateLabel.Text = person.deathDate.ToShortDateString();
             deathPlaceLabel.Text = person.deathPlace;
+
+            burialDateLabel.Text = person.burialDate.ToShortDateString();
             burialPlaceLabel.Text = person.burialPlace;
             cemetaryNameLabel.Text = person.cemetery;
+
             birthCertificateLabel.Text = person.birthCertificateNumber;
             deathCertificateLabel.Text = person.deathCertificateNumber;
             ssnLabel.Text = person.socialSecurityNumber;
@@ -112,6 +119,13 @@ namespace GenealoTree
             AddModifyForm edit = new AddModifyForm(people, person);
             edit.ShowDialog();
             this.Close();
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            WelcomeScreen home = new WelcomeScreen(people);
+            this.Hide();
+            home.ShowDialog();
         }
     }
 }

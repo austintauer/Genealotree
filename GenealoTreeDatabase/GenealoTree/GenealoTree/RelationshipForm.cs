@@ -14,6 +14,7 @@ namespace GenealoTree
     {
         Person person = null;
         List<Person> people = null;
+        Button homeButtonPerm;
         public RelationshipForm(List<Person> people, Person person)
         {
             InitializeComponent();
@@ -35,20 +36,26 @@ namespace GenealoTree
 
             this.person = person;
             this.people = people;
+            
             changeSelected(person);
         }
 
         private void SelectionViewForm_Load(object sender, EventArgs e)
         {
             InitializeComponent();
-            
 
+            
             changeSelected(person);
         }
 
 
         private void changeSelected(Person person)
         {
+            homeButtonPerm = new Button();
+            homeButtonPerm.Font = homeButton.Font;
+            homeButtonPerm.Text = homeButton.Text;
+            homeButtonPerm.Location = homeButton.Location;
+            homeButtonPerm.Size = homeButton.Size;
             this.Controls.Clear();
 
             if (person == null)
@@ -116,6 +123,7 @@ namespace GenealoTree
                 index++;
                 this.Controls.Add(parentBox);
 
+                this.Controls.Add(homeButtonPerm);
             }
 
             Label siblingLabel = new Label();
@@ -207,14 +215,25 @@ namespace GenealoTree
                 index++;
                 this.Controls.Add(childBox);
             }
+            homeButton = homeButtonPerm;
+            this.Controls.Add(homeButton);
         }
 
         public void viewDetails(Person p)
         {
-            //this.Hide();
+            
             PersonalInformationForm details = new PersonalInformationForm(people, p);
+            this.Hide();
             details.ShowDialog();
-            this.Close();
+            
+            //this.Close();
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            WelcomeScreen home = new WelcomeScreen(people);
+            this.Hide();
+            home.ShowDialog();
         }
     }
 }

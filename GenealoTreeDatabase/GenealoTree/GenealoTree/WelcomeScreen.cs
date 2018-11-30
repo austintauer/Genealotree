@@ -18,18 +18,40 @@ namespace GenealoTree
             InitializeComponent();
             this.people = people;
             this.WindowState = FormWindowState.Maximized;
+
+            foreach (Person p in people)
+            {
+                personListBox.Items.Add(p);
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             Form f1 = new AddModifyForm(people, null);
+            this.Hide();
             f1.Show();
         }
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            Form f1 = new RelationshipForm(people, null);
-            f1.Show();
+            if (personListBox.SelectedIndex != -1)
+            {
+                Form f1 = new RelationshipForm(people, (Person)personListBox.SelectedItem);
+                this.Hide();
+                f1.Show();
+            }
+                
+        }
+
+        private void infoButton_Click(object sender, EventArgs e)
+        {
+            if (personListBox.SelectedIndex != -1)
+            {
+                Form f1 = new PersonalInformationForm(people, (Person)personListBox.SelectedItem);
+                this.Hide();
+                f1.Show();
+            }
+            
         }
     }
 }

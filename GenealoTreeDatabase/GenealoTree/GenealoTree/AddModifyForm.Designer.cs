@@ -116,6 +116,7 @@
             this.removeProfessionButton = new System.Windows.Forms.Button();
             this.addProfessionButton = new System.Windows.Forms.Button();
             this.professionListBox = new System.Windows.Forms.ListBox();
+            this.homeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.questionBox.SuspendLayout();
             this.notes.SuspendLayout();
@@ -978,12 +979,25 @@
             this.professionListBox.Size = new System.Drawing.Size(188, 108);
             this.professionListBox.TabIndex = 0;
             // 
+            // homeButton
+            // 
+            this.homeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeButton.Location = new System.Drawing.Point(12, 497);
+            this.homeButton.MaximumSize = new System.Drawing.Size(100, 30);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(100, 30);
+            this.homeButton.TabIndex = 71;
+            this.homeButton.Text = "Home";
+            this.homeButton.UseVisualStyleBackColor = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            // 
             // AddModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1219, 589);
+            this.ClientSize = new System.Drawing.Size(1066, 535);
+            this.Controls.Add(this.homeButton);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.label15);
@@ -1127,5 +1141,6 @@
         private System.Windows.Forms.Button removeNoteButton;
         private System.Windows.Forms.Button addNoteButton;
         private System.Windows.Forms.ListBox noteListBox;
+        private System.Windows.Forms.Button homeButton;
     }
 }

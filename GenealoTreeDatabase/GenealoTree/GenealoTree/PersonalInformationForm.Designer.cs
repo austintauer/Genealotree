@@ -90,6 +90,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.relationshipListBox = new System.Windows.Forms.ListBox();
+            this.homeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -707,12 +708,25 @@
             this.relationshipListBox.Size = new System.Drawing.Size(189, 173);
             this.relationshipListBox.TabIndex = 45;
             // 
+            // homeButton
+            // 
+            this.homeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeButton.Location = new System.Drawing.Point(5, 456);
+            this.homeButton.MaximumSize = new System.Drawing.Size(100, 30);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(100, 30);
+            this.homeButton.TabIndex = 70;
+            this.homeButton.Text = "Home";
+            this.homeButton.UseVisualStyleBackColor = true;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            // 
             // PersonalInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1057, 497);
+            this.Controls.Add(this.homeButton);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.label10);
@@ -824,6 +838,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.ListBox relationshipListBox;
+        private System.Windows.Forms.Button homeButton;
     }
 }
 

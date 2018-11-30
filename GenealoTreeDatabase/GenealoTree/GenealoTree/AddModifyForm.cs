@@ -181,7 +181,7 @@ namespace GenealoTree
             addTypeRelationshipComboBox.Items.Add("Child");
             addTypeRelationshipComboBox.Items.Add("Sibling");
             addTypeRelationshipComboBox.Items.Add("Spouse");
-
+            addTypeRelationshipComboBox.Items.Add("Felationship");
         }
 
         private void profilePictureButton_Click(object sender, EventArgs e)
@@ -219,6 +219,7 @@ namespace GenealoTree
             addTypeRelationshipComboBox.Items.Add("Child");
             addTypeRelationshipComboBox.Items.Add("Sibling");
             addTypeRelationshipComboBox.Items.Add("Spouse");
+            addTypeRelationshipComboBox.Items.Add("Felationship");
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -330,13 +331,16 @@ namespace GenealoTree
             Form newPerson = new PersonalInformationForm(people, person);
             this.Hide();
             newPerson.ShowDialog();
-            this.Close();
+            //this.Close();
             
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Form info = new PersonalInformationForm(people, person);
+            this.Hide();
+            info.ShowDialog();
+            //this.Close();
         }
 
         private void relationshipListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -356,7 +360,20 @@ namespace GenealoTree
 
                 relationshipListBox.Items.Add(new PersonRelationship((Person)addPersonRelationshipComboBox.SelectedItem, newRelationship));
 
-                ((Person)addPersonRelationshipComboBox.SelectedItem).relationships.Add(new Relationship(person.id, (string)addTypeRelationshipComboBox.SelectedItem));
+                //certain relationships type need to be inverted for the other
+                if (((string)addTypeRelationshipComboBox.SelectedItem).Equals("Child")) //invert child
+                {
+                    ((Person)addPersonRelationshipComboBox.SelectedItem).relationships.Add(new Relationship(person.id, "Parent"));
+                }
+                else if (((string)addTypeRelationshipComboBox.SelectedItem).Equals("Parent"))   //invert parent
+                {
+                    ((Person)addPersonRelationshipComboBox.SelectedItem).relationships.Add(new Relationship(person.id, "Child"));
+                }
+                else    //relationship type that don't need inverting
+                {
+                    ((Person)addPersonRelationshipComboBox.SelectedItem).relationships.Add(new Relationship(person.id, (string)addTypeRelationshipComboBox.SelectedItem));
+                }
+                
 
                 //MessageBox.Show("The relationship," + (string)addTypeRelationshipComboBox.SelectedItem + ": " + ((Person)addPersonRelationshipComboBox.SelectedItem).ToString() + ", has been successfully added.");
                 addLabel.Text = "The relationship has been added.";
@@ -451,6 +468,13 @@ namespace GenealoTree
         {
             noteListBox.Items.Add(noteTextBox.Text);
             noteTextBox.Text = "";
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            WelcomeScreen home = new WelcomeScreen(people);
+            this.Hide();
+            home.ShowDialog();
         }
     }
 }
