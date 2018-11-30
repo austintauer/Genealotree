@@ -56,6 +56,7 @@ namespace GenealoTree
             homeButtonPerm.Text = homeButton.Text;
             homeButtonPerm.Location = homeButton.Location;
             homeButtonPerm.Size = homeButton.Size;
+            homeButtonPerm.Click += homeButton_Click;
             this.Controls.Clear();
 
             if (person == null)
@@ -77,15 +78,15 @@ namespace GenealoTree
 
             foreach (Relationship r in relationships)
             {
-                if (r.id == person.id && r.type.Equals("Parent"))
+                if (r.type.Equals("Parent"))
                 {
                     parentRelationShips.Add(r);
                 }
-                else if (r.id == person.id && r.type.Equals("Child"))
+                else if (r.type.Equals("Child"))
                 {
                     childRelationShips.Add(r);
                 }
-                else if (r.id == person.id && r.type.Equals("Sibling"))
+                else if (r.type.Equals("Sibling"))
                 {
                     siblingRelationShips.Add(r);
                 }
