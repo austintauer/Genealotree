@@ -515,6 +515,7 @@
             // noteListBox
             // 
             this.noteListBox.FormattingEnabled = true;
+            this.noteListBox.HorizontalScrollbar = true;
             this.noteListBox.Location = new System.Drawing.Point(5, 7);
             this.noteListBox.Name = "noteListBox";
             this.noteListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -524,6 +525,7 @@
             // questionListBox
             // 
             this.questionListBox.FormattingEnabled = true;
+            this.questionListBox.HorizontalScrollbar = true;
             this.questionListBox.Location = new System.Drawing.Point(6, 5);
             this.questionListBox.Name = "questionListBox";
             this.questionListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -643,6 +645,7 @@
             // militaryListBox
             // 
             this.militaryListBox.FormattingEnabled = true;
+            this.militaryListBox.HorizontalScrollbar = true;
             this.militaryListBox.Location = new System.Drawing.Point(5, 7);
             this.militaryListBox.Name = "militaryListBox";
             this.militaryListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -672,6 +675,7 @@
             // professionListBox
             // 
             this.professionListBox.FormattingEnabled = true;
+            this.professionListBox.HorizontalScrollbar = true;
             this.professionListBox.Location = new System.Drawing.Point(5, 7);
             this.professionListBox.Name = "professionListBox";
             this.professionListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
@@ -702,6 +706,7 @@
             // relationshipListBox
             // 
             this.relationshipListBox.FormattingEnabled = true;
+            this.relationshipListBox.HorizontalScrollbar = true;
             this.relationshipListBox.Location = new System.Drawing.Point(5, 7);
             this.relationshipListBox.Name = "relationshipListBox";
             this.relationshipListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;

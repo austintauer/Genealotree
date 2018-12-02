@@ -156,7 +156,15 @@ namespace GenealoTree
             //populate death group
             if (person.dead)
             {
-                deathCalendar.Value = person.deathDate;
+                if (person.deathDate <= DateTimePicker.MinimumDateTime)
+                {
+                    deathCalendar.Value = DateTimePicker.MinimumDateTime;
+                }
+                else
+                {
+                    deathCalendar.Value = person.deathDate;
+                }
+                
                 deadCheckBox.Checked = true;
             }
             else
@@ -171,7 +179,14 @@ namespace GenealoTree
             //populate burial group
             if (person.buried)
             {
-                burialCalendar.Value = person.burialDate;
+                if (person.burialDate <= DateTimePicker.MinimumDateTime)
+                {
+                    burialCalendar.Value = DateTimePicker.MinimumDateTime;
+                }
+                else
+                {
+                    burialCalendar.Value = person.burialDate;
+                }
                 buriedCheckBox.Checked = true;
             }
             else

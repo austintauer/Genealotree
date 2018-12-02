@@ -113,6 +113,9 @@ namespace GenealoTree
 
                             };
                             this.Controls.Add(newGB);
+
+                            
+
                             break;
                         }
                     }
@@ -148,7 +151,99 @@ namespace GenealoTree
 
            };
             this.Controls.Add(newGB);
-        
+
+
+
+
+
+
+            spouseCount = 0;
+            foreach (Relationship r in relationships)   //draw lines to spouses
+            {
+                if (r.type.Equals("Spouse") || r.type.Equals("Divorced"))
+                {
+                    spouseCount++;
+
+                    foreach (Person p in people)
+                    {
+                        if (p.id == r.id)
+                        {
+                            
+
+                            Graphics g = CreateGraphics();
+                            Pen pen = new Pen(Color.Black, 3);
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + childDisp / 2) * 250 + 140, generation * 300 + 280),    //lateral
+                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + childDisp / 2) * 250 + 140, generation * 300 + 240),    //vertical
+                                new PointF((displacement + childDisp / 2) * 250 + 140, generation * 300 + 280) });
+
+                            g.DrawLines(pen,  new PointF[] { new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 240),    //vertical
+                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
+
+                            break;
+                        }
+                    }
+
+                }
+            }
+
+
+
+            int childDisp2 = 0;
+            foreach (Relationship r in relationships)   //draw lines to children
+            {
+                if (r.type.Equals("Parent"))
+                {
+                    
+
+                    foreach (Person p in people)
+                    {
+                        if (p.id == r.id)
+                        {
+
+
+                            Graphics g = CreateGraphics();
+                            Pen pen = new Pen(Color.Black, 3);
+
+                            
+
+
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + childDisp / 2) * 250 + 140, generation * 300 + 280 ),    //lateral
+                                new PointF((displacement + childDisp2) * 250 + 140, generation * 300 + 280) });
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + childDisp / 2) * 250 + 140, generation * 300 + 240),    //vertical
+                                new PointF((displacement + childDisp / 2) * 250 + 140, generation * 300 + 280) });
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + childDisp2) * 250 + 140, generation * 300 + 280),    //vertical
+                                new PointF((displacement + childDisp2) * 250 + 140, generation * 300 + 320) });
+
+
+                            childDisp2++;
+
+                            foreach (Relationship r2 in p.relationships)
+                            {
+                                if (r2.type.Equals("Spouse") || r2.type.Equals("Divorced"))
+                                {
+                                    childDisp2++;
+                                }
+                            }
+
+                            Console.Write(childDisp2 + "\n");
+
+                            break;
+                        }
+                    }
+
+                }
+            }
+
+
+
+
+
 
 
             if (spouseCount >= childDisp)
