@@ -26,7 +26,7 @@ namespace GenealoTree
 
         public override string ToString()
         {
-            return relationship.type + ": " + person.ToString();
+            return relationship.type + " of " + person.ToString();
         }
     }
 }

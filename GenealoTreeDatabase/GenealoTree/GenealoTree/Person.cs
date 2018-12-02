@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,23 +121,29 @@ namespace GenealoTree
         public GroupBox createGroupBox()
         {
             GroupBox gb = new GroupBox();
-            gb.Width = 100;
-            gb.Height = 125;
+            gb.Width = 200;
+            gb.Height = 250;
             gb.Text = firstName + " " + lastName;
+            gb.Font = new System.Drawing.Font("Arial", 16);
+            gb.BackColor = Color.Snow;
 
             RichTextBox infoBox = new RichTextBox();
             infoBox.ReadOnly = true;
-            infoBox.Width = 90;
-            infoBox.Height = 85;
-            infoBox.Location = new System.Drawing.Point(5, 12);
+            infoBox.Width = 180;
+            infoBox.Height = 190;
+            infoBox.Location = new System.Drawing.Point(10, 24);
             infoBox.BorderStyle = BorderStyle.None;
             infoBox.Text = "Sex: " + sex;
             gb.Controls.Add(infoBox);
 
             Button selectButton = new Button();
             selectButton.Text = "Select";
-            selectButton.Location = new System.Drawing.Point(5, 100);
+            selectButton.Location = new System.Drawing.Point(5, 215);
+            selectButton.AutoSize = true;
+            selectButton.BackColor = System.Drawing.Color.Snow;
             gb.Controls.Add(selectButton);
+
+
 
             return gb;
         }

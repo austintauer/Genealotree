@@ -18,6 +18,7 @@ namespace GenealoTree
         public RelationshipForm(List<Person> people, Person person)
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             /*persons[0] = new Person('a');
             persons[1] = new Person('a');
             persons[2] = new Person('a');
@@ -54,9 +55,10 @@ namespace GenealoTree
             homeButtonPerm = new Button();
             homeButtonPerm.Font = homeButton.Font;
             homeButtonPerm.Text = homeButton.Text;
-            homeButtonPerm.Location = homeButton.Location;
+            homeButtonPerm.Location = new Point(20, this.Height - 80);
             homeButtonPerm.Size = homeButton.Size;
             homeButtonPerm.Click += homeButton_Click;
+            homeButtonPerm.BackColor = Color.Snow;
             this.Controls.Clear();
 
             if (person == null)
@@ -64,160 +66,101 @@ namespace GenealoTree
                 person = people.First();
             }
 
+
+
+            addPerson(person, 0, 0);
+
+            homeButton = homeButtonPerm;
+            this.Controls.Add(homeButton);
+        }
+
+
+        private int addPerson(Person person, int displacement, int generation)
+        {
+            int childDisp = 0;
+            int childCount = 0;
+            int spouseCount = 0;
+
             List<Relationship> relationships = person.relationships;
-            
-            List<Relationship> parentRelationShips = new List<Relationship>();
-            List<Relationship> childRelationShips = new List<Relationship>();
-            List<Relationship> siblingRelationShips = new List<Relationship>();
 
-            
-            /*if (person == null)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-            }*/
+            GroupBox newGB;
 
-            foreach (Relationship r in relationships)
+            foreach (Relationship r in relationships)   //count number of children
             {
                 if (r.type.Equals("Parent"))
                 {
-                    parentRelationShips.Add(r);
-                }
-                else if (r.type.Equals("Child"))
-                {
-                    childRelationShips.Add(r);
-                }
-                else if (r.type.Equals("Sibling"))
-                {
-                    siblingRelationShips.Add(r);
+                    childCount++;
                 }
             }
 
-            Label parentLabel = new Label();
-            parentLabel.Text = "Parents: ";
-            parentLabel.Font = new Font(parentLabel.Font.Name, 20);
-            parentLabel.AutoSize = true;
-            parentLabel.Location = new Point(10, 10);
-            this.Controls.Add(parentLabel);
+            foreach (Relationship r in relationships)   //count number of spouses
+            {
+                if (r.type.Equals("Spouse") || r.type.Equals("Divorced"))
+                {
+                    spouseCount++;
 
-            int index = 0;
+                    foreach (Person p in people)
+                    {
+                        if (p.id == r.id)
+                        {
+                            newGB = p.createGroupBox();
 
+                            newGB.Location = new Point((displacement + spouseCount) * 250 + 50, generation * 300 + 10);
+                            newGB.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
+                            {
+
+                                changeSelected(person);
+
+                            };
+                            this.Controls.Add(newGB);
+                            break;
+                        }
+                    }
+                    
+                }
+            }
             
-            foreach (Relationship r in parentRelationShips)
-            {
-                Person relationshipPerson = new Person();
-                foreach (Person p in people)
+            
+           foreach (Relationship r in relationships)
+           {
+
+                if (r.type.Equals("Parent"))
                 {
-                    if (p.id == r.id)
+                    foreach (Person p in people)
                     {
-                        relationshipPerson = p;
+                        if (p.id == r.id)
+                        {
+                            childDisp += addPerson(p, childDisp + displacement, generation + 1);
+                            break;
+                        }
                     }
                 }
+                    
+           }
 
-                GroupBox parentBox = relationshipPerson.createGroupBox();
-                parentBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
-                {
-                    changeSelected(relationshipPerson);
-                };
+           newGB = person.createGroupBox();
+
+           newGB.Location = new Point((displacement + childDisp / 2) * 250 + 50, generation * 300 + 10);
+           newGB.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
+           {
+
+               changeSelected(person);
+
+           };
+            this.Controls.Add(newGB);
+        
 
 
-                parentBox.Location = new Point(index * 120 + 200, 10);
-                index++;
-                this.Controls.Add(parentBox);
-
-                this.Controls.Add(homeButtonPerm);
-            }
-
-            Label siblingLabel = new Label();
-            siblingLabel.Text = "Self/Siblings: ";
-            siblingLabel.Font = new Font(siblingLabel.Font.Name, 20);
-            siblingLabel.AutoSize = true;
-            siblingLabel.Location = new Point(10, 150);
-            this.Controls.Add(siblingLabel);
-
-            GroupBox selBox = person.createGroupBox();
-            selBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
+            if (spouseCount >= childDisp)
             {
-                viewDetails(person);
-            };
-            selBox.Controls.OfType<Button>().ToArray()[0].Text = "View Details";
-            selBox.Location = new Point(200, 150);
-            selBox.BackColor = Color.Yellow;
-            RichTextBox selText = selBox.Controls.OfType<RichTextBox>().ToArray()[0];
-            selText.BackColor = Color.Yellow;
-
-            this.Controls.Add(selBox);
-
-
-            index = 0;
-            foreach (Relationship r in siblingRelationShips)
-            {
-                Person relationshipPerson = new Person();
-                foreach (Person p in people)
-                {
-                    if (p.id == r.id)
-                    {
-                        relationshipPerson = p;
-                    }
-                }
-
-                GroupBox siblingBox;
-                if (relationshipPerson == person)
-                {
-                    siblingBox = relationshipPerson.createGroupBox();
-
-                    siblingBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
-                    {
-                        changeSelected(relationshipPerson);
-                    };
-                }
-                else
-                {
-                    siblingBox = relationshipPerson.createGroupBox();
-
-                    siblingBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
-                    {
-                        changeSelected(relationshipPerson);
-                    };
-                }
-
-                
-                
-
-                siblingBox.Location = new Point(index * 120 + 320, 150);
-                index++;
-                this.Controls.Add(siblingBox);
+                return spouseCount + 1;
             }
-
-            Label childLabel = new Label();
-            childLabel.Text = "Children: ";
-            childLabel.Font = new Font(childLabel.Font.Name, 20);
-            childLabel.AutoSize = true;
-            childLabel.Location = new Point(10, 280);
-            this.Controls.Add(childLabel);
-
-            index = 0;
-            foreach (Relationship r in childRelationShips)
+            else
             {
-                Person relationshipPerson = new Person();
-                foreach (Person p in people)
-                {
-                    if (p.id == r.id)
-                    {
-                        relationshipPerson = p;
-                    }
-                }
-
-                GroupBox childBox = relationshipPerson.createGroupBox();
-                childBox.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
-                {
-                    changeSelected(relationshipPerson);
-                };
-                childBox.Location = new Point(index * 120 + 200, 280);
-                index++;
-                this.Controls.Add(childBox);
+                return childDisp;
             }
-            homeButton = homeButtonPerm;
-            this.Controls.Add(homeButton);
+           
+            
         }
 
         public void viewDetails(Person p)
