@@ -39,6 +39,10 @@ namespace GenealoTree
                 person.middleName = sr.ReadLine();
                 person.lastName = sr.ReadLine();
                 person.sex = sr.ReadLine();
+                person.profilePicturePath = sr.ReadLine();
+                person.birthPlace = sr.ReadLine();
+                person.deathPlace = sr.ReadLine();
+                person.burialPlace = sr.ReadLine();
                 string relTemp = sr.ReadLine();
                 if (relTemp != null)
                 {

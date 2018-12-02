@@ -25,6 +25,9 @@ namespace GenealoTree
         public string socialSecurityNumber { get; set; }
         public string causeOfDeath { get; set; }
 
+        public bool dead { get; set; }
+        public bool buried { get; set; }
+
         public List<string> militaryService;
         public List<string> profession;
         public List<string> notes;
@@ -52,9 +55,6 @@ namespace GenealoTree
             deathCertificateNumber = "";
             socialSecurityNumber = "";
             causeOfDeath = "";
-            birthDate = DateTimePicker.MinimumDateTime;
-            deathDate = DateTimePicker.MinimumDateTime;
-            burialDate = DateTimePicker.MinimumDateTime;
 
             profilePicturePath = @"../../Images/banana-cat.png";
             militaryService = new List<string>();

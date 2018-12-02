@@ -25,6 +25,27 @@ namespace GenealoTree
             if (person != null)
             {
                 populate();
+
+                if (!person.dead)
+                {
+                    deathCalendar.Visible = false;
+                    deathPlaceTextBox.Visible = false;
+                    deathCertificateTextBox.Visible = false;
+                    causeOfDeathTextBox.Visible = false;
+                    buriedCheckBox.Visible = false;
+                    burialCalendar.Visible = false;
+                    burialPlaceTextBox.Visible = false;
+                    cemetaryTextBox.Visible = false;
+                }
+
+                if (!person.buried)
+                {
+                    
+                    burialCalendar.Visible = false;
+                    burialPlaceTextBox.Visible = false;
+                    cemetaryTextBox.Visible = false;
+                }
+
             }
             else
             {
@@ -101,7 +122,15 @@ namespace GenealoTree
             middleNameTextBox.Text = person.middleName;
             lastNameTextBox.Text = person.lastName;
             //populate birth group
-            birthCalendar.Value = person.birthDate;
+            if (person.birthDate != DateTime.MinValue)
+            {
+                birthCalendar.Value = person.birthDate;
+            }
+            else
+            {
+                birthCalendar.Value = DateTime.Today;
+            }
+            
             birthPlaceTextBox.Text = person.birthPlace;
             birthCertificateTextBox.Text = person.birthCertificateNumber;
             //radio button sex
@@ -123,13 +152,33 @@ namespace GenealoTree
                     naSexRadioButton.Checked = true;
                     break;
             }
+
             //populate death group
-            deathCalendar.Value = person.deathDate;
+            if (person.dead)
+            {
+                deathCalendar.Value = person.deathDate;
+                deadCheckBox.Checked = true;
+            }
+            else
+            {
+                deathCalendar.Value = DateTime.Today;
+                deadCheckBox.Checked = false;
+            }
             deathPlaceTextBox.Text = person.deathPlace;
             deathCertificateTextBox.Text = person.deathCertificateNumber;
             causeOfDeathTextBox.Text = person.causeOfDeath;
+
             //populate burial group
-            burialCalendar.Value = person.burialDate;
+            if (person.buried)
+            {
+                burialCalendar.Value = person.burialDate;
+                buriedCheckBox.Checked = true;
+            }
+            else
+            {
+                burialCalendar.Value = DateTime.Today;
+                buriedCheckBox.Checked = false;
+            }
             burialPlaceTextBox.Text = person.burialPlace;
             cemetaryTextBox.Text = person.cemetery;
             //populate questions group
@@ -237,13 +286,13 @@ namespace GenealoTree
                 return;
             }
             //validate birth date versus death date
-            if (DateTime.Compare(birthCalendar.Value, deathCalendar.Value) > 0)
+            if (DateTime.Compare(birthCalendar.Value, deathCalendar.Value) > 0  && !deadCheckBox.Checked)
             {
                 MessageBox.Show("The birth date must be earlier than or the same as the death date.", "Date Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //validate death date versus burial date
-            if (DateTime.Compare(deathCalendar.Value, burialCalendar.Value) > 0)
+            if (DateTime.Compare(deathCalendar.Value, burialCalendar.Value) > 0 && !buriedCheckBox.Checked)
             {
                 MessageBox.Show("The death date must be earlier than or the same as the burial date.", "Date Input Error", MessageBoxButtons.OK ,MessageBoxIcon.Error);
                 return;
@@ -301,15 +350,44 @@ namespace GenealoTree
             person.sex = sex;
 
             //death group fields
-            person.deathDate = deathCalendar.Value;
-            person.deathPlace = deathPlaceTextBox.Text;
-            person.deathCertificateNumber = deathCertificateTextBox.Text;
-            person.causeOfDeath = causeOfDeathTextBox.Text;
+            if (deadCheckBox.Checked)
+            {
+                person.dead = true;
+                person.deathDate = deathCalendar.Value;
+                person.deathPlace = deathPlaceTextBox.Text;
+                person.deathCertificateNumber = deathCertificateTextBox.Text;
+                person.causeOfDeath = causeOfDeathTextBox.Text;
+            }
+            else
+            {
+                person.dead = false;
+                person.buried = false;
+                person.deathDate = DateTime.MinValue;
+                person.deathPlace = "";
+                person.deathCertificateNumber = "";
+                person.causeOfDeath = "";
+                person.burialDate = DateTime.MinValue;
+                person.burialPlace = "";
+                person.cemetery = "";
+            }
+            
 
             //burial group fields
-            person.burialDate = burialCalendar.Value;
-            person.burialPlace = burialPlaceTextBox.Text;
-            person.cemetery = cemetaryTextBox.Text;
+            if (buriedCheckBox.Checked)
+            {
+                person.buried = true;
+                person.burialDate = burialCalendar.Value;
+                person.burialPlace = burialPlaceTextBox.Text;
+                person.cemetery = cemetaryTextBox.Text;
+            }
+            else
+            {
+                person.buried = false;
+                person.burialDate = DateTime.MinValue;
+                person.burialPlace = "";
+                person.cemetery = "";
+            }
+            
 
             //additional information fields
             person.socialSecurityNumber = ssnTextBox.Text;
@@ -475,6 +553,50 @@ namespace GenealoTree
             WelcomeScreen home = new WelcomeScreen(people);
             this.Hide();
             home.ShowDialog();
+        }
+
+        private void deadCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!deadCheckBox.Checked)
+            {
+                deathCalendar.Visible = false;
+                deathPlaceTextBox.Visible = false;
+                deathCertificateTextBox.Visible = false;
+                causeOfDeathTextBox.Visible = false;
+                buriedCheckBox.Visible = false;
+                buriedCheckBox.Checked = false;
+                burialCalendar.Visible = false;
+                burialPlaceTextBox.Visible = false;
+                cemetaryTextBox.Visible = false;
+            }
+            else
+            {
+                deathCalendar.Visible = true;
+                deathPlaceTextBox.Visible = true;
+                deathCertificateTextBox.Visible = true;
+                causeOfDeathTextBox.Visible = true;
+                buriedCheckBox.Visible = true;
+                //burialCalendar.Visible = true;
+                //burialPlaceTextBox.Visible = true;
+                //cemetaryTextBox.Visible = true;
+            }
+            
+        }
+
+        private void buriedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!buriedCheckBox.Checked)
+            {
+                burialCalendar.Visible = false;
+                burialPlaceTextBox.Visible = false;
+                cemetaryTextBox.Visible = false;
+            }
+            else
+            {
+                burialCalendar.Visible = true;
+                burialPlaceTextBox.Visible = true;
+                cemetaryTextBox.Visible = true;
+            }
         }
     }
 }

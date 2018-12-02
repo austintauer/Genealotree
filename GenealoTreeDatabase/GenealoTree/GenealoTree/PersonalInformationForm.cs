@@ -21,14 +21,17 @@ namespace GenealoTree
             this.people = people;
 
             Text = person.firstName + " " + person.lastName + "'s Personal Information";
+
             
-            if (profilePictureBox.Image == null)
+
+            if (person.profilePicturePath == "")
             {
                 profilePictureBox.Image = Image.FromFile(@"../../Images/banana-cat.png");
+
             }
             else
             {
-                profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
+                profilePictureBox.Image = Image.FromFile(@person.profilePicturePath);
             }
             
             firstNameLabel.Text = person.firstName;
@@ -36,16 +39,41 @@ namespace GenealoTree
             lastNameLabel.Text = person.lastName;
             sexLabel.Text = person.sex;
 
-            birthDateLabel.Text = person.birthDate.ToShortDateString();
+
+            if (person.birthDate != DateTime.MinValue)
+            {
+                birthDateLabel.Text = person.birthDate.ToShortDateString();
+            }
+            else
+            {
+                birthDateLabel.Text = "";
+            }
             birthPlaceLabel.Text = person.birthPlace;
 
-            deathDateLabel.Text = person.deathDate.ToShortDateString();
+            if (person.deathDate != DateTime.MinValue)
+            {
+                deathDateLabel.Text = person.deathDate.ToShortDateString();
+            }
+            else
+            {
+                deathDateLabel.Text = "";
+            }
             deathPlaceLabel.Text = person.deathPlace;
 
-            burialDateLabel.Text = person.burialDate.ToShortDateString();
+
+            if (person.burialDate != DateTime.MinValue)
+            {
+                burialDateLabel.Text = person.burialDate.ToShortDateString();
+            }
+            else
+            {
+                burialDateLabel.Text = "";
+            }
             burialPlaceLabel.Text = person.burialPlace;
             cemetaryNameLabel.Text = person.cemetery;
 
+
+            
             birthCertificateLabel.Text = person.birthCertificateNumber;
             deathCertificateLabel.Text = person.deathCertificateNumber;
             ssnLabel.Text = person.socialSecurityNumber;

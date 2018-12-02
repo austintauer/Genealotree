@@ -54,6 +54,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.burialPlace = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.deadCheckBox = new System.Windows.Forms.CheckBox();
             this.deathCalendar = new System.Windows.Forms.DateTimePicker();
             this.causeOfDeathTextBox = new System.Windows.Forms.TextBox();
             this.deathCertificateTextBox = new System.Windows.Forms.TextBox();
@@ -117,6 +118,7 @@
             this.addProfessionButton = new System.Windows.Forms.Button();
             this.professionListBox = new System.Windows.Forms.ListBox();
             this.homeButton = new System.Windows.Forms.Button();
+            this.buriedCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.questionBox.SuspendLayout();
             this.notes.SuspendLayout();
@@ -288,6 +290,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Snow;
+            this.groupBox2.Controls.Add(this.buriedCheckBox);
             this.groupBox2.Controls.Add(this.burialCalendar);
             this.groupBox2.Controls.Add(this.cemetaryTextBox);
             this.groupBox2.Controls.Add(this.burialPlaceTextBox);
@@ -295,30 +298,30 @@
             this.groupBox2.Controls.Add(this.burialCemetary);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.burialPlace);
-            this.groupBox2.Location = new System.Drawing.Point(233, 438);
+            this.groupBox2.Location = new System.Drawing.Point(233, 460);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 89);
+            this.groupBox2.Size = new System.Drawing.Size(200, 101);
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             // 
             // burialCalendar
             // 
             this.burialCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.burialCalendar.Location = new System.Drawing.Point(52, 10);
+            this.burialCalendar.Location = new System.Drawing.Point(52, 26);
             this.burialCalendar.Name = "burialCalendar";
             this.burialCalendar.Size = new System.Drawing.Size(142, 20);
             this.burialCalendar.TabIndex = 41;
             // 
             // cemetaryTextBox
             // 
-            this.cemetaryTextBox.Location = new System.Drawing.Point(94, 59);
+            this.cemetaryTextBox.Location = new System.Drawing.Point(96, 75);
             this.cemetaryTextBox.Name = "cemetaryTextBox";
             this.cemetaryTextBox.Size = new System.Drawing.Size(100, 20);
             this.cemetaryTextBox.TabIndex = 40;
             // 
             // burialPlaceTextBox
             // 
-            this.burialPlaceTextBox.Location = new System.Drawing.Point(94, 36);
+            this.burialPlaceTextBox.Location = new System.Drawing.Point(96, 52);
             this.burialPlaceTextBox.Name = "burialPlaceTextBox";
             this.burialPlaceTextBox.Size = new System.Drawing.Size(100, 20);
             this.burialPlaceTextBox.TabIndex = 39;
@@ -326,7 +329,7 @@
             // burialDate
             // 
             this.burialDate.AutoSize = true;
-            this.burialDate.Location = new System.Drawing.Point(6, 16);
+            this.burialDate.Location = new System.Drawing.Point(6, 32);
             this.burialDate.Name = "burialDate";
             this.burialDate.Size = new System.Drawing.Size(33, 13);
             this.burialDate.TabIndex = 13;
@@ -335,7 +338,7 @@
             // burialCemetary
             // 
             this.burialCemetary.AutoSize = true;
-            this.burialCemetary.Location = new System.Drawing.Point(6, 62);
+            this.burialCemetary.Location = new System.Drawing.Point(8, 78);
             this.burialCemetary.Name = "burialCemetary";
             this.burialCemetary.Size = new System.Drawing.Size(85, 13);
             this.burialCemetary.TabIndex = 26;
@@ -344,7 +347,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(53, 29);
+            this.label13.Location = new System.Drawing.Point(55, 45);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(64, 13);
             this.label13.TabIndex = 27;
@@ -353,7 +356,7 @@
             // burialPlace
             // 
             this.burialPlace.AutoSize = true;
-            this.burialPlace.Location = new System.Drawing.Point(6, 41);
+            this.burialPlace.Location = new System.Drawing.Point(8, 57);
             this.burialPlace.Name = "burialPlace";
             this.burialPlace.Size = new System.Drawing.Size(66, 13);
             this.burialPlace.TabIndex = 4;
@@ -362,6 +365,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Snow;
+            this.groupBox1.Controls.Add(this.deadCheckBox);
             this.groupBox1.Controls.Add(this.deathCalendar);
             this.groupBox1.Controls.Add(this.causeOfDeathTextBox);
             this.groupBox1.Controls.Add(this.deathCertificateTextBox);
@@ -372,35 +376,46 @@
             this.groupBox1.Controls.Add(this.deathPlace);
             this.groupBox1.Location = new System.Drawing.Point(233, 292);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 116);
+            this.groupBox1.Size = new System.Drawing.Size(200, 138);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
+            // 
+            // deadCheckBox
+            // 
+            this.deadCheckBox.AutoSize = true;
+            this.deadCheckBox.Location = new System.Drawing.Point(6, 6);
+            this.deadCheckBox.Name = "deadCheckBox";
+            this.deadCheckBox.Size = new System.Drawing.Size(52, 17);
+            this.deadCheckBox.TabIndex = 37;
+            this.deadCheckBox.Text = "Dead";
+            this.deadCheckBox.UseVisualStyleBackColor = true;
+            this.deadCheckBox.CheckedChanged += new System.EventHandler(this.deadCheckBox_CheckedChanged);
             // 
             // deathCalendar
             // 
             this.deathCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.deathCalendar.Location = new System.Drawing.Point(52, 10);
+            this.deathCalendar.Location = new System.Drawing.Point(49, 29);
             this.deathCalendar.Name = "deathCalendar";
             this.deathCalendar.Size = new System.Drawing.Size(142, 20);
             this.deathCalendar.TabIndex = 36;
             // 
             // causeOfDeathTextBox
             // 
-            this.causeOfDeathTextBox.Location = new System.Drawing.Point(94, 88);
+            this.causeOfDeathTextBox.Location = new System.Drawing.Point(90, 106);
             this.causeOfDeathTextBox.Name = "causeOfDeathTextBox";
             this.causeOfDeathTextBox.Size = new System.Drawing.Size(100, 20);
             this.causeOfDeathTextBox.TabIndex = 35;
             // 
             // deathCertificateTextBox
             // 
-            this.deathCertificateTextBox.Location = new System.Drawing.Point(94, 63);
+            this.deathCertificateTextBox.Location = new System.Drawing.Point(90, 81);
             this.deathCertificateTextBox.Name = "deathCertificateTextBox";
             this.deathCertificateTextBox.Size = new System.Drawing.Size(100, 20);
             this.deathCertificateTextBox.TabIndex = 34;
             // 
             // deathPlaceTextBox
             // 
-            this.deathPlaceTextBox.Location = new System.Drawing.Point(94, 37);
+            this.deathPlaceTextBox.Location = new System.Drawing.Point(90, 55);
             this.deathPlaceTextBox.Name = "deathPlaceTextBox";
             this.deathPlaceTextBox.Size = new System.Drawing.Size(100, 20);
             this.deathPlaceTextBox.TabIndex = 33;
@@ -408,7 +423,7 @@
             // deathDate
             // 
             this.deathDate.AutoSize = true;
-            this.deathDate.Location = new System.Drawing.Point(6, 16);
+            this.deathDate.Location = new System.Drawing.Point(3, 35);
             this.deathDate.Name = "deathDate";
             this.deathDate.Size = new System.Drawing.Size(33, 13);
             this.deathDate.TabIndex = 13;
@@ -417,7 +432,7 @@
             // deathCertificate
             // 
             this.deathCertificate.AutoSize = true;
-            this.deathCertificate.Location = new System.Drawing.Point(6, 66);
+            this.deathCertificate.Location = new System.Drawing.Point(2, 84);
             this.deathCertificate.Name = "deathCertificate";
             this.deathCertificate.Size = new System.Drawing.Size(89, 13);
             this.deathCertificate.TabIndex = 26;
@@ -426,7 +441,7 @@
             // causeOfDeath
             // 
             this.causeOfDeath.AutoSize = true;
-            this.causeOfDeath.Location = new System.Drawing.Point(7, 91);
+            this.causeOfDeath.Location = new System.Drawing.Point(3, 109);
             this.causeOfDeath.Name = "causeOfDeath";
             this.causeOfDeath.Size = new System.Drawing.Size(84, 13);
             this.causeOfDeath.TabIndex = 25;
@@ -435,7 +450,7 @@
             // deathPlace
             // 
             this.deathPlace.AutoSize = true;
-            this.deathPlace.Location = new System.Drawing.Point(6, 42);
+            this.deathPlace.Location = new System.Drawing.Point(2, 60);
             this.deathPlace.Name = "deathPlace";
             this.deathPlace.Size = new System.Drawing.Size(69, 13);
             this.deathPlace.TabIndex = 4;
@@ -697,7 +712,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(229, 411);
+            this.label6.Location = new System.Drawing.Point(229, 433);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 24);
             this.label6.TabIndex = 60;
@@ -991,12 +1006,23 @@
             this.homeButton.UseVisualStyleBackColor = true;
             this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
+            // buriedCheckBox
+            // 
+            this.buriedCheckBox.AutoSize = true;
+            this.buriedCheckBox.Location = new System.Drawing.Point(6, 6);
+            this.buriedCheckBox.Name = "buriedCheckBox";
+            this.buriedCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.buriedCheckBox.TabIndex = 38;
+            this.buriedCheckBox.Text = "Buried";
+            this.buriedCheckBox.UseVisualStyleBackColor = true;
+            this.buriedCheckBox.CheckedChanged += new System.EventHandler(this.buriedCheckBox_CheckedChanged);
+            // 
             // AddModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1066, 535);
+            this.ClientSize = new System.Drawing.Size(1066, 563);
             this.Controls.Add(this.homeButton);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.groupBox6);
@@ -1142,5 +1168,7 @@
         private System.Windows.Forms.Button addNoteButton;
         private System.Windows.Forms.ListBox noteListBox;
         private System.Windows.Forms.Button homeButton;
+        private System.Windows.Forms.CheckBox deadCheckBox;
+        private System.Windows.Forms.CheckBox buriedCheckBox;
     }
 }
