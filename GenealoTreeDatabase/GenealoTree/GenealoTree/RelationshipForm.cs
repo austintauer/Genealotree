@@ -60,6 +60,8 @@ namespace GenealoTree
             homeButtonPerm.Click += homeButton_Click;
             homeButtonPerm.BackColor = Color.Snow;
             this.Controls.Clear();
+            Graphics g = CreateGraphics();
+            g.Clear(Color.PaleGreen);
 
             if (person == null)
             {
@@ -109,7 +111,7 @@ namespace GenealoTree
                             newGB.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
                             {
 
-                                changeSelected(person);
+                                changeSelected(p);
 
                             };
                             this.Controls.Add(newGB);
