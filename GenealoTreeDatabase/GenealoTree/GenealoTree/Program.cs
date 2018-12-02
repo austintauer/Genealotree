@@ -43,6 +43,54 @@ namespace GenealoTree
                 person.birthPlace = sr.ReadLine();
                 person.deathPlace = sr.ReadLine();
                 person.burialPlace = sr.ReadLine();
+                person.cemetery = sr.ReadLine();
+                person.socialSecurityNumber = sr.ReadLine();
+                person.causeOfDeath = sr.ReadLine();
+                person.birthCertificateNumber = sr.ReadLine();
+                person.deathCertificateNumber = sr.ReadLine();
+                person.dead = bool.Parse(sr.ReadLine());
+                person.buried = bool.Parse(sr.ReadLine());
+
+                string milTemp = sr.ReadLine();
+                if (milTemp != null)
+                {
+                    string[] milTokens = milTemp.Split(',');
+                    for (int i = 0; i < milTokens.Length; i++)
+                    {
+                        person.militaryService.Add(milTokens[i]);
+                    }
+                }
+
+                string proTemp = sr.ReadLine();
+                if (proTemp != null)
+                {
+                    string[] proTokens = proTemp.Split(',');
+                    for (int i = 0; i < proTokens.Length; i++)
+                    {
+                        person.profession.Add(proTokens[i]);
+                    }
+                }
+
+                string noTemp = sr.ReadLine();
+                if (noTemp != null)
+                {
+                    string[] noTokens = noTemp.Split(',');
+                    for (int i = 0; i < noTokens.Length; i++)
+                    {
+                        person.notes.Add(noTokens[i]);
+                    }
+                }
+
+                string queTemp = sr.ReadLine();
+                if (queTemp != null)
+                {
+                    string[] queTokens = queTemp.Split(',');
+                    for (int i = 0; i < queTokens.Length; i++)
+                    {
+                        person.questions.Add(queTokens[i]);
+                    }
+                }
+
                 string relTemp = sr.ReadLine();
                 if (relTemp != null)
                 {
