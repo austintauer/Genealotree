@@ -68,16 +68,37 @@ namespace GenealoTree
                 person = people.First();
             }
 
+            int dispAn = addAncestor(person, 0, findDepth(person, 0) - 1);
+            
+            int dispDesc = addDescendent(person, 0, findDepth(person, 0) - 1);
+
+            this.Controls.Clear();
+
+            if (dispAn / 2 > dispDesc / 2)
+            {
+                addAncestor(person, 0, findDepth(person, 0) - 1);
+                addDescendent(person, dispAn / 2 - dispDesc / 2, findDepth(person, 0) - 1);
+            }
+            else
+            {
+                addAncestor(person, - dispAn / 2 + dispDesc / 2, findDepth(person, 0) - 1);
+                addDescendent(person, 0, findDepth(person, 0) - 1);
+            }
+            
+
+            
 
 
-            addPerson(person, 0, 0);
+
+
+            addDescendent(person, 0 ,findDepth(person, 0) - 1);
 
             homeButton = homeButtonPerm;
             this.Controls.Add(homeButton);
         }
 
 
-        private int addPerson(Person person, int displacement, int generation)
+        private int addDescendent(Person person, int displacement, int generation)
         {
             int childDisp = 0;
             int childCount = 0;
@@ -135,7 +156,7 @@ namespace GenealoTree
                     {
                         if (p.id == r.id)
                         {
-                            childDisp += addPerson(p, childDisp + displacement, generation + 1);
+                            childDisp += addDescendent(p, childDisp + displacement, generation + 1);
                             break;
                         }
                     }
@@ -232,8 +253,7 @@ namespace GenealoTree
                                     childDisp2++;
                                 }
                             }
-
-                            Console.Write(childDisp2 + "\n");
+                            
 
                             break;
                         }
@@ -241,12 +261,6 @@ namespace GenealoTree
 
                 }
             }
-
-
-
-
-
-
 
             if (spouseCount >= childDisp)
             {
@@ -259,6 +273,222 @@ namespace GenealoTree
            
             
         }
+
+
+        private int findDepth(Person person, int generation)
+        {
+            int depth = 0;
+            int temp = 0;
+
+            foreach (Relationship r in person.relationships)   
+            {
+                if (r.type.Equals("Child"))
+                {
+                    foreach (Person p in people)
+                    {
+                        if (r.id == p.id)
+                        {
+                            temp = findDepth(p, generation + 1);
+                        }
+                        break;
+                    }
+                    if (temp > depth)
+                    {
+                        depth = temp;
+                    }
+                }
+
+            }
+            return depth + 1;
+        }
+
+
+        //Add people going backward.
+        private int addAncestor(Person person, int displacement, int generation)
+        {
+            int parentDisp = 0;
+            int parentCount = 0;
+            int spouseCount = 0;
+
+            List<Relationship> relationships = person.relationships;
+
+            GroupBox newGB;
+
+            foreach (Relationship r in relationships)   //count number of parent
+            {
+                if (r.type.Equals("Child"))
+                {
+                    parentCount++;
+                }
+            }
+
+            foreach (Relationship r in relationships)   //count number of spouses
+            {
+                if (r.type.Equals("Spouse") || r.type.Equals("Divorced"))
+                {
+                    spouseCount++;
+
+                    foreach (Person p in people)
+                    {
+                        if (p.id == r.id)
+                        {
+                            newGB = p.createGroupBox();
+
+                            newGB.Location = new Point((displacement + spouseCount) * 250 + 50, generation * 300 + 10);
+                            newGB.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
+                            {
+
+                                changeSelected(p);
+
+                            };
+                            this.Controls.Add(newGB);
+
+
+
+                            break;
+                        }
+                    }
+
+                }
+            }
+
+
+            foreach (Relationship r in relationships)
+            {
+
+                if (r.type.Equals("Child"))
+                {
+                    foreach (Person p in people)
+                    {
+                        if (p.id == r.id)
+                        {
+                            parentDisp += addAncestor(p, parentDisp + displacement, generation - 1);
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+            newGB = person.createGroupBox();
+
+            newGB.Location = new Point((displacement + parentDisp / 2) * 250 + 50, generation * 300 + 10);
+            newGB.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
+            {
+
+                changeSelected(person);
+
+            };
+            this.Controls.Add(newGB);
+            
+
+
+
+
+
+
+            spouseCount = 0;
+            foreach (Relationship r in relationships)   //draw lines to spouses
+            {
+                if (r.type.Equals("Spouse") || r.type.Equals("Divorced"))
+                {
+                    spouseCount++;
+
+                    foreach (Person p in people)
+                    {
+                        if (p.id == r.id)
+                        {
+
+
+                            Graphics g = CreateGraphics();
+                            Pen pen = new Pen(Color.Black, 3);
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280),    //lateral
+                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 240),    //vertical
+                                new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280) });
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 240),    //vertical
+                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
+
+                            break;
+                        }
+                    }
+
+                }
+            }
+
+
+
+            int parentDisp2 = 0;
+            foreach (Relationship r in relationships)   //draw lines to parentren
+            {
+                if (r.type.Equals("Child"))
+                {
+
+
+                    foreach (Person p in people)
+                    {
+                        if (p.id == r.id)
+                        {
+
+
+                            Graphics g = CreateGraphics();
+                            Pen pen = new Pen(Color.Black, 3);
+
+
+
+
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280 ),    //lateral
+                                new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 280) });
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 240),    //vertical
+                                new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280) });
+
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 280),    //vertical
+                                new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 320) });
+
+
+                            parentDisp2++;
+
+                            foreach (Relationship r2 in p.relationships)
+                            {
+                                if (r2.type.Equals("Spouse") || r2.type.Equals("Divorced"))
+                                {
+                                    parentDisp2++;
+                                }
+                            }
+
+                            
+
+                            break;
+                        }
+                    }
+
+                }
+            }
+
+            if (spouseCount >= parentDisp)
+            {
+                return spouseCount + 1;
+            }
+            else
+            {
+                return parentDisp;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
 
         public void viewDetails(Person p)
         {
