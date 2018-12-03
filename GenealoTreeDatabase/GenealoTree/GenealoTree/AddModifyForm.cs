@@ -429,10 +429,14 @@ namespace GenealoTree
             //questions
             person.questions = questionListBox.Items.Cast<string>().ToList();
 
+            foreach (string s in Directory.GetFiles(@"../../PersonFiles/")) {
+                File.Delete(s);
+            }
+
             //save to file
             foreach (Person p in people)
             {
-                FileStream fs = File.Open(@"../../PersonFiles/" + p.firstName + p.lastName + ".gt", FileMode.Truncate, FileAccess.ReadWrite, FileShare.None);
+                FileStream fs = File.Create(@"../../PersonFiles/" + p.firstName + p.lastName + ".gt");
                 StreamWriter sw = new StreamWriter(fs);
                 sw.Write(p.id + "\n");
                 sw.Write(p.firstName + "\n");
