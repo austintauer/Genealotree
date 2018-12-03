@@ -497,7 +497,7 @@
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(204, 33);
             this.selectButton.TabIndex = 43;
-            this.selectButton.Text = "Select Person";
+            this.selectButton.Text = "View Relationships";
             this.selectButton.UseVisualStyleBackColor = true;
             this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
             // 

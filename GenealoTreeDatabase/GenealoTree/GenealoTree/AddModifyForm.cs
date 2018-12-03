@@ -462,6 +462,11 @@ namespace GenealoTree
                 File.Delete(s);
             }
 
+            if (!people.Contains(person))
+            {
+                people.Add(person);
+            }
+
             //save to file
             foreach (Person p in people)
             {
