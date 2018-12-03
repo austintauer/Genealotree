@@ -70,29 +70,7 @@ namespace GenealoTree
         {
             instanciate();
         }
-
-        ///**
-        // * Splits out a person with predetermined values.
-        // * */
-        //public Person(char Austin)
-        //{
-        //    instanciate();
-        //    firstName = middleName = lastName = birthPlace = deathPlace = burialPlace = cemetery =
-
-        //    birthCertificateNumber = deathCertificateNumber = socialSecurityNumber = causeOfDeath = "Austin";
-        //    sex = null;
-
-        //    profilePicturePath = @"../../Images/banana-cat.png";
-        //    birthDate = "01011990";
-        //    deathDate = "02021852";
-        //    burialDate = "05052036";
         
-
-        //    militaryService = new string[] { "military service" };
-        //    profession = new string[] { "profession" };
-        //    notes = new string[] { "notes" };
-        //    questions = new string[] { "questions" };
-        //}
         public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, DateTime dob, DateTime dod, DateTime doburial, List<string> militaryService, List<string> profession)
         {
             instanciate();
@@ -127,14 +105,22 @@ namespace GenealoTree
             gb.Font = new System.Drawing.Font("Arial", 16);
             gb.BackColor = Color.Snow;
 
-            RichTextBox infoBox = new RichTextBox();
-            infoBox.ReadOnly = true;
-            infoBox.Width = 180;
-            infoBox.Height = 190;
-            infoBox.Location = new System.Drawing.Point(10, 24);
-            infoBox.BorderStyle = BorderStyle.None;
-            infoBox.Text = "Sex: " + sex;
-            gb.Controls.Add(infoBox);
+            PictureBox profilePic = new PictureBox();
+            try
+            {
+                profilePic.Image = new Bitmap(profilePicturePath);
+            }
+            catch (ArgumentException a)
+            {
+
+            }
+
+            profilePic.Location = new Point(10, 30);
+            profilePic.Height = 180;
+            profilePic.SizeMode = PictureBoxSizeMode.StretchImage;
+            profilePic.Width = 180;
+            
+            gb.Controls.Add(profilePic);
 
             Button selectButton = new Button();
             selectButton.Text = "Select";
@@ -142,6 +128,13 @@ namespace GenealoTree
             selectButton.AutoSize = true;
             selectButton.BackColor = System.Drawing.Color.Snow;
             gb.Controls.Add(selectButton);
+
+            Button detailsButton = new Button();
+            detailsButton.Text = "Details";
+            detailsButton.Location = new System.Drawing.Point(100, 215);
+            detailsButton.AutoSize = true;
+            detailsButton.BackColor = System.Drawing.Color.Snow;
+            gb.Controls.Add(detailsButton);
 
 
 

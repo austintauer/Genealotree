@@ -79,13 +79,13 @@ namespace GenealoTree
 
             if (dispAn> dispDesc)
             {
-                addAncestor(person, 0, findDepth(person, 0) - 1, true);
-                 addDescendent(person, dispAn - dispDesc, findDepth(person, 0) - 1, true);
+                addAncestor(person, 1, findDepth(person, 0) - 1, true);
+                 addDescendent(person, dispAn - dispDesc + 1, findDepth(person, 0) - 1, true);
             }
             else
             {
-                addAncestor(person, - dispAn + dispDesc, findDepth(person, 0) - 1, true);
-                addDescendent(person, 0, findDepth(person, 0) - 1, true);
+                addAncestor(person, - dispAn + dispDesc + 1, findDepth(person, 0) - 1, true);
+                addDescendent(person, 1, findDepth(person, 0) - 1, true);
             }
             
 
@@ -178,6 +178,7 @@ namespace GenealoTree
             if (first)
             {
                 newGB.BackColor = Color.Yellow;
+                newGB.Controls.Remove(newGB.Controls.OfType<Button>().ToArray()[0]);
             }
             this.Controls.Add(newGB);
 
@@ -353,9 +354,15 @@ namespace GenealoTree
 
             };
 
+            newGB.Controls.OfType<Button>().ToArray()[1].Click += delegate (Object sender2, EventArgs e2)
+            {
+                viewDetails(person);
+            };
+
             if (first)
             {
                 newGB.BackColor = Color.Yellow;
+                newGB.Controls.Remove(newGB.Controls.OfType<Button>().ToArray()[0]);
             }
 
             this.Controls.Add(newGB);
@@ -396,6 +403,7 @@ namespace GenealoTree
 
             if (first)
             {
+
                 return displacement + parentDisp / 2;
             }
 
@@ -410,17 +418,7 @@ namespace GenealoTree
             }
             
         }
-
-
-
-
-
-
-
-
-
-
-
+        
         public void viewDetails(Person p)
         {
             

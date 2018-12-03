@@ -26,7 +26,7 @@ namespace GenealoTree
 
             string[] fileArray = Directory.GetFiles(@"../../PersonFiles/");
 
-            //FileStream fs = File.Open(@"../../PersonFiles/AustinTauer.gt", FileMode.Open, FileAccess.ReadWrite, FileShare.None);
+            int maxId = 0;
             Person person = null;
             List<Person> people = new List<Person>();
             foreach (string s in fileArray)
@@ -35,6 +35,10 @@ namespace GenealoTree
                 StreamReader sr = new StreamReader(fs);
                 person = new Person();
                 person.id = int.Parse(sr.ReadLine());
+                if (person.id > maxId)  //find highest taken id
+                {
+                    maxId = person.id;
+                }
                 person.firstName = sr.ReadLine();
                 person.middleName = sr.ReadLine();
                 person.lastName = sr.ReadLine();
@@ -105,7 +109,8 @@ namespace GenealoTree
                 sr.Close();
                 fs.Close();
             }
-            
+
+            Person.maxId = maxId;//set where new id's can start
 
             Application.Run(new WelcomeScreen(people));
 
