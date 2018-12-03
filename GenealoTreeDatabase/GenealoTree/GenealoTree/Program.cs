@@ -95,22 +95,23 @@ namespace GenealoTree
                 if (relTemp != null)
                 {
                     string[] relTokens = relTemp.Split(',');
-                    for (int i = 0; i < relTokens.Length; i = i + 2)
+                    for (int i = 0; i + 1 < relTokens.Length; i = i + 2)
                     {
                         person.relationships.Add(new Relationship(int.Parse(relTokens[i + 1]), relTokens[i]));
                     }
                 }
 
                 people.Add(person);
+                sr.Close();
+                fs.Close();
             }
-            //Application.Run(new RelationshipForm(people, person));
+            
 
-
-            //Application.Run(new PersonalInformationForm(people, person));
-            //Application.Run(new AddModifyForm(people, person));
-            //Application.Run(new SelectionViewForm(null));
-            //Application.Run(new SelectionViewForm());
             Application.Run(new WelcomeScreen(people));
+
+
+            
+
         }
     }
 }

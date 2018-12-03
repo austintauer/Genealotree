@@ -100,7 +100,15 @@ namespace GenealoTree
 
         public void populate()
         {
-            profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
+            try
+            {
+                profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
+            }
+            catch(ArgumentException a)
+            {
+                profilePictureBox.Image = Image.FromFile(@"../../Images/banana-cat.png");
+            }
+            
 
             Button profilePictureButton;
 
@@ -421,10 +429,75 @@ namespace GenealoTree
             //questions
             person.questions = questionListBox.Items.Cast<string>().ToList();
 
+            //save to file
+            foreach (Person p in people)
+            {
+                FileStream fs = File.Open(@"../../PersonFiles/" + p.firstName + p.lastName + ".gt", FileMode.Truncate, FileAccess.ReadWrite, FileShare.None);
+                StreamWriter sw = new StreamWriter(fs);
+                sw.Write(p.id + "\n");
+                sw.Write(p.firstName + "\n");
+                sw.Write(p.middleName + "\n");
+                sw.Write(p.lastName + "\n");
+                sw.Write(p.sex + "\n");
+                sw.Write(p.profilePicturePath + "\n");
+                sw.Write(p.birthPlace + "\n");
+                sw.Write(p.deathPlace + "\n");
+                sw.Write(p.burialPlace + "\n");
+                sw.Write(p.cemetery + "\n");
+                sw.Write(p.socialSecurityNumber + "\n");
+                sw.Write(p.causeOfDeath + "\n");
+                sw.Write(p.birthCertificateNumber + "\n");
+                sw.Write(p.deathCertificateNumber + "\n");
+                sw.Write(p.dead + "\n");
+                sw.Write(p.buried + "\n");
+
+                foreach (string s in p.militaryService)
+                {
+                    sw.Write(s);
+                }
+                sw.Write("\n");
+
+                foreach (string s in p.profession)
+                {
+                    sw.Write(s);
+                }
+                sw.Write("\n");
+
+                foreach (string s in p.notes)
+                {
+                    sw.Write(s);
+                }
+                sw.Write("\n");
+
+                foreach (string s in p.questions)
+                {
+                    sw.Write(s);
+                }
+                sw.Write("\n");
+
+                foreach (Relationship r in p.relationships)
+                {
+                    sw.Write(r.type + "," + r.id + ",");
+                }
+                sw.Write("\n");
+
+                sw.Close();
+                fs.Close();
+            }
+
+            
+            
+
+
+
+
+
+
             Form newPerson = new PersonalInformationForm(people, person);
             this.Hide();
             newPerson.ShowDialog();
             //this.Close();
+
             
         }
 

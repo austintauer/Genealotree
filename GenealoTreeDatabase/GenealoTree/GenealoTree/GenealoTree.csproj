@@ -104,6 +104,18 @@
     <EmbeddedResource Include="WelcomeScreen.resx">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="PersonFilesBackup\AustinTauer.gt" />
+    <None Include="PersonFilesBackup\EmilyBudke.gt" />
+    <None Include="PersonFilesBackup\EmmaWatson.gt" />
+    <None Include="PersonFilesBackup\GeraldWatson.gt" />
+    <None Include="PersonFilesBackup\JimbobJones.gt" />
+    <None Include="PersonFilesBackup\TaylorRuhoff.gt" />
+    <None Include="PersonFiles\AustinTauer.gt" />
+    <None Include="PersonFiles\EmilyBudke.gt" />
+    <None Include="PersonFiles\EmmaWatson.gt" />
+    <None Include="PersonFiles\GeraldWatson.gt" />
+    <None Include="PersonFiles\JimbobJones.gt" />
+    <None Include="PersonFiles\TaylorRuhoff.gt" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,12 +133,6 @@
     <Content Include="Images\banana-cat.png" />
     <Content Include="Images\Horse.png" />
     <Content Include="Images\woofer.png" />
-    <None Include="PersonFiles\Gerald Watson.gt" />
-    <None Include="PersonFiles\Jimbob Jones.gt" />
-    <None Include="PersonFiles\Emma Watson.gt" />
-    <None Include="PersonFiles\EmilyBudke.gt" />
-    <None Include="PersonFiles\TaylorRuhoff.gt" />
-    <None Include="PersonFiles\AustinTauer.gt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
