@@ -478,19 +478,19 @@ namespace GenealoTree
                 sw.Write(p.lastName + "\n");
                 sw.Write(p.sex + "\n");
 
-                try
-                {
-                    File.Copy(p.profilePicturePath, @"../../Images/" + p.firstName + p.lastName + ".png", true);
-                    sw.Write(@"../../Images/" + p.firstName + p.lastName + "ProfilePicture" + "\n");
-                }
-                catch (Exception ex) //empty file yada yada yada
-                {
-                    sw.Write(p.profilePicturePath + "\n");
-                }
-                
+                //try
+                //{
+                //    File.Copy(p.profilePicturePath, @"../../Images/" + p.firstName + p.lastName + ".png", true);
+                //    sw.Write(@"../../Images/" + p.firstName + p.lastName + "ProfilePicture" + "\n");
+                //}
+                //catch (Exception ex) //empty file yada yada yada
+                //{
+                //    sw.Write(p.profilePicturePath + "\n");
+                //}
+                sw.Write(p.profilePicturePath + "\n");
 
-                
-                
+
+
                 sw.Write(p.birthPlace + "\n");
                 sw.Write(p.deathPlace + "\n");
                 sw.Write(p.burialPlace + "\n");
