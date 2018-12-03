@@ -36,6 +36,7 @@ namespace GenealoTree
                     burialCalendar.Visible = false;
                     burialPlaceTextBox.Visible = false;
                     cemetaryTextBox.Visible = false;
+                    
                 }
 
                 if (!person.buried)
@@ -141,6 +142,12 @@ namespace GenealoTree
             
             birthPlaceTextBox.Text = person.birthPlace;
             birthCertificateTextBox.Text = person.birthCertificateNumber;
+
+            if (!person.birthKnown)
+            {
+                birthCalendar.Visible = false;
+            }
+
             //radio button sex
             switch (person.sex)
             {
@@ -184,6 +191,16 @@ namespace GenealoTree
             deathCertificateTextBox.Text = person.deathCertificateNumber;
             causeOfDeathTextBox.Text = person.causeOfDeath;
 
+            if (!person.dead)
+            {
+                deathKnownCheckBox.Visible = false;
+            }
+
+            if (!person.deathKnown)
+            {
+                deathCalendar.Visible = false;
+            }
+
             //populate burial group
             if (person.buried)
             {
@@ -204,6 +221,17 @@ namespace GenealoTree
             }
             burialPlaceTextBox.Text = person.burialPlace;
             cemetaryTextBox.Text = person.cemetery;
+
+            if (!person.buried)
+            {
+                burialKnownCheckBox.Visible = false;
+            }
+
+            if (!person.burialKnown)
+            {
+                burialCalendar.Visible = false;
+            }
+
             //populate questions group
             foreach (String s in person.questions)
             {
@@ -251,9 +279,7 @@ namespace GenealoTree
             //populate possible types for new relationships
             addTypeRelationshipComboBox.Items.Add("Parent");
             addTypeRelationshipComboBox.Items.Add("Child");
-            addTypeRelationshipComboBox.Items.Add("Sibling");
             addTypeRelationshipComboBox.Items.Add("Spouse");
-            addTypeRelationshipComboBox.Items.Add("Felationship");
         }
 
         private void profilePictureButton_Click(object sender, EventArgs e)
@@ -289,9 +315,7 @@ namespace GenealoTree
             //populate possible types for new relationships
             addTypeRelationshipComboBox.Items.Add("Parent");
             addTypeRelationshipComboBox.Items.Add("Child");
-            addTypeRelationshipComboBox.Items.Add("Sibling");
             addTypeRelationshipComboBox.Items.Add("Spouse");
-            addTypeRelationshipComboBox.Items.Add("Felationship");
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -452,6 +476,12 @@ namespace GenealoTree
                 sw.Write(p.causeOfDeath + "\n");
                 sw.Write(p.birthCertificateNumber + "\n");
                 sw.Write(p.deathCertificateNumber + "\n");
+                sw.Write(p.birthKnown + "\n");
+                sw.Write(p.deathKnown + "\n");
+                sw.Write(p.burialKnown + "\n");
+                sw.Write(p.birthDate + "\n");
+                sw.Write(p.deathDate + "\n");
+                sw.Write(p.burialDate + "\n");
                 sw.Write(p.dead + "\n");
                 sw.Write(p.buried + "\n");
 
@@ -660,17 +690,20 @@ namespace GenealoTree
                 burialCalendar.Visible = false;
                 burialPlaceTextBox.Visible = false;
                 cemetaryTextBox.Visible = false;
+                deathKnownCheckBox.Visible = false;
+                deathKnownCheckBox.Checked = false;
+                burialKnownCheckBox.Visible = false;
+                burialKnownCheckBox.Checked = false;
+
             }
             else
             {
-                deathCalendar.Visible = true;
                 deathPlaceTextBox.Visible = true;
                 deathCertificateTextBox.Visible = true;
                 causeOfDeathTextBox.Visible = true;
                 buriedCheckBox.Visible = true;
-                //burialCalendar.Visible = true;
-                //burialPlaceTextBox.Visible = true;
-                //cemetaryTextBox.Visible = true;
+                deathKnownCheckBox.Visible = true;
+            
             }
             
         }
@@ -682,12 +715,53 @@ namespace GenealoTree
                 burialCalendar.Visible = false;
                 burialPlaceTextBox.Visible = false;
                 cemetaryTextBox.Visible = false;
+                burialKnownCheckBox.Visible = false;
+                burialKnownCheckBox.Checked = false;
             }
             else
             {
-                burialCalendar.Visible = true;
                 burialPlaceTextBox.Visible = true;
                 cemetaryTextBox.Visible = true;
+                burialKnownCheckBox.Visible = true;
+            }
+        }
+
+        private void birthKnownCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (birthKnownCheckBox.Checked)
+            {
+                birthCalendar.Visible = true;
+
+            }
+            else
+            {
+                birthCalendar.Visible = false;
+            }
+        }
+
+        private void deathKnownCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (deathKnownCheckBox.Checked)
+            {
+                deathCalendar.Visible = true;
+
+            }
+            else
+            {
+                deathCalendar.Visible = false;
+            }
+        }
+
+        private void burialKnownCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (burialKnownCheckBox.Checked)
+            {
+                burialCalendar.Visible = true;
+
+            }
+            else
+            {
+                burialCalendar.Visible = false;
             }
         }
     }

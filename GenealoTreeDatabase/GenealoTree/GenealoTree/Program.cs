@@ -52,6 +52,36 @@ namespace GenealoTree
                 person.causeOfDeath = sr.ReadLine();
                 person.birthCertificateNumber = sr.ReadLine();
                 person.deathCertificateNumber = sr.ReadLine();
+
+                person.birthKnown = bool.Parse(sr.ReadLine());
+                person.deathKnown = bool.Parse(sr.ReadLine());
+                person.burialKnown = bool.Parse(sr.ReadLine());
+
+                if (person.birthKnown)      //don't load if not known
+                {
+                    person.birthDate = DateTime.Parse(sr.ReadLine());
+                }
+                else
+                {
+                    sr.ReadLine();
+                }
+                if (person.deathKnown)
+                {
+                    person.deathDate = DateTime.Parse(sr.ReadLine());
+                }
+                else
+                {
+                    sr.ReadLine();
+                }
+                if (person.burialKnown)
+                {
+                    person.burialDate = DateTime.Parse(sr.ReadLine());
+                }
+                else
+                {
+                    sr.ReadLine();
+                }
+                
                 person.dead = bool.Parse(sr.ReadLine());
                 person.buried = bool.Parse(sr.ReadLine());
 

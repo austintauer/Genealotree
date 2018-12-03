@@ -46,6 +46,8 @@
             this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.ssn = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.burialKnownCheckBox = new System.Windows.Forms.CheckBox();
+            this.buriedCheckBox = new System.Windows.Forms.CheckBox();
             this.burialCalendar = new System.Windows.Forms.DateTimePicker();
             this.cemetaryTextBox = new System.Windows.Forms.TextBox();
             this.burialPlaceTextBox = new System.Windows.Forms.TextBox();
@@ -54,6 +56,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.burialPlace = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.deathKnownCheckBox = new System.Windows.Forms.CheckBox();
             this.deadCheckBox = new System.Windows.Forms.CheckBox();
             this.deathCalendar = new System.Windows.Forms.DateTimePicker();
             this.causeOfDeathTextBox = new System.Windows.Forms.TextBox();
@@ -64,6 +67,7 @@
             this.causeOfDeath = new System.Windows.Forms.Label();
             this.deathPlace = new System.Windows.Forms.Label();
             this.birthGroupBox = new System.Windows.Forms.GroupBox();
+            this.birthKnownCheckBox = new System.Windows.Forms.CheckBox();
             this.birthCalendar = new System.Windows.Forms.DateTimePicker();
             this.naSexRadioButton = new System.Windows.Forms.RadioButton();
             this.femaleRadioButton = new System.Windows.Forms.RadioButton();
@@ -118,7 +122,6 @@
             this.addProfessionButton = new System.Windows.Forms.Button();
             this.professionListBox = new System.Windows.Forms.ListBox();
             this.homeButton = new System.Windows.Forms.Button();
-            this.buriedCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.questionBox.SuspendLayout();
             this.notes.SuspendLayout();
@@ -290,6 +293,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Snow;
+            this.groupBox2.Controls.Add(this.burialKnownCheckBox);
             this.groupBox2.Controls.Add(this.buriedCheckBox);
             this.groupBox2.Controls.Add(this.burialCalendar);
             this.groupBox2.Controls.Add(this.cemetaryTextBox);
@@ -298,30 +302,52 @@
             this.groupBox2.Controls.Add(this.burialCemetary);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.burialPlace);
-            this.groupBox2.Location = new System.Drawing.Point(233, 460);
+            this.groupBox2.Location = new System.Drawing.Point(231, 501);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 101);
+            this.groupBox2.Size = new System.Drawing.Size(200, 123);
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
+            // 
+            // burialKnownCheckBox
+            // 
+            this.burialKnownCheckBox.AutoSize = true;
+            this.burialKnownCheckBox.Location = new System.Drawing.Point(6, 29);
+            this.burialKnownCheckBox.Name = "burialKnownCheckBox";
+            this.burialKnownCheckBox.Size = new System.Drawing.Size(85, 17);
+            this.burialKnownCheckBox.TabIndex = 42;
+            this.burialKnownCheckBox.Text = "Date Known";
+            this.burialKnownCheckBox.UseVisualStyleBackColor = true;
+            this.burialKnownCheckBox.CheckedChanged += new System.EventHandler(this.burialKnownCheckBox_CheckedChanged);
+            // 
+            // buriedCheckBox
+            // 
+            this.buriedCheckBox.AutoSize = true;
+            this.buriedCheckBox.Location = new System.Drawing.Point(6, 6);
+            this.buriedCheckBox.Name = "buriedCheckBox";
+            this.buriedCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.buriedCheckBox.TabIndex = 38;
+            this.buriedCheckBox.Text = "Buried";
+            this.buriedCheckBox.UseVisualStyleBackColor = true;
+            this.buriedCheckBox.CheckedChanged += new System.EventHandler(this.buriedCheckBox_CheckedChanged);
             // 
             // burialCalendar
             // 
             this.burialCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.burialCalendar.Location = new System.Drawing.Point(52, 26);
+            this.burialCalendar.Location = new System.Drawing.Point(42, 46);
             this.burialCalendar.Name = "burialCalendar";
-            this.burialCalendar.Size = new System.Drawing.Size(142, 20);
+            this.burialCalendar.Size = new System.Drawing.Size(151, 20);
             this.burialCalendar.TabIndex = 41;
             // 
             // cemetaryTextBox
             // 
-            this.cemetaryTextBox.Location = new System.Drawing.Point(96, 75);
+            this.cemetaryTextBox.Location = new System.Drawing.Point(93, 95);
             this.cemetaryTextBox.Name = "cemetaryTextBox";
             this.cemetaryTextBox.Size = new System.Drawing.Size(100, 20);
             this.cemetaryTextBox.TabIndex = 40;
             // 
             // burialPlaceTextBox
             // 
-            this.burialPlaceTextBox.Location = new System.Drawing.Point(96, 52);
+            this.burialPlaceTextBox.Location = new System.Drawing.Point(93, 72);
             this.burialPlaceTextBox.Name = "burialPlaceTextBox";
             this.burialPlaceTextBox.Size = new System.Drawing.Size(100, 20);
             this.burialPlaceTextBox.TabIndex = 39;
@@ -329,7 +355,7 @@
             // burialDate
             // 
             this.burialDate.AutoSize = true;
-            this.burialDate.Location = new System.Drawing.Point(6, 32);
+            this.burialDate.Location = new System.Drawing.Point(3, 52);
             this.burialDate.Name = "burialDate";
             this.burialDate.Size = new System.Drawing.Size(33, 13);
             this.burialDate.TabIndex = 13;
@@ -338,7 +364,7 @@
             // burialCemetary
             // 
             this.burialCemetary.AutoSize = true;
-            this.burialCemetary.Location = new System.Drawing.Point(8, 78);
+            this.burialCemetary.Location = new System.Drawing.Point(5, 98);
             this.burialCemetary.Name = "burialCemetary";
             this.burialCemetary.Size = new System.Drawing.Size(85, 13);
             this.burialCemetary.TabIndex = 26;
@@ -347,7 +373,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(55, 45);
+            this.label13.Location = new System.Drawing.Point(52, 65);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(64, 13);
             this.label13.TabIndex = 27;
@@ -356,7 +382,7 @@
             // burialPlace
             // 
             this.burialPlace.AutoSize = true;
-            this.burialPlace.Location = new System.Drawing.Point(8, 57);
+            this.burialPlace.Location = new System.Drawing.Point(5, 77);
             this.burialPlace.Name = "burialPlace";
             this.burialPlace.Size = new System.Drawing.Size(66, 13);
             this.burialPlace.TabIndex = 4;
@@ -365,6 +391,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Snow;
+            this.groupBox1.Controls.Add(this.deathKnownCheckBox);
             this.groupBox1.Controls.Add(this.deadCheckBox);
             this.groupBox1.Controls.Add(this.deathCalendar);
             this.groupBox1.Controls.Add(this.causeOfDeathTextBox);
@@ -374,11 +401,22 @@
             this.groupBox1.Controls.Add(this.deathCertificate);
             this.groupBox1.Controls.Add(this.causeOfDeath);
             this.groupBox1.Controls.Add(this.deathPlace);
-            this.groupBox1.Location = new System.Drawing.Point(233, 292);
+            this.groupBox1.Location = new System.Drawing.Point(231, 308);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 138);
+            this.groupBox1.Size = new System.Drawing.Size(200, 163);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
+            // 
+            // deathKnownCheckBox
+            // 
+            this.deathKnownCheckBox.AutoSize = true;
+            this.deathKnownCheckBox.Location = new System.Drawing.Point(4, 29);
+            this.deathKnownCheckBox.Name = "deathKnownCheckBox";
+            this.deathKnownCheckBox.Size = new System.Drawing.Size(85, 17);
+            this.deathKnownCheckBox.TabIndex = 38;
+            this.deathKnownCheckBox.Text = "Date Known";
+            this.deathKnownCheckBox.UseVisualStyleBackColor = true;
+            this.deathKnownCheckBox.CheckedChanged += new System.EventHandler(this.deathKnownCheckBox_CheckedChanged);
             // 
             // deadCheckBox
             // 
@@ -394,28 +432,28 @@
             // deathCalendar
             // 
             this.deathCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.deathCalendar.Location = new System.Drawing.Point(49, 29);
+            this.deathCalendar.Location = new System.Drawing.Point(43, 61);
             this.deathCalendar.Name = "deathCalendar";
-            this.deathCalendar.Size = new System.Drawing.Size(142, 20);
+            this.deathCalendar.Size = new System.Drawing.Size(148, 20);
             this.deathCalendar.TabIndex = 36;
             // 
             // causeOfDeathTextBox
             // 
-            this.causeOfDeathTextBox.Location = new System.Drawing.Point(90, 106);
+            this.causeOfDeathTextBox.Location = new System.Drawing.Point(91, 138);
             this.causeOfDeathTextBox.Name = "causeOfDeathTextBox";
             this.causeOfDeathTextBox.Size = new System.Drawing.Size(100, 20);
             this.causeOfDeathTextBox.TabIndex = 35;
             // 
             // deathCertificateTextBox
             // 
-            this.deathCertificateTextBox.Location = new System.Drawing.Point(90, 81);
+            this.deathCertificateTextBox.Location = new System.Drawing.Point(91, 113);
             this.deathCertificateTextBox.Name = "deathCertificateTextBox";
             this.deathCertificateTextBox.Size = new System.Drawing.Size(100, 20);
             this.deathCertificateTextBox.TabIndex = 34;
             // 
             // deathPlaceTextBox
             // 
-            this.deathPlaceTextBox.Location = new System.Drawing.Point(90, 55);
+            this.deathPlaceTextBox.Location = new System.Drawing.Point(91, 87);
             this.deathPlaceTextBox.Name = "deathPlaceTextBox";
             this.deathPlaceTextBox.Size = new System.Drawing.Size(100, 20);
             this.deathPlaceTextBox.TabIndex = 33;
@@ -423,7 +461,7 @@
             // deathDate
             // 
             this.deathDate.AutoSize = true;
-            this.deathDate.Location = new System.Drawing.Point(3, 35);
+            this.deathDate.Location = new System.Drawing.Point(4, 67);
             this.deathDate.Name = "deathDate";
             this.deathDate.Size = new System.Drawing.Size(33, 13);
             this.deathDate.TabIndex = 13;
@@ -432,7 +470,7 @@
             // deathCertificate
             // 
             this.deathCertificate.AutoSize = true;
-            this.deathCertificate.Location = new System.Drawing.Point(2, 84);
+            this.deathCertificate.Location = new System.Drawing.Point(3, 116);
             this.deathCertificate.Name = "deathCertificate";
             this.deathCertificate.Size = new System.Drawing.Size(89, 13);
             this.deathCertificate.TabIndex = 26;
@@ -441,7 +479,7 @@
             // causeOfDeath
             // 
             this.causeOfDeath.AutoSize = true;
-            this.causeOfDeath.Location = new System.Drawing.Point(3, 109);
+            this.causeOfDeath.Location = new System.Drawing.Point(4, 141);
             this.causeOfDeath.Name = "causeOfDeath";
             this.causeOfDeath.Size = new System.Drawing.Size(84, 13);
             this.causeOfDeath.TabIndex = 25;
@@ -450,7 +488,7 @@
             // deathPlace
             // 
             this.deathPlace.AutoSize = true;
-            this.deathPlace.Location = new System.Drawing.Point(2, 60);
+            this.deathPlace.Location = new System.Drawing.Point(3, 92);
             this.deathPlace.Name = "deathPlace";
             this.deathPlace.Size = new System.Drawing.Size(69, 13);
             this.deathPlace.TabIndex = 4;
@@ -459,6 +497,7 @@
             // birthGroupBox
             // 
             this.birthGroupBox.BackColor = System.Drawing.Color.Snow;
+            this.birthGroupBox.Controls.Add(this.birthKnownCheckBox);
             this.birthGroupBox.Controls.Add(this.birthCalendar);
             this.birthGroupBox.Controls.Add(this.naSexRadioButton);
             this.birthGroupBox.Controls.Add(this.femaleRadioButton);
@@ -471,23 +510,34 @@
             this.birthGroupBox.Controls.Add(this.sex);
             this.birthGroupBox.Location = new System.Drawing.Point(231, 156);
             this.birthGroupBox.Name = "birthGroupBox";
-            this.birthGroupBox.Size = new System.Drawing.Size(200, 106);
+            this.birthGroupBox.Size = new System.Drawing.Size(200, 122);
             this.birthGroupBox.TabIndex = 44;
             this.birthGroupBox.TabStop = false;
+            // 
+            // birthKnownCheckBox
+            // 
+            this.birthKnownCheckBox.AutoSize = true;
+            this.birthKnownCheckBox.Location = new System.Drawing.Point(2, 4);
+            this.birthKnownCheckBox.Name = "birthKnownCheckBox";
+            this.birthKnownCheckBox.Size = new System.Drawing.Size(85, 17);
+            this.birthKnownCheckBox.TabIndex = 39;
+            this.birthKnownCheckBox.Text = "Date Known";
+            this.birthKnownCheckBox.UseVisualStyleBackColor = true;
+            this.birthKnownCheckBox.CheckedChanged += new System.EventHandler(this.birthKnownCheckBox_CheckedChanged);
             // 
             // birthCalendar
             // 
             this.birthCalendar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.birthCalendar.Location = new System.Drawing.Point(52, 10);
+            this.birthCalendar.Location = new System.Drawing.Point(42, 22);
             this.birthCalendar.Name = "birthCalendar";
-            this.birthCalendar.Size = new System.Drawing.Size(142, 20);
+            this.birthCalendar.Size = new System.Drawing.Size(148, 20);
             this.birthCalendar.TabIndex = 35;
             // 
             // naSexRadioButton
             // 
             this.naSexRadioButton.AutoSize = true;
             this.naSexRadioButton.Checked = true;
-            this.naSexRadioButton.Location = new System.Drawing.Point(151, 83);
+            this.naSexRadioButton.Location = new System.Drawing.Point(148, 95);
             this.naSexRadioButton.Name = "naSexRadioButton";
             this.naSexRadioButton.Size = new System.Drawing.Size(45, 17);
             this.naSexRadioButton.TabIndex = 34;
@@ -498,7 +548,7 @@
             // femaleRadioButton
             // 
             this.femaleRadioButton.AutoSize = true;
-            this.femaleRadioButton.Location = new System.Drawing.Point(93, 83);
+            this.femaleRadioButton.Location = new System.Drawing.Point(90, 95);
             this.femaleRadioButton.Name = "femaleRadioButton";
             this.femaleRadioButton.Size = new System.Drawing.Size(59, 17);
             this.femaleRadioButton.TabIndex = 33;
@@ -508,7 +558,7 @@
             // maleRadioButton
             // 
             this.maleRadioButton.AutoSize = true;
-            this.maleRadioButton.Location = new System.Drawing.Point(46, 83);
+            this.maleRadioButton.Location = new System.Drawing.Point(43, 95);
             this.maleRadioButton.Name = "maleRadioButton";
             this.maleRadioButton.Size = new System.Drawing.Size(48, 17);
             this.maleRadioButton.TabIndex = 32;
@@ -517,14 +567,14 @@
             // 
             // birthCertificateTextBox
             // 
-            this.birthCertificateTextBox.Location = new System.Drawing.Point(93, 58);
+            this.birthCertificateTextBox.Location = new System.Drawing.Point(90, 70);
             this.birthCertificateTextBox.Name = "birthCertificateTextBox";
             this.birthCertificateTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthCertificateTextBox.TabIndex = 31;
             // 
             // birthPlaceTextBox
             // 
-            this.birthPlaceTextBox.Location = new System.Drawing.Point(93, 36);
+            this.birthPlaceTextBox.Location = new System.Drawing.Point(90, 48);
             this.birthPlaceTextBox.Name = "birthPlaceTextBox";
             this.birthPlaceTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthPlaceTextBox.TabIndex = 30;
@@ -534,7 +584,7 @@
             this.birthDate.AutoSize = true;
             this.birthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthDate.ForeColor = System.Drawing.Color.Black;
-            this.birthDate.Location = new System.Drawing.Point(6, 16);
+            this.birthDate.Location = new System.Drawing.Point(3, 28);
             this.birthDate.Name = "birthDate";
             this.birthDate.Size = new System.Drawing.Size(33, 13);
             this.birthDate.TabIndex = 13;
@@ -543,7 +593,7 @@
             // birthCertificate
             // 
             this.birthCertificate.AutoSize = true;
-            this.birthCertificate.Location = new System.Drawing.Point(6, 61);
+            this.birthCertificate.Location = new System.Drawing.Point(3, 73);
             this.birthCertificate.Name = "birthCertificate";
             this.birthCertificate.Size = new System.Drawing.Size(81, 13);
             this.birthCertificate.TabIndex = 26;
@@ -552,7 +602,7 @@
             // birthPlace
             // 
             this.birthPlace.AutoSize = true;
-            this.birthPlace.Location = new System.Drawing.Point(6, 39);
+            this.birthPlace.Location = new System.Drawing.Point(3, 51);
             this.birthPlace.Name = "birthPlace";
             this.birthPlace.Size = new System.Drawing.Size(61, 13);
             this.birthPlace.TabIndex = 4;
@@ -563,7 +613,7 @@
             this.sex.AutoSize = true;
             this.sex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sex.ForeColor = System.Drawing.Color.Black;
-            this.sex.Location = new System.Drawing.Point(7, 83);
+            this.sex.Location = new System.Drawing.Point(4, 95);
             this.sex.Name = "sex";
             this.sex.Size = new System.Drawing.Size(28, 13);
             this.sex.TabIndex = 3;
@@ -702,7 +752,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(229, 265);
+            this.label5.Location = new System.Drawing.Point(227, 281);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 24);
             this.label5.TabIndex = 59;
@@ -712,7 +762,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(229, 433);
+            this.label6.Location = new System.Drawing.Point(227, 474);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 24);
             this.label6.TabIndex = 60;
@@ -997,7 +1047,7 @@
             // homeButton
             // 
             this.homeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeButton.Location = new System.Drawing.Point(12, 497);
+            this.homeButton.Location = new System.Drawing.Point(12, 594);
             this.homeButton.MaximumSize = new System.Drawing.Size(100, 30);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(100, 30);
@@ -1006,23 +1056,12 @@
             this.homeButton.UseVisualStyleBackColor = true;
             this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
-            // buriedCheckBox
-            // 
-            this.buriedCheckBox.AutoSize = true;
-            this.buriedCheckBox.Location = new System.Drawing.Point(6, 6);
-            this.buriedCheckBox.Name = "buriedCheckBox";
-            this.buriedCheckBox.Size = new System.Drawing.Size(56, 17);
-            this.buriedCheckBox.TabIndex = 38;
-            this.buriedCheckBox.Text = "Buried";
-            this.buriedCheckBox.UseVisualStyleBackColor = true;
-            this.buriedCheckBox.CheckedChanged += new System.EventHandler(this.buriedCheckBox_CheckedChanged);
-            // 
             // AddModifyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1066, 563);
+            this.ClientSize = new System.Drawing.Size(1066, 636);
             this.Controls.Add(this.homeButton);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.groupBox6);
@@ -1170,5 +1209,8 @@
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.CheckBox deadCheckBox;
         private System.Windows.Forms.CheckBox buriedCheckBox;
+        private System.Windows.Forms.CheckBox deathKnownCheckBox;
+        private System.Windows.Forms.CheckBox birthKnownCheckBox;
+        private System.Windows.Forms.CheckBox burialKnownCheckBox;
     }
 }

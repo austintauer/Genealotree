@@ -28,6 +28,9 @@ namespace GenealoTree
 
         public bool dead { get; set; }
         public bool buried { get; set; }
+        public bool birthKnown { get; set; }
+        public bool deathKnown { get; set; }
+        public bool burialKnown { get; set; }
 
         public List<string> militaryService;
         public List<string> profession;
@@ -57,6 +60,8 @@ namespace GenealoTree
             socialSecurityNumber = "";
             causeOfDeath = "";
 
+            birthKnown = deathKnown = burialKnown = false;
+
             profilePicturePath = @"../../Images/banana-cat.png";
             militaryService = new List<string>();
             profession = new List<string>();
@@ -71,6 +76,8 @@ namespace GenealoTree
             instanciate();
         }
         
+
+        //unused constructor that took arguements for all fields at the time
         public Person(string fname, string mname, string lname, string s, string birth, string death, string burial, string graveyard, string bcNum, string dcNum, string ssNum, string cod, DateTime dob, DateTime dod, DateTime doburial, List<string> militaryService, List<string> profession)
         {
             instanciate();

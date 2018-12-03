@@ -137,6 +137,10 @@ namespace GenealoTree
                                 changeSelected(p);
 
                             };
+                            newGB.Controls.OfType<Button>().ToArray()[1].Click += delegate (Object sender2, EventArgs e2)
+                            {
+                                viewDetails(person);
+                            };
                             this.Controls.Add(newGB);
 
                             
@@ -175,6 +179,10 @@ namespace GenealoTree
                changeSelected(person);
 
            };
+            newGB.Controls.OfType<Button>().ToArray()[1].Click += delegate (Object sender2, EventArgs e2)
+            {
+                viewDetails(person);
+            };
             if (first)
             {
                 newGB.BackColor = Color.Yellow;
@@ -352,6 +360,11 @@ namespace GenealoTree
 
                 changeSelected(person);
 
+            };
+
+            newGB.Controls.OfType<Button>().ToArray()[1].Click += delegate (Object sender2, EventArgs e2)
+            {
+                viewDetails(person);
             };
 
             newGB.Controls.OfType<Button>().ToArray()[1].Click += delegate (Object sender2, EventArgs e2)
