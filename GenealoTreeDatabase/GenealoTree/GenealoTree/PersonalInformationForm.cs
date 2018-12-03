@@ -40,7 +40,7 @@ namespace GenealoTree
             sexLabel.Text = person.sex;
 
 
-            if (person.birthDate != DateTime.MinValue)
+            if (person.birthKnown)
             {
                 birthDateLabel.Text = person.birthDate.ToShortDateString();
             }
@@ -50,34 +50,60 @@ namespace GenealoTree
             }
             birthPlaceLabel.Text = person.birthPlace;
 
-            if (person.deathDate != DateTime.MinValue)
+            if (person.dead)
             {
-                deathDateLabel.Text = person.deathDate.ToShortDateString();
+                deathPlaceLabel.Text = person.deathPlace;
+                deathCertificateLabel.Text = person.deathCertificateNumber;
+                causeOfDeathLabel.Text = person.causeOfDeath;
+
+                if (person.deathKnown)
+                {
+                    deathDateLabel.Text = person.deathDate.ToShortDateString();
+                }
+                else
+                {
+                    deathDateLabel.Text = "";
+
+                }
             }
             else
             {
+                deathPlaceLabel.Text = "";
+                deathCertificateLabel.Text = "";
+                causeOfDeathLabel.Text = "";
                 deathDateLabel.Text = "";
             }
-            deathPlaceLabel.Text = person.deathPlace;
+            
 
 
-            if (person.burialDate != DateTime.MinValue)
+            if (person.buried)
             {
-                burialDateLabel.Text = person.burialDate.ToShortDateString();
+                if (person.burialKnown)
+                {
+                    burialDateLabel.Text = person.burialDate.ToShortDateString();
+                }
+                else
+                {
+                    burialDateLabel.Text = "";
+                }
+                burialPlaceLabel.Text = person.burialPlace;
+                cemetaryNameLabel.Text = person.cemetery;
             }
             else
             {
+                burialPlaceLabel.Text = "";
+                cemetaryNameLabel.Text = "";
                 burialDateLabel.Text = "";
             }
-            burialPlaceLabel.Text = person.burialPlace;
-            cemetaryNameLabel.Text = person.cemetery;
+
+            
 
 
             
             birthCertificateLabel.Text = person.birthCertificateNumber;
-            deathCertificateLabel.Text = person.deathCertificateNumber;
+            
             ssnLabel.Text = person.socialSecurityNumber;
-            causeOfDeathLabel.Text = person.causeOfDeath;
+            
 
             
             

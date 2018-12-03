@@ -15,6 +15,7 @@ namespace GenealoTree
     {
         List<Person> people;
         Person person;
+        string filePath = "";
         public AddModifyForm(List<Person> people, Person person = null)
         {
             InitializeComponent();
@@ -90,6 +91,7 @@ namespace GenealoTree
             if (!ofd.FileName.Equals(""))
             {
                 profilePictureBox.Image = new Bitmap(ofd.FileName);
+                filePath = ofd.FileName;
             }
             
         }
@@ -104,6 +106,7 @@ namespace GenealoTree
             try
             {
                 profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
+                filePath = person.profilePicturePath;
             }
             catch(ArgumentException a)
             {
@@ -366,6 +369,8 @@ namespace GenealoTree
                 people.Add(person);
             }
 
+            person.profilePicturePath = filePath;
+
             //name box fields
             person.firstName = firstNameTextBox.Text;
             person.middleName = middleNameTextBox.Text;
@@ -467,7 +472,20 @@ namespace GenealoTree
                 sw.Write(p.middleName + "\n");
                 sw.Write(p.lastName + "\n");
                 sw.Write(p.sex + "\n");
-                sw.Write(p.profilePicturePath + "\n");
+
+                try
+                {
+                    File.Copy(p.profilePicturePath, @"../../Images/" + p.firstName + p.lastName + ".png", true);
+                    sw.Write(@"../../Images/" + p.firstName + p.lastName + "ProfilePicture" + "\n");
+                }
+                catch (Exception ex) //empty file yada yada yada
+                {
+                    sw.Write(p.profilePicturePath + "\n");
+                }
+                
+
+                
+                
                 sw.Write(p.birthPlace + "\n");
                 sw.Write(p.deathPlace + "\n");
                 sw.Write(p.burialPlace + "\n");
@@ -520,12 +538,6 @@ namespace GenealoTree
             }
 
             
-            
-
-
-
-
-
 
             Form newPerson = new PersonalInformationForm(people, person);
             this.Hide();
