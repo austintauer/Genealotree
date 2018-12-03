@@ -68,21 +68,21 @@ namespace GenealoTree
                 person = people.First();
             }
 
-            int dispAn = addAncestor(person, 0, findDepth(person, 0) - 1);
+            int dispAn = addAncestor(person, 0, findDepth(person, 0) - 1, true);
             
-            int dispDesc = addDescendent(person, 0, findDepth(person, 0) - 1);
+            int dispDesc = addDescendent(person, 0, findDepth(person, 0) - 1, true);
 
             this.Controls.Clear();
 
             if (dispAn / 2 > dispDesc / 2)
             {
-                addAncestor(person, 0, findDepth(person, 0) - 1);
-                addDescendent(person, dispAn / 2 - dispDesc / 2, findDepth(person, 0) - 1);
+                addAncestor(person, 0, findDepth(person, 0) - 1, true);
+                addDescendent(person, dispAn / 2 - dispDesc / 2, findDepth(person, 0) - 1, true);
             }
             else
             {
-                addAncestor(person, - dispAn / 2 + dispDesc / 2, findDepth(person, 0) - 1);
-                addDescendent(person, 0, findDepth(person, 0) - 1);
+                addAncestor(person, - dispAn / 2 + dispDesc / 2, findDepth(person, 0) - 1, true);
+                addDescendent(person, 0, findDepth(person, 0) - 1, true);
             }
             
 
@@ -90,15 +90,14 @@ namespace GenealoTree
 
 
 
-
-            addDescendent(person, 0 ,findDepth(person, 0) - 1);
+            
 
             homeButton = homeButtonPerm;
             this.Controls.Add(homeButton);
         }
 
 
-        private int addDescendent(Person person, int displacement, int generation)
+        private int addDescendent(Person person, int displacement, int generation, bool first)
         {
             int childDisp = 0;
             int childCount = 0;
@@ -156,7 +155,7 @@ namespace GenealoTree
                     {
                         if (p.id == r.id)
                         {
-                            childDisp += addDescendent(p, childDisp + displacement, generation + 1);
+                            childDisp += addDescendent(p, childDisp + displacement, generation + 1, false);
                             break;
                         }
                     }
@@ -173,6 +172,10 @@ namespace GenealoTree
                changeSelected(person);
 
            };
+            if (first)
+            {
+                newGB.BackColor = Color.Yellow;
+            }
             this.Controls.Add(newGB);
 
 
@@ -304,7 +307,7 @@ namespace GenealoTree
 
 
         //Add people going backward.
-        private int addAncestor(Person person, int displacement, int generation)
+        private int addAncestor(Person person, int displacement, int generation, bool first)
         {
             int parentDisp = 0;
             int parentCount = 0;
@@ -362,7 +365,7 @@ namespace GenealoTree
                     {
                         if (p.id == r.id)
                         {
-                            parentDisp += addAncestor(p, parentDisp + displacement, generation - 1);
+                            parentDisp += addAncestor(p, parentDisp + displacement, generation - 1, false);
                             break;
                         }
                     }
@@ -379,6 +382,12 @@ namespace GenealoTree
                 changeSelected(person);
 
             };
+
+            if (first)
+            {
+                newGB.BackColor = Color.Yellow;
+            }
+
             this.Controls.Add(newGB);
             
 
@@ -403,14 +412,14 @@ namespace GenealoTree
                             Graphics g = CreateGraphics();
                             Pen pen = new Pen(Color.Black, 3);
 
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280),    //lateral
-                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 - 20),    //lateral
+                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 - 20) });
 
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 240),    //vertical
-                                new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280) });
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 - 60),    //vertical
+                                new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 - 20) });
 
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 240),    //vertical
-                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + spouseCount) * 250 + 140, generation * 300 - 300),    //vertical
+                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 - 300) });
 
                             break;
                         }
