@@ -103,6 +103,21 @@ namespace GenealoTree
 
         public void populate()
         {
+            //prescreen for values manually entered that break the interface
+            if (DateTime.Compare(person.birthDate, DateTimePicker.MinimumDateTime) < 0)
+            {
+                person.birthDate = DateTimePicker.MinimumDateTime;
+            }
+            if (DateTime.Compare(person.deathDate, DateTimePicker.MinimumDateTime) < 0)
+            {
+                person.deathDate = DateTimePicker.MinimumDateTime;
+            }
+            if (DateTime.Compare(person.burialDate, DateTimePicker.MinimumDateTime) < 0)
+            {
+                person.burialDate = DateTimePicker.MinimumDateTime;
+            }
+
+
             try
             {
                 profilePictureBox.Image = Image.FromFile(person.profilePicturePath);
@@ -133,8 +148,10 @@ namespace GenealoTree
             firstNameTextBox.Text = person.firstName;
             middleNameTextBox.Text = person.middleName;
             lastNameTextBox.Text = person.lastName;
+
             //populate birth group
-            if (person.birthDate != DateTime.MinValue)
+            birthKnownCheckBox.Checked = person.birthKnown;
+            if (person.birthKnown)
             {
                 birthCalendar.Value = person.birthDate;
             }
@@ -154,12 +171,12 @@ namespace GenealoTree
             //radio button sex
             switch (person.sex)
             {
-                case "male":
+                case "Male":
                     maleRadioButton.Checked = true;
                     femaleRadioButton.Checked = false;
                     naSexRadioButton.Checked = false;
                     break;
-                case "female":
+                case "Female":
                     maleRadioButton.Checked = false;
                     femaleRadioButton.Checked = true;
                     naSexRadioButton.Checked = false;
@@ -174,9 +191,10 @@ namespace GenealoTree
             //populate death group
             if (person.dead)
             {
-                if (person.deathDate <= DateTimePicker.MinimumDateTime)
+                deathKnownCheckBox.Checked = person.deathKnown;
+                if (!person.deathKnown)
                 {
-                    deathCalendar.Value = DateTimePicker.MinimumDateTime;
+                    deathCalendar.Value = DateTime.Today;
                 }
                 else
                 {
@@ -207,9 +225,10 @@ namespace GenealoTree
             //populate burial group
             if (person.buried)
             {
-                if (person.burialDate <= DateTimePicker.MinimumDateTime)
+                burialKnownCheckBox.Checked = person.burialKnown;
+                if (!person.burialKnown)
                 {
-                    burialCalendar.Value = DateTimePicker.MinimumDateTime;
+                    burialCalendar.Value = DateTime.Today;
                 }
                 else
                 {
@@ -336,13 +355,13 @@ namespace GenealoTree
                 return;
             }
             //validate birth date versus death date
-            if (DateTime.Compare(birthCalendar.Value, deathCalendar.Value) > 0  && !deadCheckBox.Checked)
+            if (DateTime.Compare(birthCalendar.Value, deathCalendar.Value) > 0 )
             {
                 MessageBox.Show("The birth date must be earlier than or the same as the death date.", "Date Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //validate death date versus burial date
-            if (DateTime.Compare(deathCalendar.Value, burialCalendar.Value) > 0 && !buriedCheckBox.Checked)
+            if (DateTime.Compare(deathCalendar.Value, burialCalendar.Value) > 0)
             {
                 MessageBox.Show("The death date must be earlier than or the same as the burial date.", "Date Input Error", MessageBoxButtons.OK ,MessageBoxIcon.Error);
                 return;
@@ -377,6 +396,7 @@ namespace GenealoTree
             person.lastName = lastNameTextBox.Text;
 
             //birth box fields
+            person.birthKnown = birthKnownCheckBox.Checked;
             person.birthDate = birthCalendar.Value;
             person.birthPlace = birthPlaceTextBox.Text;
             person.birthCertificateNumber = birthCertificateTextBox.Text;
@@ -405,6 +425,7 @@ namespace GenealoTree
             if (deadCheckBox.Checked)
             {
                 person.dead = true;
+                person.deathKnown = deathKnownCheckBox.Checked;
                 person.deathDate = deathCalendar.Value;
                 person.deathPlace = deathPlaceTextBox.Text;
                 person.deathCertificateNumber = deathCertificateTextBox.Text;
@@ -428,6 +449,7 @@ namespace GenealoTree
             if (buriedCheckBox.Checked)
             {
                 person.buried = true;
+                person.burialKnown = burialKnownCheckBox.Checked;
                 person.burialDate = burialCalendar.Value;
                 person.burialPlace = burialPlaceTextBox.Text;
                 person.cemetery = cemetaryTextBox.Text;
