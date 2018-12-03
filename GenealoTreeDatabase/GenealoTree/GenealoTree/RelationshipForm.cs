@@ -77,15 +77,15 @@ namespace GenealoTree
 
             Console.Write(findDepth(person, 0) + "\n");
 
-            if (dispAn / 2 > dispDesc / 2)
+            if (dispAn> dispDesc)
             {
                 addAncestor(person, 0, findDepth(person, 0) - 1, true);
-                //addDescendent(person, dispAn / 2 - dispDesc / 2, findDepth(person, 0) - 1, true);
+                 addDescendent(person, dispAn - dispDesc, findDepth(person, 0) - 1, true);
             }
             else
             {
-                addAncestor(person, - dispAn / 2 + dispDesc / 2, findDepth(person, 0) - 1, true);
-                //addDescendent(person, 0, findDepth(person, 0) - 1, true);
+                addAncestor(person, - dispAn + dispDesc, findDepth(person, 0) - 1, true);
+                addDescendent(person, 0, findDepth(person, 0) - 1, true);
             }
             
 
@@ -268,6 +268,11 @@ namespace GenealoTree
                 }
             }
 
+            if (first)
+            {
+                return displacement + childDisp / 2;
+            }
+
             if (spouseCount >= childDisp)
             {
                 return spouseCount + 1;
@@ -315,56 +320,17 @@ namespace GenealoTree
         {
             int parentDisp = 0;
             int parentCount = 0;
-            int spouseCount = 0;
-
             List<Relationship> relationships = person.relationships;
 
             GroupBox newGB;
-
-            foreach (Relationship r in relationships)   //count number of parent
-            {
-                if (r.type.Equals("Child"))
-                {
-                    parentCount++;
-                }
-            }
-
-            foreach (Relationship r in relationships)   //count number of spouses
-            {
-                if (r.type.Equals("Spouse") || r.type.Equals("Divorced"))
-                {
-                    spouseCount++;
-
-                    foreach (Person p in people)
-                    {
-                        if (p.id == r.id)
-                        {
-                            newGB = p.createGroupBox();
-
-                            newGB.Location = new Point((displacement + spouseCount) * 250 + 50, generation * 300 + 10);
-                            newGB.Controls.OfType<Button>().ToArray()[0].Click += delegate (Object sender2, EventArgs e2)
-                            {
-
-                                changeSelected(p);
-
-                            };
-                            this.Controls.Add(newGB);
-
-
-
-                            break;
-                        }
-                    }
-
-                }
-            }
-
-
+            
             foreach (Relationship r in relationships)
             {
 
                 if (r.type.Equals("Child"))
                 {
+                    parentCount++;
+
                     foreach (Person p in people)
                     {
                         if (p.id == r.id)
@@ -393,49 +359,9 @@ namespace GenealoTree
             }
 
             this.Controls.Add(newGB);
-            
-
-
-
-
-
-
-            spouseCount = 0;
-            foreach (Relationship r in relationships)   //draw lines to spouses
-            {
-                if (r.type.Equals("Spouse") || r.type.Equals("Divorced"))
-                {
-                    spouseCount++;
-
-                    foreach (Person p in people)
-                    {
-                        if (p.id == r.id)
-                        {
-
-
-                            Graphics g = CreateGraphics();
-                            Pen pen = new Pen(Color.Black, 3);
-
-                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280),    //lateral
-                            //    new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
-
-                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 240),    //vertical
-                            //    new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280) });
-
-                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 240),    //vertical
-                            //    new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
-
-                            break;
-                        }
-                    }
-
-                }
-            }
-
-
 
             int parentDisp2 = 0;
-            foreach (Relationship r in relationships)   //draw lines to parentren
+            foreach (Relationship r in relationships)   //draw lines to parents
             {
                 if (r.type.Equals("Child"))
                 {
@@ -446,35 +372,20 @@ namespace GenealoTree
                         if (p.id == r.id)
                         {
 
-
                             Graphics g = CreateGraphics();
                             Pen pen = new Pen(Color.Black, 3);
 
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 - 20 ),    //lateral
+                                new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 - 20) });
 
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 20),    //vertical
+                                new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 - 40) });
 
-
-
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280 ),    //lateral
-                                new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 280) });
-
-                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280),    //vertical
-                            //    new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 320) });
-
-                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 280),    //vertical
-                            //    new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 320) });
+                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 -20),    //vertical
+                                new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 - 40) });
 
 
                             parentDisp2++;
-
-                            foreach (Relationship r2 in p.relationships)
-                            {
-                                if (r2.type.Equals("Spouse") || r2.type.Equals("Divorced"))
-                                {
-                                    parentDisp2++;
-                                }
-                            }
-
-                            
 
                             break;
                         }
@@ -483,14 +394,21 @@ namespace GenealoTree
                 }
             }
 
-            if (spouseCount >= parentDisp)
+            if (first)
             {
-                return spouseCount + 1;
+                return displacement + parentDisp / 2;
+            }
+
+            if (parentCount == 0)
+            {
+                return 1;
+
             }
             else
             {
                 return parentDisp;
             }
+            
         }
 
 
