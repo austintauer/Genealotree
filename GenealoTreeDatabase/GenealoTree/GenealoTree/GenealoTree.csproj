@@ -121,6 +121,7 @@
     <Content Include="Images\banana-cat.png" />
     <Content Include="Images\Horse.png" />
     <Content Include="Images\woofer.png" />
+    <None Include="PersonFiles\Gerald Watson.gt" />
     <None Include="PersonFiles\Jimbob Jones.gt" />
     <None Include="PersonFiles\Emma Watson.gt" />
     <None Include="PersonFiles\EmilyBudke.gt" />

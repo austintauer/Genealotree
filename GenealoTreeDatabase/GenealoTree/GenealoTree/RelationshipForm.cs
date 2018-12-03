@@ -73,16 +73,19 @@ namespace GenealoTree
             int dispDesc = addDescendent(person, 0, findDepth(person, 0) - 1, true);
 
             this.Controls.Clear();
+            g.Clear(Color.PaleGreen);
+
+            Console.Write(findDepth(person, 0) + "\n");
 
             if (dispAn / 2 > dispDesc / 2)
             {
                 addAncestor(person, 0, findDepth(person, 0) - 1, true);
-                addDescendent(person, dispAn / 2 - dispDesc / 2, findDepth(person, 0) - 1, true);
+                //addDescendent(person, dispAn / 2 - dispDesc / 2, findDepth(person, 0) - 1, true);
             }
             else
             {
                 addAncestor(person, - dispAn / 2 + dispDesc / 2, findDepth(person, 0) - 1, true);
-                addDescendent(person, 0, findDepth(person, 0) - 1, true);
+                //addDescendent(person, 0, findDepth(person, 0) - 1, true);
             }
             
 
@@ -292,8 +295,9 @@ namespace GenealoTree
                         if (r.id == p.id)
                         {
                             temp = findDepth(p, generation + 1);
+                            break;
                         }
-                        break;
+                        
                     }
                     if (temp > depth)
                     {
@@ -412,14 +416,14 @@ namespace GenealoTree
                             Graphics g = CreateGraphics();
                             Pen pen = new Pen(Color.Black, 3);
 
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 - 20),    //lateral
-                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 - 20) });
+                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280),    //lateral
+                            //    new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
 
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 - 60),    //vertical
-                                new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 - 20) });
+                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 240),    //vertical
+                            //    new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280) });
 
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + spouseCount) * 250 + 140, generation * 300 - 300),    //vertical
-                                new PointF((displacement + spouseCount) * 250 + 140, generation * 300 - 300) });
+                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 240),    //vertical
+                            //    new PointF((displacement + spouseCount) * 250 + 140, generation * 300 + 280) });
 
                             break;
                         }
@@ -453,11 +457,11 @@ namespace GenealoTree
                             g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280 ),    //lateral
                                 new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 280) });
 
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 240),    //vertical
-                                new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280) });
+                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 280),    //vertical
+                            //    new PointF((displacement + parentDisp / 2) * 250 + 140, generation * 300 + 320) });
 
-                            g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 280),    //vertical
-                                new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 320) });
+                            //g.DrawLines(pen, new PointF[] { new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 280),    //vertical
+                            //    new PointF((displacement + parentDisp2) * 250 + 140, generation * 300 + 320) });
 
 
                             parentDisp2++;
